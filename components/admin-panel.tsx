@@ -34,7 +34,7 @@ export function AdminPanel() {
     try {
       const currentSession = getSession()
       if (!currentSession) {
-        router.push("/admin/login")
+        router.push("/myaccount")
         return
       }
       setSession(currentSession)
@@ -69,7 +69,7 @@ export function AdminPanel() {
 
   const handleLogout = () => {
     logout()
-    router.push("/admin/login")
+    router.push("/myaccount")
   }
 
   const handleStatusChange = (id: string, newStatus: string) => {
