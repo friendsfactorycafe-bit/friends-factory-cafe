@@ -43,11 +43,11 @@ export function ContactForm() {
 • *Budget:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Essence Space Website_
+_Sent via Nesture Interiors Website_
     `.trim()
 
     // Replace with your WhatsApp number (include country code without + sign)
-    const whatsappNumber = "916353583148"
+    const whatsappNumber = "918618080171"
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
     // Open WhatsApp
@@ -172,10 +172,10 @@ _Sent via Essence Space Website_
                     <h3 className="text-xl font-bold mb-2">Call Us</h3>
                     <p className="text-primary-foreground/80 font-mono mb-2">Available 9 AM - 9 PM</p>
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+918618080171"
                       className="text-lg font-mono text-accent hover:text-secondary transition-colors"
                     >
-                      +91 98765 43210
+                      +91 861 808 0171
                     </a>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ _Sent via Essence Space Website_
                     <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
                     <p className="text-primary-foreground/80 font-mono mb-2">Quick response guaranteed</p>
                     <a
-                      href="https://wa.me/919876543210"
+                      href="https://wa.me/918618080171"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-lg font-mono text-accent hover:text-secondary transition-colors"
@@ -209,7 +209,7 @@ _Sent via Essence Space Website_
                     "Instant quotes on WhatsApp",
                     "Same-day response to all queries",
                     "Flexible appointment scheduling",
-                    "On-site service available across Vadodara",
+                    "On-site service available across Bangalore",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />

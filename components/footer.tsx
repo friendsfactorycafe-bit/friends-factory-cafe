@@ -1,6 +1,6 @@
 "use client"
 
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from "lucide-react"
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 export function Footer() {
   return (
@@ -9,32 +9,12 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-8 md:mb-0">
           {/* Company Info */}
           <div>
-            <h3 className="text-3xl font-bold mb-4 text-accent">Essence Space</h3>
+            <h3 className="text-3xl font-bold mb-4 text-accent">Nesture Interiors</h3>
             <p className="text-primary-foreground/80 font-mono leading-relaxed mb-6">
               {
-                "Vadodara's premier interior design studio. Transforming spaces into beautiful, functional environments since 2004."
+                "Where innovation meets elegance in interior design. Crafting stunning spaces for homes and businesses across Bangalore."
               }
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-colors"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -78,9 +58,9 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-primary-foreground/80 font-mono">
-                    Essence Space Office,
+                    Nesture Interiors,
                     <br />
-                    Vadodara, Gujarat – 390001, India
+                    Bangalore, Karnataka, India
                   </p>
                 </div>
               </div>
@@ -88,33 +68,31 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918618080171"
                   className="text-primary-foreground/80 hover:text-accent transition-colors font-mono"
                 >
-                  +91 98765 43210
+                  +91 861 808 0171
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                 <a
-                  href="mailto:info@designstudio.com"
+                  href="mailto:nestureinterior@gmail.com"
                   className="text-primary-foreground/80 hover:text-accent transition-colors font-mono"
                 >
-                  info@designstudio.com
+                  nestureinterior@gmail.com
                 </a>
               </div>
-
-              {/* Removed timings section */}
             </div>
           </div>
         </div>
 
         {/* Service Areas */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
-          <h4 className="text-xl font-bold mb-4 text-center">Interior Design Services - All Areas of Vadodara</h4>
+          <h4 className="text-xl font-bold mb-4 text-center">Interior Design Services - All Areas of Bangalore</h4>
           <p className="text-center text-primary-foreground/80 font-mono text-sm leading-relaxed">
-            Covering residential and commercial projects across Vadodara's premium localities including Alkapuri, Thaltej, Gotri, Makarpura, Akota, Sama, Vasna, Manjalpur, Gamdevi, and surrounding areas
+            Covering residential and commercial projects across Bangalore's premium localities including Koramangala, Indiranagar, Whitefield, HSR Layout, Jayanagar, JP Nagar, Marathahalli, Electronic City, and surrounding areas
           </p>
           <p className="text-center text-accent font-mono text-sm mt-3">
             ✓ Residential Interior Design | ✓ Office & Commercial Spaces | ✓ Complete Project Management
@@ -125,7 +103,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/80 font-mono text-sm text-center md:text-left">
-              © 2025 Essence Space. All rights reserved. | Jaipur's Premier Interior Design Studio
+              © 2026 Nesture Interiors. All rights reserved. | Bangalore's Premier Interior Design Studio
             </p>
             <div className="flex gap-6 text-sm font-mono">
               <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
@@ -141,7 +119,7 @@ export function Footer() {
 
       {/* SEO Keywords (hidden) */}
       <div className="sr-only">
-        Interior design Jaipur, home design, office design, commercial interiors, space planning, interior decorator, home renovation, luxury interiors, modern design, interior styling, furniture design, kitchen design, bedroom design, living room design
+        Interior design Bangalore, home design Bangalore, office design, commercial interiors, space planning, interior decorator Bangalore, home renovation, luxury interiors, modern design, interior styling, furniture design, kitchen design, bedroom design, living room design
       </div>
     </footer>
   )

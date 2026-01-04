@@ -5,12 +5,12 @@ import { useState } from "react"
 
 const faqs = [
   {
-    question: "What services does Essence Space offer?",
+    question: "What services does Nesture Interiors offer?",
     answer:
-      "Essence Space provides comprehensive interior design services including residential interior design, office design, commercial interiors, space planning, 3D visualization, furniture design, and complete project management for homes, offices, and commercial spaces in Vadodara.",
+      "Nesture Interiors provides comprehensive interior design services including residential interior design, office design, commercial interiors, space planning, 3D visualization, furniture design, and complete project management for homes, offices, and commercial spaces in Bangalore.",
   },
   {
-    question: "How much does interior design cost in Vadodara?",
+    question: "How much does interior design cost in Bangalore?",
     answer:
       "Our pricing is transparent and tailored to your needs. We offer packages starting from ₹99,999 for single room makeovers to custom quotes for luxury commercial projects. All packages include professional consultation and 3D visualization.",
   },
@@ -30,17 +30,17 @@ const faqs = [
       "Absolutely! We provide complete project management, installation supervision, and on-site support. Our team ensures every detail is executed to perfection according to the approved design.",
   },
   {
-    question: "Are you available for interior design in all areas of Vadodara?",
+    question: "Are you available for interior design in all areas of Bangalore?",
     answer:
-      "Yes, we serve all premium areas of Vadodara including Alkapuri, Thaltej, Gotri, Makarpura, Akota, Sama, Vasna, Manjalpur, and surrounding localities. We also offer services across Gujarat.",
+      "Yes, we serve all premium areas of Bangalore including Koramangala, Indiranagar, Whitefield, HSR Layout, Jayanagar, JP Nagar, Marathahalli, Electronic City, and surrounding localities. We also offer services across Karnataka.",
   },
   {
     question: "Can you design both modern and traditional interiors?",
     answer:
-      "Yes, our award-winning designers specialize in multiple styles including modern, minimalist, traditional, luxury, and fusion designs. We customize every design to match your lifestyle and preferences.",
+      "Yes, our talented designers specialize in multiple styles including modern, minimalist, traditional, luxury, and fusion designs. We customize every design to match your lifestyle and preferences.",
   },
   {
-    question: "How do I get started with Essence Space?",
+    question: "How do I get started with Nesture Interiors?",
     answer:
       "Getting started is easy! Contact us via WhatsApp, phone, or fill our online form. We'll schedule a free consultation to understand your vision, space, and budget, then propose the best design solution for you.",
   },
@@ -58,7 +58,7 @@ export function FAQSection() {
             Frequently Asked Questions About Interior Design
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed font-mono">
-            Find answers to common questions about our interior design services in Vadodara
+            Find answers to common questions about our interior design services in Bangalore
           </p>
         </div>
 

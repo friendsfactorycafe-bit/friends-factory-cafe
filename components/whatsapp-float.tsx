@@ -43,11 +43,11 @@ export function WhatsAppFloat() {
 • *Budget:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Essence Space Website_
+_Sent via Nesture Interiors Website_
     `.trim()
 
     // Replace with your actual WhatsApp number (with country code, no + or spaces)
-    const whatsappNumber = "916353583148"
+    const whatsappNumber = "918618080171"
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
     // Open WhatsApp

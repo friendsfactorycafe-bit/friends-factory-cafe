@@ -10,24 +10,24 @@ import { addLead } from "@/lib/leads"
 const slides = [
   {
     id: 1,
-    title: "Transform Your Living Space",
-    subtitle: "Premium Interior Design Services",
-    description: "Elegant interior design solutions for homes, offices, and commercial spaces across Vadodara",
-    image: "/1.png",
+    title: "Crafting Dream Interiors",
+    subtitle: "Bangalore's Trusted Interior Designers",
+    description: "Transforming homes, offices, and commercial spaces across Bangalore with stunning interior designs",
+    image: "/slider1.png",
   },
   {
     id: 2,
-    title: "Luxury Home Interiors",
-    subtitle: "Your Dream Home Awaits",
-    description: "Bespoke interior design with modern aesthetics, comfort, and sophisticated style",
-    image: "/2.png",
+    title: "Elegant Living Spaces",
+    subtitle: "Where Style Meets Comfort",
+    description: "Contemporary interior design blending functionality with aesthetic excellence for Bangalore homes",
+    image: "/slider2.png",
   },
   {
     id: 3,
-    title: "Complete Design Solutions",
-    subtitle: "From Concept to Reality",
-    description: "Full-service interior design from space planning to furniture selection and execution",
-    image: "/3.png",
+    title: "End-to-End Design Solutions",
+    subtitle: "Your Vision, Our Expertise",
+    description: "Complete interior solutions from concept development to flawless execution in Bangalore",
+    image: "/slider3.png",
   },
 ]
 
@@ -63,10 +63,10 @@ export function HeroSlider() {
 • *Budget:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Essence Space Website_
+_Sent via Nesture Interiors Website_
     `.trim()
 
-    const whatsappNumber = "916353583148"
+    const whatsappNumber = "918618080171"
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappURL, "_blank")
   }
