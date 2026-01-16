@@ -319,6 +319,65 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
         </div>
       </section>
 
+      {/* Detailed Guide - Unique Content Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              Complete Guide to Studying Abroad from {areaName}
+            </h2>
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <div 
+                className="space-y-6 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-gray-800 [&>h3]:mt-6 [&>h3]:mb-3 [&>h4]:text-lg [&>h4]:font-semibold [&>h4]:text-emerald-700 [&>h4]:mt-4 [&>h4]:mb-2 [&>p]:leading-relaxed [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2"
+                dangerouslySetInnerHTML={{ __html: content.longFormContent.replace(/\n/g, '<br/>').replace(/#{2,4}\s/g, (match) => {
+                  if (match === '## ') return '<h2>';
+                  if (match === '### ') return '<h3>';
+                  if (match === '#### ') return '<h4>';
+                  return match;
+                }) }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us - Area Specific */}
+      <section className="py-16 md:py-20 bg-emerald-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            Why {areaName} Students Choose Us
+          </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Trusted by thousands of students from {areaName} and nearby areas
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {content.whyChooseUs.map((reason, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md flex items-start gap-4">
+                <CheckCircle className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
+                <p className="text-gray-700">{reason}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Landmarks Near Us */}
+      {content.localLandmarks && (
+        <section className="py-12 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className="text-xl font-bold mb-4 text-gray-800">
+                <MapPin className="inline-block w-5 h-5 mr-2 text-emerald-600" />
+                Landmarks Near Our {areaName} Service Area
+              </h3>
+              <p className="text-gray-600">
+                We serve students near {content.localLandmarks}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Our Process */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
