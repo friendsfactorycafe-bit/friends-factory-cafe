@@ -8,7 +8,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/leads/', '/_next/'],
+        disallow: [
+          '/api/',
+          '/leads/',
+          '/_next/',
+          '/private/',
+          '/*.json$',
+        ],
       },
       {
         userAgent: 'Googlebot',
@@ -16,9 +22,39 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/leads/'],
       },
       {
+        userAgent: 'Googlebot-Image',
+        allow: '/images/',
+      },
+      {
         userAgent: 'Bingbot',
         allow: '/',
         disallow: ['/api/', '/leads/'],
+      },
+      {
+        userAgent: 'Slurp',
+        allow: '/',
+        disallow: ['/api/', '/leads/'],
+      },
+      {
+        userAgent: 'DuckDuckBot',
+        allow: '/',
+        disallow: ['/api/', '/leads/'],
+      },
+      {
+        userAgent: 'facebookexternalhit',
+        allow: '/',
+      },
+      {
+        userAgent: 'LinkedInBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Twitterbot',
+        allow: '/',
+      },
+      {
+        userAgent: 'WhatsApp',
+        allow: '/',
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
