@@ -996,6 +996,216 @@ const areaUniqueContent: Record<string, AreaUniqueContent> = {
       { question: "Are consultancies only for rich people?", answer: "Not us. We've served families from all economic backgrounds. Payment flexibility exists for genuine cases. Our satisfaction comes from transforming lives, not just from fees. Don't let perception keep you away." },
       { question: "What if I fail abroad?", answer: "Failure is rare with proper preparation. We ensure you choose programs matching your capabilities. Support systems abroad help struggling students. Most importantly, trying and learning is never true failure—it's growth. Don't let fear hold you back." }
     ]
+  },
+
+  "old-padra-road": {
+    metaTitle: "Study Abroad Consultants Old Padra Road Vadodara | Premium Education Guidance",
+    metaDescription: "Old Padra Road's established families trust us for overseas education. Premium university placements. Comprehensive counseling. IELTS excellence. 98% visa success. Free consultation available.",
+    heroTitle: "Old Padra Road: Established Excellence Seeking Global Recognition",
+    heroSubtitle: "Where Vadodara's most accomplished families prepare their children for global success. Premium study abroad guidance.",
+    aboutTitle: "Old Padra Road: Vadodara's Success Corridor Goes Global",
+    aboutParagraph1: "Old Padra Road represents Vadodara's most established residential corridor—a stretch where successful business families, senior professionals, and accomplished individuals have built their homes and raised their children with high expectations.",
+    aboutParagraph2: "The students from Old Padra Road carry a distinct advantage: exposure to success. They've grown up seeing what achievement looks like, understanding the value of quality education, and appreciating the doors that credentials open.",
+    aboutParagraph3: "From the prestigious bungalows near Sayaji Park to the modern apartments along the stretch, Old Padra Road families understand that the best investment is education—and international education is the best of the best.",
+    sectionHeadlines: {
+      services: "Premium Study Abroad Services for Distinguished Families",
+      servicesSubtitle: "The same quality you expect in everything, delivered in education consulting",
+      testimonials: "Old Padra Road Families Achieving Global Excellence",
+      testimonialsSubtitle: "Success stories from your neighbors who chose quality guidance",
+      destinations: "World-Class Universities for World-Class Students",
+      destinationsSubtitle: "Destinations matching Old Padra Road's standards of excellence",
+      process: "Seamless Journey to Global Campuses",
+      faq: "Questions from Old Padra Road's Discerning Parents",
+      contact: "Premium Consultation Experience"
+    },
+    uniqueIntro: "Old Padra Road students don't just apply to universities—they strategically position themselves for optimal outcomes. This sophisticated approach to education deserves equally sophisticated guidance.",
+    whyStudyAbroad: "For families who've achieved success, maintaining and extending that success across generations is paramount. International education provides the global networks, credentials, and perspectives that sustain family excellence.",
+    localAdvantage: "We understand Old Padra Road families—the expectation of premium service, the appreciation for detailed planning, and the desire for personalized attention. Our service quality matches your expectations.",
+    successStory: "The Shahs from Old Padra Road have sent three children abroad through us—Wharton, Imperial College, and University of Melbourne. Their strategic approach to each child's unique strengths yielded optimal outcomes.",
+    callToAction: "Premium families deserve premium guidance. Schedule a private consultation to discuss your child's strategic pathway to global education.",
+    services: [
+      { title: "Strategic University Positioning", description: "Beyond applications—we strategically position your child for optimal university placements based on long-term career goals and family aspirations." },
+      { title: "Private Counseling Sessions", description: "Dedicated counselor for your family. No shared sessions, no waiting rooms. Your time and privacy respected throughout." },
+      { title: "Elite University Expertise", description: "Ivy League, Oxbridge, top-50 global universities—specialized knowledge for families aiming at the highest tiers." },
+      { title: "Legacy Planning", description: "For families considering multiple children's education or multi-generational planning, we develop comprehensive strategies." },
+      { title: "International Network Access", description: "Connect with our alumni at top global companies and universities. Networking starts before admission." },
+      { title: "Concierge Support Services", description: "Beyond academics—accommodation, travel, banking, and settling-in support for families expecting seamless experiences." }
+    ],
+    faqs: [
+      { question: "We expect premium service. How do you ensure that?", answer: "Dedicated counselors, private sessions, priority scheduling, and responsive communication. We don't treat premium families as just another number. Your expectations set our standards." },
+      { question: "Our son is targeting top-10 business schools. Is this realistic?", answer: "With proper preparation over 2-3 years, absolutely. Top B-school admits require exceptional academics, strong GMAT, unique experiences, and compelling stories. We've guided students to Wharton, Kellogg, and LBS. Strategic positioning is key." },
+      { question: "We want our daughter to study at Oxford or Cambridge. What does this require?", answer: "Oxbridge requires exceptional academics, outstanding admission test scores, and stellar interview performance. Starting preparation early (ideally 2 years before) maximizes chances. We have specific Oxbridge expertise and track record." },
+      { question: "How do you handle families with multiple children at different stages?", answer: "We develop family education strategies—understanding each child's unique profile while optimizing family resources. Many Old Padra Road families have sent 2-3 children through us with coordinated planning." },
+      { question: "Is there value in studying abroad if children will return to family business?", answer: "Immense value! Global education provides networks, perspectives, and credibility that enhance family businesses. Many successful business families send children abroad specifically to strengthen the next generation's capabilities." }
+    ]
+  },
+
+  "vasna-bhayli-road": {
+    metaTitle: "Study Abroad Consultants Vasna Bhayli Road | Affordable Global Education",
+    metaDescription: "Vasna-Bhayli Road families' trusted overseas education partner. New developments, new dreams. Canada PR pathways. Affordable options. Germany free education experts. Free counseling.",
+    heroTitle: "Vasna-Bhayli Road: New Beginnings, Global Destinations",
+    heroSubtitle: "Emerging localities, emerging opportunities. Study abroad made accessible for Vadodara's newest communities.",
+    aboutTitle: "Vasna-Bhayli Corridor: Where New Dreams Take Flight",
+    aboutParagraph1: "The Vasna-Bhayli Road corridor represents Vadodara's exciting growth—new townships, young families, and unlimited aspirations. This rapidly developing area attracts forward-thinking people who believe in investing in futures.",
+    aboutParagraph2: "Families choosing to settle here share common traits: optimism about the future, willingness to invest in growth, and understanding that today's decisions shape tomorrow's outcomes. Education investment fits perfectly into this mindset.",
+    aboutParagraph3: "The affordability of this area means families can allocate more resources to education. Smart families recognize that international education—despite appearing expensive—offers the highest returns on educational investment.",
+    sectionHeadlines: {
+      services: "Future-Focused Services for Forward-Thinking Families",
+      servicesSubtitle: "Your area is growing. Your children's opportunities should grow faster.",
+      testimonials: "Vasna-Bhayli Families Achieving International Dreams",
+      testimonialsSubtitle: "Proof that new communities create new success stories",
+      destinations: "High-ROI Destinations for Smart Families",
+      destinationsSubtitle: "Maximum value for your education investment",
+      process: "Clear Pathway from Vasna-Bhayli to Global Campuses",
+      faq: "Questions from Vasna-Bhayli's Growing Families",
+      contact: "Your Future Starts Here"
+    },
+    uniqueIntro: "Vasna-Bhayli families think in terms of growth and investment. International education is the ultimate growth investment—credentials that appreciate over a lifetime, networks that compound, and opportunities that multiply.",
+    whyStudyAbroad: "In emerging communities, education is the great differentiator. While everyone has similar starting points, international education creates exponential differences in career trajectories and family prosperity.",
+    localAdvantage: "We understand the priorities of families in developing areas—value for money, clear outcomes, and practical timelines. Our recommendations balance aspiration with pragmatism.",
+    successStory: "The Patels moved to Bhayli three years ago. Today, their son studies at Conestoga College, Canada, working part-time and preparing for PR. Their investment in this area and in education are both paying off.",
+    callToAction: "Your new beginning deserves a global future. Visit us for practical, value-focused guidance on international education.",
+    services: [
+      { title: "Value-Maximizing Recommendations", description: "Every recommendation considers cost, outcome, and timeline. We help you get maximum value from your education investment." },
+      { title: "Canada Settlement Pathways", description: "Many families here consider long-term settlement. We specialize in study-to-PR pathways that work." },
+      { title: "Flexible Consultation Timing", description: "We understand travel time from developing areas. Weekend slots, extended hours, and video consultations available." },
+      { title: "Education + Property Planning", description: "Balancing home investment with education investment? We help families optimize both without compromising either." },
+      { title: "Fast-Track Programs", description: "Shorter programs with quick career outcomes for families wanting faster returns on education investment." },
+      { title: "Work Permit Optimization", description: "Countries and programs offering best work opportunities during and after studies—maximizing earning potential." }
+    ],
+    faqs: [
+      { question: "We're still building our home. Can we afford international education?", answer: "Many families balance both successfully. Education loans don't require home completion. Some families use property as collateral even during construction. We help structure finances to accommodate both investments." },
+      { question: "Which country gives the fastest return on investment?", answer: "Canada offers excellent ROI—2-year programs lead to 3-year work permits, part-time work during studies covers living costs, and PR pathway is clear. Many students recover education costs within 2-3 years of graduation." },
+      { question: "We're new to Vadodara. Will that affect our loan eligibility?", answer: "Not significantly. Banks assess financial capacity, not residential history. With proper documentation of income and assets (including property anywhere), education loans are accessible regardless of how long you've been here." },
+      { question: "Is the commute to your office practical from Bhayli?", answer: "About 25-30 minutes. We offer video consultations for initial meetings, weekend appointments, and efficient scheduling to minimize trips. Many Bhayli families successfully work with us despite the distance." },
+      { question: "Our son is average academically. Are there still good options?", answer: "Absolutely! Many excellent colleges and pathway programs exist for average students. Canada's college system is particularly welcoming. Career outcomes from colleges can match universities for many fields. We find options matching every profile." }
+    ]
+  },
+
+  "kalali": {
+    metaTitle: "Study Abroad Consultants Kalali Vadodara | First Generation Students Welcome",
+    metaDescription: "Kalali area students' overseas education guide. First-generation friendly. Affordable pathways. Germany free education. Canada PR. Complete hand-holding. All backgrounds welcome.",
+    heroTitle: "Kalali: Emerging Talent Ready for Global Opportunities",
+    heroSubtitle: "Every locality has potential. We help Kalali's determined students access international education.",
+    aboutTitle: "Kalali: From Local Roots to Global Branches",
+    aboutParagraph1: "Kalali and surrounding areas may be on Vadodara's periphery geographically, but they're central to the city's growth story. Students from here carry the determination that comes from striving—a quality that ensures success anywhere.",
+    aboutParagraph2: "Many families in Kalali are building better futures through hard work and smart decisions. International education represents the ultimate smart decision—an investment that transforms not just individual careers but entire family trajectories.",
+    aboutParagraph3: "The semi-urban character of Kalali means students here often combine city aspirations with grounded values. This combination—ambition tempered with humility—creates exceptional international students who adapt well to any environment.",
+    sectionHeadlines: {
+      services: "Accessible Guidance for Ambitious Students",
+      servicesSubtitle: "Your location doesn't limit your potential. We help you reach globally.",
+      testimonials: "Kalali Area Success Stories",
+      testimonialsSubtitle: "Proof that determination beats circumstances every time",
+      destinations: "Affordable Pathways to Quality Education",
+      destinationsSubtitle: "Options that respect your budget while delivering outcomes",
+      process: "Supportive Journey for First-Time Families",
+      faq: "Honest Questions from Kalali Families",
+      contact: "All Are Welcome Here"
+    },
+    uniqueIntro: "Kalali students bring something that privileged students often lack—hunger. This drive, combined with proper guidance, creates extraordinary outcomes. We've seen it happen repeatedly.",
+    whyStudyAbroad: "For students from developing areas, international education is the most powerful transformation tool. It erases background limitations and creates new starting points based purely on capability and credentials.",
+    localAdvantage: "We don't judge by addresses. Every student receives equal attention, respect, and quality guidance. Your potential matters more than your postcode.",
+    successStory: "Mahesh from Kalali, whose family runs a small shop, is now a software developer in Germany. His MTech from TU Munich cost almost nothing, and his determination did the rest. Background didn't stop him.",
+    callToAction: "Don't let anyone tell you international education isn't for you. Visit us for honest, supportive guidance on your realistic options.",
+    services: [
+      { title: "No-Judgment Counseling", description: "We assess potential, not postcodes. Every student receives respectful, thorough guidance regardless of background." },
+      { title: "Maximum Affordability Focus", description: "Germany's free education, scholarships, work-while-study options—we find ways to make international education accessible." },
+      { title: "First-Generation Expertise", description: "Many Kalali students are first in families to pursue international education. We provide extra support, simpler explanations, and patient guidance." },
+      { title: "Complete Hand-Holding", description: "From first meeting to airport departure, we guide every step. Nothing is assumed; everything is explained." },
+      { title: "Alternative Pathway Navigation", description: "Direct university isn't the only route. Pathway programs, community colleges, and diploma conversions can lead to same destinations." },
+      { title: "Family Engagement", description: "Parents unfamiliar with processes need involvement. We welcome entire families, explain in local languages, and ensure complete understanding." }
+    ],
+    faqs: [
+      { question: "We're from a very simple background. Is studying abroad realistic for us?", answer: "Completely realistic! Germany charges almost nothing. Scholarships target students from modest backgrounds. Part-time work covers living costs. We've helped students from very simple backgrounds achieve international education. Don't let background perceptions limit you." },
+      { question: "My parents don't understand anything about studying abroad. How do we start?", answer: "Bring your parents for a family consultation. We explain everything in simple Gujarati/Hindi, show real examples of students like you who succeeded, and address every concern. Many first-generation families feel comfortable after just one detailed meeting." },
+      { question: "I studied in Gujarati medium. Is this a problem?", answer: "Not at all! Medium of instruction doesn't matter—IELTS score does. We've helped many Gujarati-medium students achieve excellent IELTS scores and secure international admissions. Your language background is not a barrier." },
+      { question: "Will consultancies treat us properly given our simple background?", answer: "We treat every family with equal respect. Our satisfaction comes from transformation stories, not just fees. Many of our proudest success stories come from families who wondered if they'd be taken seriously. You will be." },
+      { question: "What if my son can't adjust to foreign life?", answer: "Adjustment concerns are natural. We prepare students thoroughly—cultural orientation, practical skills, and connection with seniors abroad. Most students adjust within 2-3 months. Those who struggle find support systems. Very few actually face serious problems." }
+    ]
+  },
+
+  "vadsar-road": {
+    metaTitle: "Study Abroad Consultants Vadsar Road Vadodara | Engineering Students Specialists",
+    metaDescription: "Vadsar Road technical students' overseas education experts. Engineering MS abroad. Germany TU9 specialists. Research programs. PhD funding guidance. GRE coaching. Free assessment.",
+    heroTitle: "Vadsar Road: Technical Minds Targeting Technical Excellence",
+    heroSubtitle: "Engineering corridor students reaching global technical universities. MS, PhD, and research program specialists.",
+    aboutTitle: "Vadsar Road: Engineering Excellence Goes International",
+    aboutParagraph1: "Vadsar Road's proximity to engineering institutions creates a naturally technical ecosystem. Students here breathe engineering—discussing projects, comparing placements, and dreaming of global research opportunities.",
+    aboutParagraph2: "The technical colleges and coaching centers along this stretch produce students with strong fundamentals. Our job is to help these technically sound students access the world's best engineering and technology programs.",
+    aboutParagraph3: "From computer science enthusiasts to mechanical engineering traditionalists, Vadsar Road students represent Vadodara's technical talent pool. International exposure transforms this talent into globally competitive expertise.",
+    sectionHeadlines: {
+      services: "Specialized Technical Education Guidance",
+      servicesSubtitle: "Engineers helping engineers reach engineering excellence globally",
+      testimonials: "Vadsar Road Engineers at World's Best Tech Universities",
+      testimonialsSubtitle: "From local colleges to MIT, Stanford, TU Munich—real journeys",
+      destinations: "World's Top Technical Universities Await",
+      destinationsSubtitle: "Where cutting-edge research and innovation happen",
+      process: "Systematic Approach to Technical Admissions",
+      faq: "Technical Questions from Engineering Students",
+      contact: "Technical Excellence Consulting"
+    },
+    uniqueIntro: "Vadsar Road students think algorithmically. Our guidance matches this mindset—systematic, logical, and optimized for best outcomes given constraints.",
+    whyStudyAbroad: "In technical fields, where you study matters enormously. Access to advanced labs, renowned professors, and cutting-edge research happens at specific global institutions. For technical excellence, international exposure is essential.",
+    localAdvantage: "We understand technical education—GRE expectations, research profile importance, and professor networking. Our counselors can discuss your projects and position them effectively for admissions.",
+    successStory: "Prashant from a Vadsar Road engineering college is now pursuing robotics research at Carnegie Mellon with full funding. His college project on automation became his research proposal's foundation.",
+    callToAction: "Technical excellence deserves technical universities. Bring your transcripts, projects, and research interests. Let's engineer your path to global education.",
+    services: [
+      { title: "MS Program Matching", description: "We map your technical background, specialization, and research interests to optimal MS programs worldwide." },
+      { title: "GRE Technical Prep", description: "Engineering students often excel in quant but need verbal work. Our targeted preparation addresses exactly this pattern." },
+      { title: "Research Profile Building", description: "Publications and projects matter for top programs. We guide on building research profiles that impress admission committees." },
+      { title: "Germany TU9 Specialists", description: "Germany's elite technical universities offer world-class education almost free. We handle complete German university admissions." },
+      { title: "PhD Funding Strategies", description: "Full PhD funding is achievable at top universities. We identify funded positions and prepare compelling research proposals." },
+      { title: "Industry Connection Programs", description: "Co-op programs, industry internships, and corporate connections—we find opportunities that combine academics with practical experience." }
+    ],
+    faqs: [
+      { question: "I'm from a tier-2 engineering college. Can I get into top universities?", answer: "Absolutely! College pedigree matters less than individual achievement. Strong GRE scores, research experience, good projects, and compelling SOPs can get tier-2 college students into top-50 universities. We've done this repeatedly." },
+      { question: "What GRE score do engineering students from Vadsar Road typically achieve?", answer: "With focused preparation, our engineering students average 315-325. Strong quant foundations help—most score 165+ in quantitative. Verbal requires more work but responds well to structured preparation." },
+      { question: "Is Germany really free for engineering students?", answer: "Yes! Public German universities charge only ~€300/semester admin fees. Living costs are manageable (€800-900/month) and part-time work is allowed. Total 2-year MS cost can be under ₹15-18 lakhs—fraction of US costs with excellent quality." },
+      { question: "Can I do PhD directly after BTech?", answer: "Yes, US universities accept BTech students directly for PhD programs. Strong research orientation, publications if possible, and clear research proposals are key. Full funding (tuition + stipend) is standard for PhD admits." },
+      { question: "Which specialization has best opportunities abroad?", answer: "Currently, AI/ML, data science, cybersecurity, and robotics are hot. But core fields like mechanical, electrical, and civil also have excellent opportunities, especially in Germany and Canada. We recommend based on your specific interests and strengths." }
+    ]
+  },
+
+  "tarsali": {
+    metaTitle: "Study Abroad Consultants Tarsali Vadodara | Working Professionals & Students",
+    metaDescription: "Tarsali residents' trusted overseas education partner. Working professionals welcome. Evening batches. MBA abroad. Canada PR pathways. Affordable options. Free career consultation.",
+    heroTitle: "Tarsali: Working Dreams, Global Destinations",
+    heroSubtitle: "For students and working professionals alike. Study abroad guidance that fits your schedule and budget.",
+    aboutTitle: "Tarsali: Diverse Community, Unified Global Aspirations",
+    aboutParagraph1: "Tarsali's diverse residential character—from established families to young professionals, from students to working adults—creates a community united in aspiration. Everyone here is working toward better futures.",
+    aboutParagraph2: "The mix of affordability and connectivity makes Tarsali popular among young professionals and growing families. This demographic often considers international education as the next career or family milestone.",
+    aboutParagraph3: "Whether you're a fresh graduate eyeing MS programs, a working professional considering MBA abroad, or a parent planning children's education—Tarsali families share the drive to grow through education.",
+    sectionHeadlines: {
+      services: "Flexible Services for Diverse Needs",
+      servicesSubtitle: "Students, professionals, families—we serve everyone with customized guidance",
+      testimonials: "Tarsali Residents Achieving Global Dreams",
+      testimonialsSubtitle: "Success stories spanning students to working professionals",
+      destinations: "Destinations for Every Stage of Life",
+      destinationsSubtitle: "Whether starting career or advancing it, we have pathways",
+      process: "Flexible Journey Fitting Your Schedule",
+      faq: "Questions from Tarsali's Diverse Community",
+      contact: "Guidance for Everyone"
+    },
+    uniqueIntro: "Tarsali's diversity teaches us that there's no single path to success. Some students go straight to universities, others work then study, some families plan long-term. We customize guidance for each unique situation.",
+    whyStudyAbroad: "Whether seeking career acceleration, skill upgrades, or family settlement—international education serves multiple goals. For Tarsali's diverse residents, it's about finding the right fit for individual objectives.",
+    localAdvantage: "We offer flexible timings for working professionals, weekend sessions for families, and regular batches for students. Tarsali's diverse needs get diverse service options.",
+    successStory: "Rajesh worked in Tarsali for 5 years before pursuing his MBA in Ireland. Today he leads a team at a Dublin tech firm. Sometimes the best time to study abroad isn't immediately after college—it's when you're ready.",
+    callToAction: "Whether you're 22 or 32, student or professional—your international education journey can begin now. Let's discuss what works for your situation.",
+    services: [
+      { title: "Working Professional Programs", description: "Executive MBAs, part-time options, and programs designed for those with work experience. Your career doesn't pause for education." },
+      { title: "Evening & Weekend Batches", description: "IELTS coaching and consultations scheduled for working professionals. Before 9 AM or after 7 PM—we accommodate your hours." },
+      { title: "Career Transition Guidance", description: "Switching fields? International education can facilitate transitions. We help identify programs enabling career pivots." },
+      { title: "Family Settlement Planning", description: "Many Tarsali families consider international settlement. We guide on study-to-PR pathways for entire family futures." },
+      { title: "Fresh Graduate Pathways", description: "Straight out of college? Traditional MS and professional programs with clear career outcomes." },
+      { title: "Gap Year Utilization", description: "Have gap years? We help position them positively and identify programs that value diverse experiences." }
+    ],
+    faqs: [
+      { question: "I'm 28 with 5 years work experience. Am I too old for studying abroad?", answer: "Definitely not! Many programs prefer experienced candidates. MBA programs actually require work experience. MS programs value professionals who know why they're studying. 28-35 is an excellent age for many international programs." },
+      { question: "Can I study abroad while continuing to work somehow?", answer: "Some options exist—online degrees from international universities, executive programs with short residencies, and part-time programs. We help identify options matching your work constraints." },
+      { question: "My job doesn't allow weekday consultations. How do we manage?", answer: "Weekend appointments, early morning sessions (7-9 AM), and late evening slots (7-9 PM) are available. Video consultations eliminate travel time. We've successfully served many working professionals from Tarsali." },
+      { question: "I want to shift from IT to finance. Is this possible through studying abroad?", answer: "Yes! Career transition programs exist specifically for this. MiM (Masters in Management), MSc Finance, and MBA programs accept IT professionals looking to pivot. International programs often enable transitions that domestic ones don't." },
+      { question: "My spouse and I both want to study abroad. Is this feasible?", answer: "Dual-study situations require careful planning but are feasible. Countries like Canada allow dependent work permits. Some couples study simultaneously at different institutions. We help plan such complex family decisions." }
+    ]
   }
 };
 
