@@ -48,6 +48,19 @@ export interface ServiceKeyword {
 export interface AreaConfig {
   slug: string;
   name: string;
+  // NEW: Unique content fields for each area page
+  uniqueContent?: {
+    heroSubtitle: string;
+    introduction: string;
+    aboutArea: string;
+    whyChooseUs: string[];
+    servicesDescription: string;
+    locationAdvantage: string;
+    faqs: { question: string; answer: string }[];
+    testimonial: { name: string; location: string; text: string; rating: number };
+    nearbyLandmarks: string[];
+    closingText: string;
+  };
 }
 
 // ==================== SITE CONFIG ====================
