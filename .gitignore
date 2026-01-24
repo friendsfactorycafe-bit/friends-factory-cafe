@@ -7,3 +7,8 @@ build
 dist
 *.log
 
+
+# Large video files
+public/videos/*.mp4
+public/videos/*.MOV
+public/videos/*.mov
