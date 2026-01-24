@@ -86,16 +86,6 @@ export function FFCHeader() {
               </div>
             </div>
 
-            {/* Search & User Icons */}
-            <div className="hidden md:flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="text-gray-600 hover:text-amber-600">
-                <Search className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-gray-600 hover:text-amber-600">
-                <User className="h-5 w-5" />
-              </Button>
-            </div>
-
             {/* Mobile Menu Button */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
