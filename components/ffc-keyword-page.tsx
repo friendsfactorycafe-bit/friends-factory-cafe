@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
+import { FFCGalleryCompact } from '@/components/ffc-gallery';
 import { ServiceCategory, ServiceKeyword, packages, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { generateKeywordPageContent } from '@/lib/ffc-unique-content';
 
@@ -366,6 +367,9 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <FFCGalleryCompact title={`${keyword.title} Gallery`} maxItems={8} />
 
       <FFCFooter />
       <FFCWhatsAppFloat />

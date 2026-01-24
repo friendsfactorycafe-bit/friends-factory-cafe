@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat } from '@/components/ffc-booking-form';
+import { FFCGalleryCompact } from '@/components/ffc-gallery';
 import { ServiceCategory, packages, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 
 interface ServicePageProps {
@@ -296,6 +297,9 @@ export default function FFCServicePage({ service }: ServicePageProps) {
           </Accordion>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <FFCGalleryCompact title={`${service.name} Gallery`} maxItems={8} />
 
       <FFCFooter />
       <FFCWhatsAppFloat />

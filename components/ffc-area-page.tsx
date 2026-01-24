@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
+import { FFCGalleryCompact } from '@/components/ffc-gallery';
 import { AreaConfig, packages, serviceCategories, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 
 interface AreaPageProps {
@@ -328,6 +329,9 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
           </Accordion>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      <FFCGalleryCompact title={`Celebrations in ${area.name}`} maxItems={8} />
 
       <FFCFooter />
       <FFCWhatsAppFloat />
