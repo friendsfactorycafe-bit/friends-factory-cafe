@@ -58,7 +58,8 @@ export default function FFCVirtualTourPage() {
                 muted
                 loop
                 playsInline
-                poster="/images/hero/video-poster.jpg"
+                preload="metadata"
+                poster="/images/video-thumbnails/virtual-tour-thumb.jpg"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               >
