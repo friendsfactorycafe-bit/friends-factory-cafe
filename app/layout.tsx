@@ -296,8 +296,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="font-sans antialiased">
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
@@ -323,6 +321,8 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+      </head>
+      <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
