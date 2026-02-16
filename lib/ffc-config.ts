@@ -97,7 +97,7 @@ export const packages: SetupPackage[] = [
     id: "setup-1",
     slug: "forever-us-loveframe-rooftop",
     name: "Forever Us LoveFrame Rooftop",
-    emoji: "",
+    emoji: "💑✨🌃",
     shortDescription: "Celebrate love in a space where every glance, laugh, and memory is framed against the stunning skyline",
     fullDescription: `Forever Us LoveFrame Rooftop - where every moment is a memory, every glance is a story, and love is beautifully framed under the stars.
 
