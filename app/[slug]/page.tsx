@@ -14,8 +14,14 @@ import {
   serviceCategories,
   getServiceBySlug,
   ServiceKeyword,
-  ServiceCategory
+  ServiceCategory,
+  siteConfig,
+  packages,
+  formatPrice
 } from "@/lib/ffc-config";
+import { getKeywordContent } from "@/lib/ffc-keyword-content";
+import { generateKeywordPageContent } from "@/lib/ffc-unique-content";
+import { getAreaContent } from "@/lib/ffc-area-content";
 
 // Get all keyword slugs from all service categories
 function getAllKeywords(): { slug: string; keyword: ServiceKeyword; service: ServiceCategory }[] {
@@ -185,6 +191,304 @@ export async function generateMetadata({
   };
 }
 
+// ==================== JSON-LD SCHEMA GENERATORS ====================
+
+const BASE_URL = "https://friendsfactorycafe.com";
+
+const localBusinessSchema = {
+  "@type": "LocalBusiness",
+  "name": siteConfig.name,
+  "image": `${BASE_URL}/og-image.jpg`,
+  "telephone": siteConfig.phone,
+  "email": siteConfig.email,
+  "url": BASE_URL,
+  "priceRange": "₹4700 - ₹6900",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "424, OneWest, Asopalav W, 4th Floor, Priya Talkies Road",
+    "addressLocality": "Vadodara",
+    "addressRegion": "Gujarat",
+    "postalCode": "391101",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 22.3072,
+    "longitude": 73.1812
+  }
+};
+
+function generateServiceCategorySchema(service: ServiceCategory) {
+  const url = `${BASE_URL}/${service.slug}`;
+  
+  // Build FAQ items from known patterns
+  const defaultFaqs = [
+    {
+      question: `What ${service.name.toLowerCase()} services does Friends Factory Cafe offer?`,
+      answer: `Friends Factory Cafe offers premium ${service.name.toLowerCase()} services in Vadodara including private rooftop celebrations, stunning decorations, complimentary cake, romantic ambiance with fairy lights & candles, and packages starting from ₹${formatPrice(4700).replace('₹', '')}.`
+    },
+    {
+      question: `How do I book a ${service.name.toLowerCase()} at Friends Factory Cafe?`,
+      answer: `You can book via WhatsApp at ${siteConfig.phone}, call us directly, or fill out the booking form on our website. We recommend booking 2-3 days in advance, but same-day bookings are also available based on availability.`
+    },
+    {
+      question: `What is included in your ${service.name.toLowerCase()} packages?`,
+      answer: `All packages include private venue access, themed decorations, complimentary cake, welcome drinks, snacks, background music of your choice, and 3 hours of exclusive celebration time. Prices range from ₹4,700 to ₹6,900.`
+    },
+    {
+      question: `Is the ${service.name.toLowerCase()} venue private?`,
+      answer: "Yes, 100%! Your celebration is completely private. No other guests will be present during your booking slot. It's just you and your partner in an exclusive romantic setting."
+    },
+    {
+      question: `What are the timings for ${service.name.toLowerCase()}?`,
+      answer: "We operate from 11 AM to 1 AM. Available time slots include Afternoon (11 AM - 2 PM), Evening (4 PM - 7 PM), Dinner (7 PM - 10 PM), and Late Night (10 PM - 1 AM)."
+    }
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": `${service.name} in Vadodara`,
+        "description": service.metaDescription,
+        "url": url,
+        "provider": localBusinessSchema,
+        "areaServed": {
+          "@type": "City",
+          "name": "Vadodara",
+          "containedInPlace": { "@type": "State", "name": "Gujarat" }
+        },
+        "serviceType": service.name,
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "4700",
+          "highPrice": "6900",
+          "priceCurrency": "INR",
+          "offerCount": packages.length.toString()
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": `${service.name} Packages`,
+          "itemListElement": packages.slice(0, 4).map((pkg) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": pkg.name,
+              "description": pkg.shortDescription,
+              "url": `${BASE_URL}/packages/${pkg.slug}`
+            },
+            "price": pkg.price.toString(),
+            "priceCurrency": "INR"
+          }))
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` },
+          { "@type": "ListItem", "position": 3, "name": service.name, "item": url }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": service.metaTitle,
+        "description": service.metaDescription,
+        "url": url,
+        "isPartOf": { "@type": "WebSite", "name": siteConfig.name, "url": BASE_URL },
+        "about": { "@type": "Thing", "name": `${service.name} in Vadodara` },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": defaultFaqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        "name": `${service.name} Keywords`,
+        "itemListElement": service.keywords.slice(0, 10).map((kw, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": kw.title,
+          "url": `${BASE_URL}/${kw.slug}`
+        }))
+      }
+    ]
+  };
+}
+
+function generateKeywordSchema(keyword: ServiceKeyword, service: ServiceCategory) {
+  const url = `${BASE_URL}/${keyword.slug}`;
+  
+  // Get FAQ data the same way the component does
+  const handcraftedContent = getKeywordContent(keyword.slug);
+  const generatedContent = generateKeywordPageContent(service, keyword);
+  const faqs = handcraftedContent ? handcraftedContent.faqs : generatedContent.faqContent;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": keyword.title,
+        "description": keyword.metaDescription,
+        "url": url,
+        "provider": localBusinessSchema,
+        "areaServed": {
+          "@type": "City",
+          "name": "Vadodara",
+          "containedInPlace": { "@type": "State", "name": "Gujarat" }
+        },
+        "serviceType": keyword.title,
+        "category": service.name,
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "4700",
+          "highPrice": "6900",
+          "priceCurrency": "INR",
+          "offerCount": packages.length.toString()
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` },
+          { "@type": "ListItem", "position": 3, "name": service.name, "item": `${BASE_URL}/${service.slug}` },
+          { "@type": "ListItem", "position": 4, "name": keyword.title, "item": url }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": keyword.metaTitle,
+        "description": keyword.metaDescription,
+        "url": url,
+        "isPartOf": { "@type": "WebSite", "name": siteConfig.name, "url": BASE_URL },
+        "breadcrumb": { "@type": "BreadcrumbList" },
+        "about": { "@type": "Thing", "name": keyword.title },
+        "inLanguage": "en-IN",
+        "datePublished": "2024-01-01",
+        "dateModified": new Date().toISOString().split('T')[0]
+      },
+      ...(faqs && faqs.length > 0 ? [{
+        "@type": "FAQPage" as const,
+        "mainEntity": faqs.map((faq: { question: string; answer: string }) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        }))
+      }] : [])
+    ]
+  };
+}
+
+function generateAreaSchema(area: { slug: string; name: string }) {
+  const url = `${BASE_URL}/${area.slug}`;
+  const areaContent = getAreaContent(area.slug);
+  
+  // Build FAQs from area content or defaults
+  const defaultFaqs = [
+    {
+      question: `How do couples from ${area.name} reach Friends Factory Cafe?`,
+      answer: `Friends Factory Cafe is conveniently located in Vadodara and easily accessible from ${area.name}. You can reach us by car, auto, or cab in a short time. Contact us for exact directions.`
+    },
+    {
+      question: "Do you offer pickup services?",
+      answer: "Currently, we don't offer pickup services, but we can help guide you with the best routes from your location."
+    },
+    {
+      question: "What are the booking options available?",
+      answer: `Couples from ${area.name} can book via WhatsApp, phone call, or our online form. We recommend booking 2-3 days in advance for your preferred slot.`
+    },
+    {
+      question: "Is the venue private?",
+      answer: "Yes! Your celebration is 100% private. No other guests will be present during your booking slot."
+    },
+    {
+      question: `What celebrations can couples from ${area.name} book?`,
+      answer: "We offer birthday surprises, candlelight dinners, anniversary celebrations, proposal setups, pre-wedding shoots, and more. All packages include decorations, food, cake, and 3 hours of exclusive venue access."
+    }
+  ];
+  
+  const faqs = areaContent?.faqs || defaultFaqs;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": `${siteConfig.name} - Serving ${area.name}`,
+        "description": `Premium romantic celebration venue serving couples from ${area.name}, Vadodara. Birthday surprises, candlelight dinners, anniversaries & more.`,
+        "url": url,
+        "telephone": siteConfig.phone,
+        "email": siteConfig.email,
+        "priceRange": "₹4700 - ₹6900",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "424, OneWest, Asopalav W, 4th Floor, Priya Talkies Road",
+          "addressLocality": "Vadodara",
+          "addressRegion": "Gujarat",
+          "postalCode": "391101",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 22.3072,
+          "longitude": 73.1812
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": `${area.name}, Vadodara`
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Celebration Packages",
+          "itemListElement": packages.slice(0, 4).map((pkg) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": pkg.name,
+              "url": `${BASE_URL}/packages/${pkg.slug}`
+            },
+            "price": pkg.price.toString(),
+            "priceCurrency": "INR"
+          }))
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Areas", "item": `${BASE_URL}/areas` },
+          { "@type": "ListItem", "position": 3, "name": area.name, "item": url }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": `Romantic Celebrations in ${area.name}, Vadodara`,
+        "description": `Book romantic celebrations, candlelight dinners, birthday surprises & anniversary parties in ${area.name}, Vadodara at Friends Factory Cafe.`,
+        "url": url,
+        "isPartOf": { "@type": "WebSite", "name": siteConfig.name, "url": BASE_URL },
+        "about": { "@type": "Place", "name": `${area.name}, Vadodara` },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq: { question: string; answer: string }) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        }))
+      }
+    ]
+  };
+}
+
 // Main page component
 export default async function SlugPage({
   params,
@@ -196,19 +500,46 @@ export default async function SlugPage({
   // Check if it's a service category page
   const serviceCategory = getServiceBySlug(slug);
   if (serviceCategory) {
-    return <FFCServiceCategoryPage service={serviceCategory} />;
+    const schema = generateServiceCategorySchema(serviceCategory);
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <FFCServiceCategoryPage service={serviceCategory} />
+      </>
+    );
   }
   
   // Check if it's an area page
   const area = getAreaBySlug(slug);
   if (area) {
-    return <FFCAreaPage area={area} />;
+    const schema = generateAreaSchema(area);
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <FFCAreaPage area={area} />
+      </>
+    );
   }
   
   // Check if it's a keyword page
   const keywordData = findKeywordBySlug(slug);
   if (keywordData) {
-    return <FFCKeywordPage service={keywordData.service} keyword={keywordData.keyword} />;
+    const schema = generateKeywordSchema(keywordData.keyword, keywordData.service);
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <FFCKeywordPage service={keywordData.service} keyword={keywordData.keyword} />
+      </>
+    );
   }
   
   // Not found

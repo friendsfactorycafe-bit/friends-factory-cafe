@@ -638,37 +638,6 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
         </div>
       </section>
 
-      {/* Schema Markup - Local Business */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": `${service.name} in Vadodara`,
-            "description": service.description,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Friends Factory Cafe",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "424, OneWest, Asopalav W, 4th Floor, Priya Talkies Road",
-                "addressLocality": "Vadodara",
-                "addressRegion": "Gujarat",
-                "postalCode": "391101",
-                "addressCountry": "IN"
-              },
-              "telephone": siteConfig.phone,
-              "priceRange": "₹₹₹"
-            },
-            "areaServed": {
-              "@type": "City",
-              "name": "Vadodara"
-            }
-          })
-        }}
-      />
-
       <FFCFooter />
       <FFCWhatsAppFloat />
     </div>

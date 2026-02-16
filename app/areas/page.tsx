@@ -17,12 +17,76 @@ export const metadata: Metadata = {
     'anniversary celebration gotri',
     'proposal setup akota',
     'friends factory cafe locations'
+  ],
+  alternates: {
+    canonical: 'https://friendsfactorycafe.com/areas',
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Areas We Serve in Vadodara | Friends Factory Cafe",
+      "description": "Friends Factory Cafe serves all areas of Vadodara. Book romantic celebrations near your location.",
+      "url": "https://friendsfactorycafe.com/areas",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": siteConfig.name,
+        "url": "https://friendsfactorycafe.com"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Vadodara Areas Served",
+      "numberOfItems": vadodaraAreas.length,
+      "itemListElement": vadodaraAreas.map((area, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Place",
+          "name": `${area.name}, Vadodara`,
+          "url": `https://friendsfactorycafe.com/${area.slug}`
+        }
+      }))
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": siteConfig.name,
+      "url": "https://friendsfactorycafe.com",
+      "telephone": siteConfig.phone,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "424, OneWest, Asopalav W, 4th Floor, Priya Talkies Road",
+        "addressLocality": "Vadodara",
+        "addressRegion": "Gujarat",
+        "postalCode": "391101",
+        "addressCountry": "IN"
+      },
+      "areaServed": vadodaraAreas.map(area => ({
+        "@type": "Place",
+        "name": `${area.name}, Vadodara`
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://friendsfactorycafe.com" },
+        { "@type": "ListItem", "position": 2, "name": "Areas We Serve", "item": "https://friendsfactorycafe.com/areas" }
+      ]
+    }
   ]
 };
 
 export default function AreasPage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <FFCHeader />
       
       {/* Breadcrumb */}

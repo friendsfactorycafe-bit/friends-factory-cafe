@@ -17,12 +17,63 @@ export const metadata: Metadata = {
     'anniversary celebration vadodara',
     'proposal setup vadodara',
     'friends factory cafe services'
+  ],
+  alternates: {
+    canonical: 'https://friendsfactorycafe.com/services',
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Our Celebration Services | Friends Factory Cafe",
+      "description": "Explore all romantic celebration services at Friends Factory Cafe Vadodara.",
+      "url": "https://friendsfactorycafe.com/services",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": siteConfig.name,
+        "url": "https://friendsfactorycafe.com"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Romantic Celebration Services",
+      "numberOfItems": serviceCategories.length,
+      "itemListElement": serviceCategories.map((service, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Service",
+          "name": service.name,
+          "description": service.description,
+          "url": `https://friendsfactorycafe.com/${service.slug}`,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": siteConfig.name
+          }
+        }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://friendsfactorycafe.com" },
+        { "@type": "ListItem", "position": 2, "name": "Our Services", "item": "https://friendsfactorycafe.com/services" }
+      ]
+    }
   ]
 };
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <FFCHeader />
       
       {/* Breadcrumb */}
