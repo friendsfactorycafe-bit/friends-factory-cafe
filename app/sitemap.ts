@@ -6,11 +6,11 @@
  * - 1 Homepage (priority 1.0)
  * - 7 Static pages (priority 0.8)
  * - 8 Service category pages (priority 0.9)
- * - 8 Package detail pages (priority 0.85)
+ * - 8 Package detail pages (priority 0.9) - with image sitemaps
  * - 120 Keyword pages (priority 0.85) - Main SEO pages
  * - 40 Vadodara Area pages (priority 0.8)
  * 
- * Last Updated: January 2026
+ * Last Updated: February 2026
  */
 
 import { MetadataRoute } from "next";
@@ -27,7 +27,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
   
   // ==================== HOME PAGE ====================
-  // Highest priority - main landing page
   entries.push({
     url: baseUrl,
     lastModified: currentDate,
@@ -36,12 +35,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
   
   // ==================== STATIC PAGES ====================
-  // Core pages with regular updates
   const staticPages = [
     { path: '/about', priority: 0.8, freq: 'monthly' as const },
     { path: '/contact', priority: 0.9, freq: 'monthly' as const },
     { path: '/menu', priority: 0.8, freq: 'weekly' as const },
-    { path: '/packages', priority: 0.9, freq: 'weekly' as const },
+    { path: '/packages', priority: 0.95, freq: 'weekly' as const },
     { path: '/services', priority: 0.9, freq: 'weekly' as const },
     { path: '/virtual-tour', priority: 0.7, freq: 'monthly' as const },
     { path: '/areas', priority: 0.8, freq: 'weekly' as const },
@@ -57,7 +55,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
   
   // ==================== SERVICE CATEGORY PAGES ====================
-  // 8 main service categories - high priority
   serviceCategories.forEach((service) => {
     entries.push({
       url: `${baseUrl}/${service.slug}`,
@@ -68,13 +65,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
   
   // ==================== PACKAGE DETAIL PAGES ====================
-  // 8 setup packages - high priority for conversions
+  // High priority for conversions - includes image sitemap data
   packages.forEach((pkg) => {
     entries.push({
       url: `${baseUrl}/packages/${pkg.slug}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     });
   });
   

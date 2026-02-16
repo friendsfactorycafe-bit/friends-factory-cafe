@@ -23,15 +23,15 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
     <div className="min-h-screen bg-white">
       <FFCHeader />
       
-      {/* Breadcrumb */}
-      <div className="bg-amber-50 py-4">
+      {/* Breadcrumb - visible & accessible */}
+      <div className="bg-amber-50 py-3 md:py-4">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-500 hover:text-amber-600">Home</Link>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
-            <Link href="/packages" className="text-gray-500 hover:text-amber-600">Packages</Link>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
-            <span className="text-amber-600 font-medium">{pkg.name}</span>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm">
+            <Link href="/" className="text-gray-500 hover:text-amber-600 transition-colors">Home</Link>
+            <ChevronRight className="h-3 w-3 md:h-4 md:w-4 text-gray-400 flex-shrink-0" />
+            <Link href="/packages" className="text-gray-500 hover:text-amber-600 transition-colors">Packages</Link>
+            <ChevronRight className="h-3 w-3 md:h-4 md:w-4 text-gray-400 flex-shrink-0" />
+            <span className="text-amber-600 font-medium truncate">{pkg.name}</span>
           </nav>
         </div>
       </div>

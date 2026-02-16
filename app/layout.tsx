@@ -191,8 +191,9 @@ const jsonLd = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Birthday Surprise Package",
-              "description": "Private rooftop birthday celebration with decorations, cake, and romantic setup"
+              "name": "Forever Us LoveFrame Rooftop",
+              "description": "Premium rooftop celebration with elegant photo frame setup, cake included",
+              "url": "https://friendsfactorycafe.com/packages/forever-us-loveframe-rooftop"
             },
             "price": "6900",
             "priceCurrency": "INR"
@@ -201,20 +202,77 @@ const jsonLd = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Candlelight Dinner",
-              "description": "Romantic candlelight dinner for couples with private setting"
+              "name": "Eternal Love Rooftop Celebration",
+              "description": "Rooftop celebration with stylish canopy and romantic décor, cake included",
+              "url": "https://friendsfactorycafe.com/packages/eternal-love-rooftop-celebration"
             },
-            "price": "6900",
+            "price": "6500",
             "priceCurrency": "INR"
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Anniversary Celebration",
-              "description": "Special anniversary celebration with decorations and intimate dining"
+              "name": "Golden Promise Glass House",
+              "description": "Luxurious glass house celebration with golden fairy lights, cake included",
+              "url": "https://friendsfactorycafe.com/packages/golden-promise-glass-house"
             },
-            "price": "6900",
+            "price": "6000",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Timeless Bond Glass House",
+              "description": "Elegant glass house with minimalist white theme and flower arrangements",
+              "url": "https://friendsfactorycafe.com/packages/timeless-bond-glass-house"
+            },
+            "price": "5700",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sweet Together Glass House",
+              "description": "Cozy glass house with sweet theme and balloon arrangements",
+              "url": "https://friendsfactorycafe.com/packages/sweet-together-glass-house"
+            },
+            "price": "5500",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Moonlit Romance Experience",
+              "description": "Moonlit rooftop celebration with dreamy décor and silver accents",
+              "url": "https://friendsfactorycafe.com/packages/moonlit-romance-experience"
+            },
+            "price": "5100",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Promise Creative Area",
+              "description": "Festive tent setup rooftop celebration with curtains and balloons",
+              "url": "https://friendsfactorycafe.com/packages/the-promise-creative-area"
+            },
+            "price": "4700",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pure Love Glass House",
+              "description": "Pure white themed glass house with rose petals and candle pathway",
+              "url": "https://friendsfactorycafe.com/packages/pure-love-glass-house"
+            },
+            "price": "4700",
             "priceCurrency": "INR"
           }
         ]
