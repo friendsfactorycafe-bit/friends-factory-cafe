@@ -187,11 +187,7 @@ export default function FFCImageGallery({ images, name }: ImageGalleryProps) {
                 className="object-cover"
                 sizes="80px"
               />
-              {index === 0 && (
-                <div className="absolute bottom-0 left-0 right-0 bg-amber-600/80 text-white text-[9px] md:text-[10px] py-0.5 text-center font-medium">
-                  Cover
-                </div>
-              )}
+
             </button>
           ))}
         </div>
