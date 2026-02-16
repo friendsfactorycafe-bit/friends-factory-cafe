@@ -315,12 +315,12 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                     <ChevronDown className="h-4 w-4 opacity-50 shrink-0" />
                   </button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" align="start" sideOffset={4}>
+                <PopoverContent className="w-[min(90vw,400px)] sm:w-[var(--radix-popover-trigger-width)] p-0" align="start" sideOffset={4}>
                   <div className="max-h-[280px] overflow-y-auto py-1">
                     {packages.map((pkg) => (
                       <div
                         key={pkg.slug}
-                        className="flex items-center gap-2 px-2 py-2 hover:bg-accent cursor-pointer text-sm group"
+                        className="flex items-center gap-1.5 px-2 py-2 hover:bg-accent cursor-pointer text-xs sm:text-sm group"
                         onClick={() => {
                           setValue('selectedPackage', pkg.slug);
                           setPackagePopoverOpen(false);
@@ -328,20 +328,20 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                       >
                         {/* Check icon for selected */}
                         <span className="w-4 shrink-0">
-                          {selectedPackageSlug === pkg.slug && <Check className="h-4 w-4 text-amber-600" />}
+                          {selectedPackageSlug === pkg.slug && <Check className="h-3.5 w-3.5 text-amber-600" />}
                         </span>
                         {/* Package info */}
                         <span className="flex-1 min-w-0">
-                          <span className="truncate block">{pkg.emoji} {pkg.name}</span>
-                          <span className="text-xs text-muted-foreground">₹{pkg.price.toLocaleString('en-IN')}</span>
+                          <span className="block leading-tight">{pkg.emoji} {pkg.name}</span>
+                          <span className="text-[11px] text-muted-foreground">₹{pkg.price.toLocaleString('en-IN')}</span>
                         </span>
                         {/* View Details tag */}
                         <button
                           type="button"
                           onClick={(e) => handleViewPackage(pkg.slug, e)}
-                          className="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-medium rounded-full bg-amber-100 text-amber-700 hover:bg-amber-600 hover:text-white transition-colors"
+                          className="shrink-0 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-medium rounded-full bg-amber-100 text-amber-700 hover:bg-amber-600 hover:text-white transition-colors"
                         >
-                          <Eye className="h-3 w-3" />
+                          <Eye className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                           View
                         </button>
                       </div>

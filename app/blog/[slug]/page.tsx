@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           "url": "https://friendsfactorycafe.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://friendsfactorycafe.com/og-image.jpg"
+            "url": "https://friendsfactorycafe.com/og-image.svg"
           }
         },
         "keywords": post.tags.join(', '),

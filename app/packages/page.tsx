@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://friendsfactorycafe.com/packages/6900/Cover.jpg',
+        url: 'https://friendsfactorycafe.com/packages/6900/Cover.webp',
         width: 1200,
         height: 630,
         alt: 'Friends Factory Cafe Packages - Romantic Celebration Packages Vadodara',

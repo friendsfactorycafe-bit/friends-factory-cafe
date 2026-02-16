@@ -59,7 +59,7 @@ export default function FFCVirtualTourPage() {
                 loop
                 playsInline
                 preload="metadata"
-                poster="/images/video-thumbnails/virtual-tour-thumb.jpg"
+                poster="/images/video-thumbnails/virtual-tour-thumb.webp"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               >

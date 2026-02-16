@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences. Starting ₹6,900.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Friends Factory Cafe - Best Romantic Celebrations in Vadodara",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
     description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, proposals & more! Starting ₹6,900.",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/og-image.svg"],
     creator: "@friendsfactorycafe",
     site: "@friendsfactorycafe",
   },
@@ -147,9 +147,9 @@ const jsonLd = {
       "currenciesAccepted": "INR",
       "paymentAccepted": "Cash, Credit Card, UPI, GPay, PhonePe",
       "image": [
-        "https://friendsfactorycafe.com/images/gallery/romantic-rooftop-candlelight-dinner-vadodara-1.jpg",
-        "https://friendsfactorycafe.com/images/gallery/birthday-surprise-decoration-vadodara-1.jpg",
-        "https://friendsfactorycafe.com/images/gallery/glass-house-dinner-vadodara-1.jpg"
+        "https://friendsfactorycafe.com/images/gallery/romantic-rooftop-candlelight-dinner-vadodara-1.webp",
+        "https://friendsfactorycafe.com/images/gallery/birthday-surprise-decoration-vadodara-1.webp",
+        "https://friendsfactorycafe.com/images/gallery/glass-house-dinner-vadodara-1.webp"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -303,7 +303,7 @@ const jsonLd = {
       "url": "https://friendsfactorycafe.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://friendsfactorycafe.com/images/gallery/friends-factory-cafe-logo-1.png",
+        "url": "https://friendsfactorycafe.com/images/gallery/friends-factory-cafe-logo-1.webp",
         "width": "512",
         "height": "512"
       },

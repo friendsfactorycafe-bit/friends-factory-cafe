@@ -198,7 +198,7 @@ const BASE_URL = "https://friendsfactorycafe.com";
 const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": siteConfig.name,
-  "image": `${BASE_URL}/og-image.jpg`,
+  "image": `${BASE_URL}/og-image.svg`,
   "telephone": siteConfig.phone,
   "email": siteConfig.email,
   "url": BASE_URL,

@@ -79,7 +79,7 @@ export default function FFCAboutPage() {
             <div className="order-1 lg:order-2">
               <div className="aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl overflow-hidden relative shadow-xl">
                 <Image
-                  src="/images/about/Our story.jpg"
+                  src="/images/about/Our story.webp"
                   alt="Friends Factory Cafe Vadodara - Romantic Rooftop Setup for Candlelight Dinner"
                   fill
                   className="object-cover"
@@ -218,7 +218,7 @@ export default function FFCAboutPage() {
             <div className="order-1 lg:order-2">
               <div className="aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl overflow-hidden relative shadow-xl">
                 <Image
-                  src="/images/about/Why us.png"
+                  src="/images/about/Why us.webp"
                   alt="Why Choose Friends Factory Cafe - Best Romantic Venue Vadodara"
                   fill
                   className="object-cover"

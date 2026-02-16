@@ -72,7 +72,7 @@ export function DomainKeywordPageTemplateV2({ domain, keyword }: DomainKeywordPa
       {/* Hero Section */}
       <section className={`${gradientClass} text-white py-16 md:py-24 relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'url("/images/hero/pattern.png")', backgroundSize: '100px' }} />
+          <div className="absolute inset-0" style={{ backgroundImage: 'url("/images/hero/pattern.webp")', backgroundSize: '100px' }} />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

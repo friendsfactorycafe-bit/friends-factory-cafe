@@ -24,7 +24,7 @@ const jsonLd = {
         "url": "https://friendsfactorycafe.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://friendsfactorycafe.com/og-image.jpg"
+          "url": "https://friendsfactorycafe.com/og-image.svg"
         }
       },
       "inLanguage": "en-IN"
