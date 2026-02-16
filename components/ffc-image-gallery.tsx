@@ -120,7 +120,7 @@ export default function FFCImageGallery({ images, name }: ImageGalleryProps) {
     <>
       {/* Main Image */}
       <div
-        className="aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative mb-3 md:mb-4 group cursor-pointer bg-gray-100"
+        className="aspect-[4/5] max-h-[60vh] sm:max-h-[65vh] md:max-h-none md:aspect-[3/4] lg:aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden relative mb-3 md:mb-4 group cursor-pointer bg-gray-100"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -173,7 +173,7 @@ export default function FFCImageGallery({ images, name }: ImageGalleryProps) {
             <button
               key={index}
               onClick={() => setSelectedImage(index)}
-              className={`flex-shrink-0 w-16 h-20 sm:w-18 sm:h-22 md:w-20 md:h-24 rounded-lg overflow-hidden relative cursor-pointer transition-all snap-start ${
+              className={`flex-shrink-0 w-14 h-[70px] sm:w-16 sm:h-20 md:w-20 md:h-24 rounded-lg overflow-hidden relative cursor-pointer transition-all snap-start ${
                 selectedImage === index
                   ? 'ring-2 ring-amber-500 ring-offset-1 opacity-100 scale-[1.02]'
                   : 'opacity-60 hover:opacity-90'
