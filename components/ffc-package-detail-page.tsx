@@ -1,16 +1,15 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Gift, ChevronRight, Star, Clock, Check, ChevronLeft, Heart, Camera, Music, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ChevronRight, Check, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat } from '@/components/ffc-booking-form';
-import { SetupPackage, packages, formatPrice, siteConfig } from '@/lib/ffc-config';
+import { SetupPackage, packages, formatPrice } from '@/lib/ffc-config';
+import FFCImageGallery from '@/components/ffc-image-gallery';
 
 interface PackageDetailPageProps {
   package: SetupPackage;
@@ -19,37 +18,6 @@ interface PackageDetailPageProps {
 export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPageProps) {
   // Find ALL other packages except current one
   const relatedPackages = packages.filter(p => p.id !== pkg.id);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [thumbnailPage, setThumbnailPage] = useState(0);
-  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
-  const imagesPerPage = 5;
-  const totalPages = Math.ceil(pkg.images.length / imagesPerPage);
-
-  const scrollThumbnails = (direction: 'left' | 'right') => {
-    if (direction === 'left') {
-      setThumbnailPage((prev) => Math.max(0, prev - 1));
-    } else {
-      setThumbnailPage((prev) => Math.min(totalPages - 1, prev + 1));
-    }
-  };
-
-  const goToPrevImage = () => {
-    const newIndex = selectedImage === 0 ? pkg.images.length - 1 : selectedImage - 1;
-    setSelectedImage(newIndex);
-    // Auto-update thumbnail page when navigating
-    setThumbnailPage(Math.floor(newIndex / imagesPerPage));
-  };
-
-  const goToNextImage = () => {
-    const newIndex = selectedImage === pkg.images.length - 1 ? 0 : selectedImage + 1;
-    setSelectedImage(newIndex);
-    // Auto-update thumbnail page when navigating
-    setThumbnailPage(Math.floor(newIndex / imagesPerPage));
-  };
-
-  const handleThumbnailClick = (index: number) => {
-    setSelectedImage(index);
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -72,84 +40,9 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
       <section className="py-4 md:py-8 lg:py-12">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
-            {/* Left Column - Images/Visual */}
+            {/* Left Column - Gallery */}
             <div>
-              {/* Main Image with Navigation Arrows */}
-              <div className="aspect-[4/5] sm:aspect-[4/5] md:aspect-[3/4] lg:aspect-[3/5] rounded-xl md:rounded-2xl overflow-hidden relative mb-3 md:mb-4 group max-h-[80vh] md:max-h-none">
-                <Image
-                  src={pkg.images[selectedImage] || pkg.thumbnail}
-                  alt={pkg.name}
-                  fill
-                  className="object-contain scale-125 md:scale-100 md:object-cover"
-                  priority
-                />
-                
-                {/* Navigation Arrows - Always visible on mobile */}
-                <button 
-                  onClick={goToPrevImage}
-                  className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg md:opacity-0 md:group-hover:opacity-100 transition-opacity"
-                >
-                  <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
-                </button>
-                <button 
-                  onClick={goToNextImage}
-                  className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg md:opacity-0 md:group-hover:opacity-100 transition-opacity"
-                >
-                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
-                </button>
-
-                {/* Image Counter */}
-                <div className="absolute bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-xs md:text-sm">
-                  {selectedImage + 1} / {pkg.images.length}
-                </div>
-              </div>
-              
-              {/* Thumbnail Slider */}
-              <div className="relative px-8 md:px-10">
-                {/* Left Arrow */}
-                <button 
-                  onClick={() => scrollThumbnails('left')}
-                  className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 md:w-8 md:h-8 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-amber-50 transition-colors border border-gray-200 ${thumbnailPage === 0 ? 'opacity-30 cursor-not-allowed' : ''}`}
-                  disabled={thumbnailPage === 0}
-                >
-                  <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
-                </button>
-                
-                {/* Thumbnails Container - Fixed width container with overflow hidden */}
-                <div className="overflow-hidden">
-                  <div 
-                    ref={thumbnailContainerRef}
-                    className="flex gap-2 transition-transform duration-300 ease-in-out"
-                    style={{ 
-                      transform: `translateX(-${thumbnailPage * 100}%)`,
-                    }}
-                  >
-                    {pkg.images.map((image, index) => (
-                      <button 
-                        key={index}
-                        onClick={() => handleThumbnailClick(index)}
-                        className={`flex-shrink-0 w-[calc(20%-6.4px)] aspect-[3/4] rounded-md md:rounded-lg overflow-hidden relative cursor-pointer transition-all ${selectedImage === index ? 'ring-2 ring-amber-500 scale-105' : 'opacity-70 hover:opacity-100'}`}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${pkg.name} - Image ${index + 1}`}
-                          fill
-                          className="object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Right Arrow */}
-                <button 
-                  onClick={() => scrollThumbnails('right')}
-                  className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 md:w-8 md:h-8 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-amber-50 transition-colors border border-gray-200 ${thumbnailPage >= totalPages - 1 ? 'opacity-30 cursor-not-allowed' : ''}`}
-                  disabled={thumbnailPage >= totalPages - 1}
-                >
-                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
-                </button>
-              </div>
+              <FFCImageGallery images={pkg.images} name={pkg.name} />
             </div>
 
             {/* Right Column - Details */}
