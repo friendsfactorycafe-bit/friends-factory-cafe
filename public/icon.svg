@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
   <defs>
     <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#D97706"/>
     </linearGradient>
   </defs>
-  <!-- Background Circle -->
-  <circle cx="50" cy="50" r="48" fill="url(#mainGrad)"/>
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#mainGrad)"/>
   <!-- Coffee Cup -->
-  <ellipse cx="50" cy="60" rx="22" ry="18" fill="white"/>
-  <rect x="28" y="45" width="44" height="20" rx="3" fill="white"/>
+  <ellipse cx="16" cy="21" rx="8" ry="6" fill="white"/>
+  <rect x="8" y="14" width="16" height="8" rx="2" fill="white"/>
   <!-- Steam -->
-  <path d="M38 40 Q40 32 38 25" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M50 38 Q52 28 50 20" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M62 40 Q64 32 62 25" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M11 12 Q12 9 11 6" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M16 11 Q17 7 16 4" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M21 12 Q22 9 21 6" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
   <!-- Heart in cup -->
-  <path d="M50 65 C42 58 40 52 45 48 C48 46 50 50 50 50 C50 50 52 46 55 48 C60 52 58 58 50 65" fill="#D97706"/>
+  <path d="M16 22 C13 19 12 17 14 15 C15 14 16 16 16 16 C16 16 17 14 18 15 C20 17 19 19 16 22" fill="#D97706"/>
 </svg>
