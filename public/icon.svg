@@ -1,14 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="ffcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D97706;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#EA580C;stop-opacity:1" />
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
     </linearGradient>
   </defs>
   <!-- Background Circle -->
-  <circle cx="50" cy="50" r="48" fill="url(#ffcGrad)"/>
-  <!-- Heart Icon -->
-  <path d="M50 75 C25 55 20 35 35 25 C45 20 50 30 50 30 C50 30 55 20 65 25 C80 35 75 55 50 75" fill="white" opacity="0.95"/>
-  <!-- FFC Text -->
-  <text x="50" y="58" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#D97706" text-anchor="middle">FFC</text>
+  <circle cx="50" cy="50" r="48" fill="url(#mainGrad)"/>
+  <!-- Coffee Cup -->
+  <ellipse cx="50" cy="60" rx="22" ry="18" fill="white"/>
+  <rect x="28" y="45" width="44" height="20" rx="3" fill="white"/>
+  <!-- Steam -->
+  <path d="M38 40 Q40 32 38 25" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M50 38 Q52 28 50 20" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M62 40 Q64 32 62 25" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Heart in cup -->
+  <path d="M50 65 C42 58 40 52 45 48 C48 46 50 50 50 50 C50 50 52 46 55 48 C60 52 58 58 50 65" fill="#D97706"/>
 </svg>
