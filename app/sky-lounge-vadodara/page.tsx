@@ -8,9 +8,6 @@ const keyword = getKeywordBySlug('rooftop-experience', 'sky-lounge-vadodara');
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
-  alternates: {
-    canonical: '/sky-lounge-vadodara',
-  },
 };
 
 export default function Page() {

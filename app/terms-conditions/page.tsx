@@ -8,9 +8,6 @@ import { siteConfig } from '@/lib/ffc-config';
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Friends Factory Cafe Vadodara',
   description: 'Terms and Conditions for Friends Factory Cafe - Booking policies, cancellation rules, and service agreements for candlelight dinners and romantic celebrations in Vadodara.',
-  alternates: {
-    canonical: '/terms-conditions',
-  },
 };
 
 export default function TermsConditionsPage() {

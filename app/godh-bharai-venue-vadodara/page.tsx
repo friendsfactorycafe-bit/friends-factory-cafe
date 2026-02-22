@@ -8,9 +8,6 @@ const keyword = getKeywordBySlug('baby-moments', 'godh-bharai-venue-vadodara');
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
-  alternates: {
-    canonical: '/godh-bharai-venue-vadodara',
-  },
 };
 
 export default function Page() {

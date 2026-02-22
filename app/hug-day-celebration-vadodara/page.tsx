@@ -8,9 +8,6 @@ const keyword = getKeywordBySlug('valentines-week', 'hug-day-celebration-vadodar
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
-  alternates: {
-    canonical: '/hug-day-celebration-vadodara',
-  },
 };
 
 export default function Page() {
