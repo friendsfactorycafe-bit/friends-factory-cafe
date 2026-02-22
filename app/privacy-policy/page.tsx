@@ -8,6 +8,9 @@ import { siteConfig } from '@/lib/ffc-config';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Friends Factory Cafe Vadodara',
   description: 'Privacy Policy for Friends Factory Cafe - Learn how we collect, use, and protect your personal information when booking candlelight dinners and romantic celebrations in Vadodara.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

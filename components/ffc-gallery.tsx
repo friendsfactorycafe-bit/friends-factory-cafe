@@ -70,6 +70,9 @@ export const galleryItems: GalleryItem[] = [
   { type: 'image', src: '/images/gallery/celebration-venue-vadodara-1.webp', alt: 'Celebration venue Vadodara', title: 'Celebration Venue', featured: false },
 ];
 
+// Hero images for keyword and area pages
+export const birthdayHeroImages = galleryItems.filter(i => i.type === 'image').slice(0, 6).map(i => i.src);
+
 interface FFCGalleryProps {
   title?: string;
   subtitle?: string;

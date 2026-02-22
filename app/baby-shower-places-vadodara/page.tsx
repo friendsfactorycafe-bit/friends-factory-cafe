@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('baby-moments', 'baby-shower-places-vadodara');
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/baby-shower-places-vadodara',
+  },
 };
 
 export default function Page() {

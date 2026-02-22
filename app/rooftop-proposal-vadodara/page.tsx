@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('proposal', 'rooftop-proposal-vadodara');
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/rooftop-proposal-vadodara',
+  },
 };
 
 export default function Page() {

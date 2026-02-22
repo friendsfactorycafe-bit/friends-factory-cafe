@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('anniversary-celebration', 'romantic-anniversar
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/romantic-anniversary-date-vadodara',
+  },
 };
 
 export default function Page() {

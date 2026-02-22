@@ -67,9 +67,6 @@ export const metadata: Metadata = {
     address: true,
     telephone: true,
   },
-  alternates: {
-    canonical: "https://friendsfactorycafe.com",
-  },
   category: "Restaurant",
   classification: "Romantic Celebration Venue",
   openGraph: {

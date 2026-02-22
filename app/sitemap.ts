@@ -43,6 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/services', priority: 0.9, freq: 'weekly' as const },
     { path: '/virtual-tour', priority: 0.7, freq: 'monthly' as const },
     { path: '/areas', priority: 0.8, freq: 'weekly' as const },
+    { path: '/blog', priority: 0.7, freq: 'weekly' as const },
   ];
   
   staticPages.forEach((page) => {

@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('pre-wedding-shoot', 'unique-pre-wedding-shoot-
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/unique-pre-wedding-shoot-vadodara',
+  },
 };
 
 export default function Page() {

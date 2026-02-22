@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('baby-moments', 'pregnancy-announcement-vadodar
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/pregnancy-announcement-vadodara',
+  },
 };
 
 export default function Page() {

@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('baby-moments', 'baby-bump-photoshoot-vadodara'
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/baby-bump-photoshoot-vadodara',
+  },
 };
 
 export default function Page() {
