@@ -4,6 +4,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SocialProofNotifications } from "@/components/social-proof-notifications";
+import { EvergreenCountdownTimer } from "@/components/evergreen-countdown-timer";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -388,6 +390,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <SocialProofNotifications />
+          <EvergreenCountdownTimer />
         </ThemeProvider>
         <Analytics />
       </body>

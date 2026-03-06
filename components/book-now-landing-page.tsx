@@ -227,6 +227,46 @@ function GallerySlider() {
   );
 }
 
+// Hero Background - Animated celebration icons
+function HeroBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-pink-50" />
+      
+      {/* Floating celebration icons */}
+      <div className="absolute inset-0">
+        {/* Hearts */}
+        <Heart className="absolute top-[10%] left-[5%] w-8 h-8 text-purple-200 animate-float-slow" />
+        <Heart className="absolute top-[20%] right-[10%] w-12 h-12 text-pink-200 animate-float-medium fill-pink-100" />
+        <Heart className="absolute bottom-[30%] left-[15%] w-6 h-6 text-purple-300 animate-float-fast fill-purple-100" />
+        <Heart className="absolute top-[60%] right-[5%] w-10 h-10 text-purple-200 animate-float-slow fill-purple-50" />
+        <Heart className="absolute bottom-[15%] right-[20%] w-7 h-7 text-pink-300 animate-float-medium" />
+        
+        {/* Stars/Sparkles */}
+        <Sparkles className="absolute top-[15%] left-[20%] w-6 h-6 text-yellow-300 animate-twinkle" />
+        <Sparkles className="absolute top-[40%] right-[15%] w-8 h-8 text-yellow-200 animate-twinkle delay-300" />
+        <Sparkles className="absolute bottom-[25%] left-[8%] w-5 h-5 text-yellow-400 animate-twinkle delay-500" />
+        <Star className="absolute top-[5%] right-[25%] w-5 h-5 text-purple-300 fill-purple-100 animate-float-fast" />
+        <Star className="absolute bottom-[40%] right-[8%] w-6 h-6 text-yellow-300 fill-yellow-100 animate-twinkle delay-700" />
+        
+        {/* Celebration icons */}
+        <Gift className="absolute top-[35%] left-[3%] w-10 h-10 text-purple-200 animate-float-medium" />
+        <Cake className="absolute bottom-[20%] left-[25%] w-8 h-8 text-pink-200 animate-float-slow" />
+        <Music className="absolute top-[8%] left-[40%] w-6 h-6 text-purple-300 animate-float-fast" />
+        <Camera className="absolute bottom-[35%] right-[25%] w-7 h-7 text-purple-200 animate-float-medium" />
+        
+        {/* More hearts scattered */}
+        <Heart className="absolute top-[45%] left-[30%] w-4 h-4 text-pink-200 animate-float-fast fill-pink-50" />
+        <Heart className="absolute top-[70%] left-[45%] w-5 h-5 text-purple-200 animate-float-slow" />
+        <Heart className="absolute top-[25%] left-[55%] w-6 h-6 text-pink-300 animate-float-medium fill-pink-100" />
+        <Heart className="absolute bottom-[10%] left-[60%] w-8 h-8 text-purple-200 animate-float-fast" />
+        <Heart className="absolute top-[55%] right-[30%] w-5 h-5 text-pink-200 animate-float-slow fill-pink-50" />
+      </div>
+    </div>
+  );
+}
+
 // Package Image Slider Component with Lightbox
 function PackageImageSlider({ images, name }: { images: string[]; name: string }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -628,148 +668,110 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
 
 // Main Landing Page Component
 export function BookNowLandingPage() {
-  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 59, seconds: 59 });
-
-  // Countdown timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { hours: prev.hours, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return { hours: 23, minutes: 59, seconds: 59 }; // Reset
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Header CTA */}
-      {/* Sticky Header CTA - Enhanced */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-purple-600 text-white py-2.5 px-4 shadow-lg">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3 text-sm">
-            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center animate-pulse">
-              <Clock className="w-4 h-4" />
-            </div>
-            <span className="hidden sm:inline font-medium">Limited Slots Today!</span>
-            <span className="font-bold bg-white/20 px-3 py-1 rounded-full">
-              {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-            </span>
-          </div>
-          <Button 
-            asChild
-            size="sm"
-            className="bg-white text-purple-700 hover:bg-purple-50 shadow-xl font-bold"
-          >
-            <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-4 h-4 mr-1" />
-              Book Now
+      {/* Header with Company Name */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
+        <div className="container mx-auto px-4 relative">
+          <div className="flex items-center justify-between py-2.5">
+            {/* Logo / Brand Name */}
+            <a href="/" className="flex items-center gap-2">
+              <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Friends Factory Cafe
+              </span>
             </a>
-          </Button>
-        </div>
-      </div>
-
-      {/* Services Navigation Bar - Enhanced with Purple Theme */}
-      <div className="fixed top-12 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
-        <div className="container mx-auto px-2 relative">
-          <div className="flex items-center gap-1.5 py-2.5 overflow-x-auto scrollbar-hide">
-            {services.map((service, idx) => (
-              <a
-                key={service.slug}
-                href={`/${service.slug}`}
-                className="group flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white transition-all duration-300 whitespace-nowrap flex-shrink-0 shadow-sm hover:shadow-lg hover:scale-105 border border-purple-100 hover:border-transparent"
-                style={{ animationDelay: `${idx * 50}ms` }}
+            
+            {/* Quick CTA for mobile */}
+            <div className="flex items-center gap-2">
+              <a 
+                href={`tel:${siteConfig.phone}`}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-semibold bg-purple-100 text-purple-700 hover:bg-purple-200 transition-all"
               >
-                <span className="text-lg group-hover:scale-110 transition-transform">{service.emoji}</span>
-                <span className="hidden sm:inline">{service.name}</span>
+                <Phone className="w-4 h-4" />
+                <span className="hidden sm:inline">Call</span>
               </a>
-            ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Hero Section - Enhanced */}
-      <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
-        {/* Beautiful Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-purple-50" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-100/40 via-transparent to-transparent" />
-        
-        {/* Animated Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-purple-300/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-40 right-20 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-700" />
-        <div className="absolute bottom-20 left-1/4 w-28 h-28 bg-purple-300/30 rounded-full blur-3xl animate-pulse delay-1000" />
+      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 overflow-hidden">
+        {/* White Background with Low Opacity Hero Image */}
+        <div className="absolute inset-0 bg-white" />
+        <HeroBackground />
         
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            {/* Left Content */}
-            <div className="flex-1 text-center lg:text-left">
-              {/* Trust Badge - Enhanced */}
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
-                <Badge className="bg-white/80 backdrop-blur-sm text-purple-800 border-purple-200 px-5 py-2 text-sm shadow-lg">
-                  <Star className="w-4 h-4 mr-1.5 fill-purple-500 text-purple-500" />
-                  Rated 4.9/5 by 500+ Happy Couples
-                </Badge>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-                <span className="text-gray-900">Create </span>
-                <span className="text-purple-600">Unforgettable</span>
-                <br />
-                <span className="text-gray-900">Memories</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Premium romantic celebrations in Vadodara&apos;s most beautiful rooftop & glass house venues. 
-                <span className="font-bold text-purple-600"> 8 stunning packages</span> starting from just <span className="font-bold text-gray-900">₹4,700</span>
-              </p>
-
-              {/* Desktop CTA */}
-              <div className="hidden md:flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
-                <Button 
-                  asChild
-                  size="lg"
-                  className="text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-300/50 px-10 py-7 rounded-2xl font-bold transition-all hover:scale-105"
-                >
-                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-6 h-6 mr-2" />
-                    Book on WhatsApp
-                  </a>
-                </Button>
-                <Button 
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="text-lg border-2 border-purple-300 text-purple-700 hover:bg-purple-50 px-10 py-7 rounded-2xl font-bold"
-                >
-                  <a href={`tel:${siteConfig.phone}`}>
-                    <Phone className="w-6 h-6 mr-2" />
-                    Call Us
-                  </a>
-                </Button>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="hidden md:flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-purple-100">
-                  <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
-                    <Shield className="w-4 h-4 text-white" />
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            {/* Trust Badge - Enhanced with Animation */}
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <div className="relative">
+                {/* Animated glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-purple-500 to-pink-500 rounded-full blur-md opacity-75 animate-pulse" />
+                <div className="relative bg-white px-6 py-3 rounded-full shadow-xl border-2 border-purple-200 flex items-center gap-2">
+                  <div className="flex items-center gap-0.5">
+                    {[1,2,3,4,5].map((star) => (
+                      <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
                   </div>
-                  <span className="font-medium text-gray-700">100% Safe Booking</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-purple-100">
-                  <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
-                    <Calendar className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="font-medium text-gray-700">Flexible Rescheduling</span>
+                  <span className="font-black text-purple-700 text-sm md:text-base">
+                    Rated <span className="text-yellow-600">4.9/5</span> by <span className="text-purple-600">1500+</span> Happy Couples
+                  </span>
+                  <span className="animate-bounce">💜</span>
                 </div>
               </div>
             </div>
 
-            {/* Booking Form */}
-            <div className="w-full lg:w-auto lg:flex-shrink-0 lg:min-w-[380px]">
-              <FFCBookingForm variant="sidebar" pageTitle="Book Now Landing Page" />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+              <span className="text-gray-900">Create </span>
+              <span className="text-purple-600">Unforgettable</span>
+              <br />
+              <span className="text-gray-900">Memories</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
+              Premium romantic celebrations in Vadodara&apos;s most beautiful rooftop & glass house venues. 
+              <span className="font-bold text-purple-600"> 8 stunning packages</span> starting from just <span className="font-bold text-gray-900">₹4,700</span>
+            </p>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <Button 
+                asChild
+                size="lg"
+                className="text-lg bg-green-500 hover:bg-green-600 text-white shadow-xl shadow-green-300/50 px-10 py-7 rounded-2xl font-bold transition-all hover:scale-105"
+              >
+                <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="w-6 h-6 mr-2" />
+                  Book on WhatsApp
+                </a>
+              </Button>
+              <Button 
+                asChild
+                size="lg"
+                className="text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-300/50 px-10 py-7 rounded-2xl font-bold transition-all hover:scale-105"
+              >
+                <a href={`tel:${siteConfig.phone}`}>
+                  <Phone className="w-6 h-6 mr-2" />
+                  Call Us
+                </a>
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="hidden md:flex flex-wrap items-center justify-center gap-4">
+              <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-purple-100">
+                <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-white" />
+                </div>
+                <span className="font-medium text-gray-700">100% Safe Booking</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-purple-100">
+                <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                  <Calendar className="w-4 h-4 text-white" />
+                </div>
+                <span className="font-medium text-gray-700">Flexible Rescheduling</span>
+              </div>
             </div>
           </div>
         </div>
@@ -841,7 +843,7 @@ export function BookNowLandingPage() {
             <Button 
               asChild
               size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white shadow-xl px-10 py-7 rounded-2xl font-bold text-lg"
+              className="bg-green-500 hover:bg-green-600 text-white shadow-xl px-10 py-7 rounded-2xl font-bold text-lg"
             >
               <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6 mr-2" />
@@ -899,8 +901,8 @@ export function BookNowLandingPage() {
               { icon: Heart, label: "Personalized Touch" },
             ].map((item, idx) => (
               <div key={idx} className="text-center group">
-                <div className="w-20 h-20 mx-auto rounded-3xl bg-purple-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
-                  <item.icon className="w-9 h-9 text-white" />
+                <div className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300" style={{ backgroundColor: '#7c3aed' }}>
+                  <item.icon className="w-9 h-9" style={{ color: '#ffffff' }} />
                 </div>
                 <p className="text-sm font-bold text-gray-800">{item.label}</p>
               </div>
@@ -1052,7 +1054,7 @@ export function BookNowLandingPage() {
               <Button 
                 asChild
                 size="lg"
-                className="text-lg bg-white text-purple-700 hover:bg-purple-50 shadow-2xl shadow-purple-900/30 px-10 py-7 rounded-2xl font-bold transition-all hover:scale-105"
+                className="text-lg bg-green-500 text-white hover:bg-green-600 shadow-2xl shadow-green-900/30 px-10 py-7 rounded-2xl font-bold transition-all hover:scale-105"
               >
                 <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-6 h-6 mr-2" />
@@ -1088,12 +1090,12 @@ export function BookNowLandingPage() {
         className="fixed bottom-6 right-6 z-50 group"
         aria-label="Book on WhatsApp"
       >
-        <div className="absolute -inset-1 bg-purple-400 rounded-full blur-md opacity-70 group-hover:opacity-100 animate-pulse" />
-        <div className="relative w-16 h-16 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110">
+        <div className="absolute -inset-1 bg-green-400 rounded-full blur-md opacity-70 group-hover:opacity-100 animate-pulse" />
+        <div className="relative w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110">
           <MessageCircle className="w-8 h-8 text-white" />
         </div>
-        <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-gray-800 px-4 py-2.5 rounded-xl shadow-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap border border-purple-100">
-          <span className="text-purple-600">Book Now!</span>
+        <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-gray-800 px-4 py-2.5 rounded-xl shadow-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap border border-green-200">
+          <span className="text-green-600">Book Now!</span>
         </span>
       </a>
     </div>
