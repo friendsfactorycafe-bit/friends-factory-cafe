@@ -1,105 +1,49 @@
 /**
- * FRIENDS FACTORY CAFE - SEO OPTIMIZED SITEMAP
+ * FRIENDS FACTORY CAFE - PAGINATED SITEMAP SYSTEM
  * Domain: friendsfactorycafe.com
  * 
- * Total Pages: 200+ including:
- * - 1 Homepage (priority 1.0)
- * - 7 Static pages (priority 0.8)
- * - 8 Service category pages (priority 0.9)
- * - 8 Package detail pages (priority 0.9) - with image sitemaps
- * - 120 Keyword pages (priority 0.85) - Main SEO pages
- * - 40 Vadodara Area pages (priority 0.8)
+ * Uses Next.js generateSitemaps() to create paginated sitemaps:
+ * - /sitemap/0.xml, /sitemap/1.xml, ... /sitemap/29.xml (up to 30 sitemaps)
+ * - /sitemap.xml (auto-generated sitemap index referencing all chunks)
+ * - Each sitemap contains max 100 URLs for optimal crawl efficiency
+ * - Auto-updates when new pages are added to ffc-config
  * 
- * Last Updated: February 2026
+ * Total Pages: 200+ and growing
  */
 
 import { MetadataRoute } from "next";
-import { 
-  serviceCategories, 
-  vadodaraAreas, 
-  packages
-} from "@/lib/ffc-config";
+import { getSitemapChunks, getSitemapCount } from "@/lib/seo-url-registry";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://friendsfactorycafe.com";
-  const currentDate = new Date().toISOString();
-  
-  const entries: MetadataRoute.Sitemap = [];
-  
-  // ==================== HOME PAGE ====================
-  entries.push({
-    url: baseUrl,
-    lastModified: currentDate,
-    changeFrequency: "daily",
-    priority: 1.0,
-  });
-  
-  // ==================== STATIC PAGES ====================
-  const staticPages = [
-    { path: '/about', priority: 0.8, freq: 'monthly' as const },
-    { path: '/contact', priority: 0.9, freq: 'monthly' as const },
-    { path: '/menu', priority: 0.8, freq: 'weekly' as const },
-    { path: '/packages', priority: 0.95, freq: 'weekly' as const },
-    { path: '/services', priority: 0.9, freq: 'weekly' as const },
-    { path: '/virtual-tour', priority: 0.7, freq: 'monthly' as const },
-    { path: '/areas', priority: 0.8, freq: 'weekly' as const },
-  ];
-  
-  staticPages.forEach((page) => {
-    entries.push({
-      url: `${baseUrl}${page.path}`,
-      lastModified: currentDate,
-      changeFrequency: page.freq,
-      priority: page.priority,
-    });
-  });
-  
-  // ==================== SERVICE CATEGORY PAGES ====================
-  serviceCategories.forEach((service) => {
-    entries.push({
-      url: `${baseUrl}/${service.slug}`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    });
-  });
-  
-  // ==================== PACKAGE DETAIL PAGES ====================
-  // High priority for conversions - includes image sitemap data
-  packages.forEach((pkg) => {
-    entries.push({
-      url: `${baseUrl}/packages/${pkg.slug}`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    });
-  });
-  
-  // ==================== KEYWORD PAGES (MAIN SEO) ====================
-  // 120 keyword pages (15 per service × 8 services)
-  // These are the main SEO landing pages targeting specific search queries
-  // URL Structure: /{keyword}
-  serviceCategories.forEach((service) => {
-    service.keywords.forEach((keyword) => {
-      entries.push({
-        url: `${baseUrl}/${keyword.slug}`,
-        lastModified: currentDate,
-        changeFrequency: "weekly",
-        priority: 0.85,
-      });
-    });
-  });
-  
-  // ==================== AREA PAGES ====================
-  // 40 Vadodara area pages for local SEO
-  vadodaraAreas.forEach((area) => {
-    entries.push({
-      url: `${baseUrl}/${area.slug}`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    });
-  });
-  
-  return entries;
+const URLS_PER_SITEMAP = 100;
+const MAX_SITEMAPS = 30;
+
+/**
+ * Generate sitemap index entries — Next.js calls this to create /sitemap.xml
+ * which references /sitemap/0.xml, /sitemap/1.xml, etc.
+ */
+export async function generateSitemaps() {
+  const count = Math.min(getSitemapCount(URLS_PER_SITEMAP), MAX_SITEMAPS);
+  return Array.from({ length: count }, (_, i) => ({ id: i }));
+}
+
+/**
+ * Generate individual sitemap for each chunk
+ * Next.js calls this for each id returned by generateSitemaps()
+ */
+export default async function sitemap({
+  id,
+}: {
+  id: number;
+}): Promise<MetadataRoute.Sitemap> {
+  const chunks = getSitemapChunks(URLS_PER_SITEMAP);
+  const chunk = chunks[id];
+
+  if (!chunk) return [];
+
+  return chunk.map((entry) => ({
+    url: entry.url,
+    lastModified: entry.lastModified,
+    changeFrequency: entry.changeFrequency,
+    priority: entry.priority,
+  }));
 }
