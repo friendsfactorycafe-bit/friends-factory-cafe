@@ -146,7 +146,7 @@ const sectionVariations = {
 
 **Delicious Food**: Our cafe-style menu features delicious offerings including cheese fondue, paneer tortilla, mac & cheese, and desserts. Your ${kw.toLowerCase()} includes carefully selected food items.
 
-**Celebration Cake**: Packages 1-3 include a complimentary celebration cake. For other packages, cakes are available at ₹500 additional.
+**Celebration Cake**: Packages 1-3 include a complimentary celebration cake. For other packages, cakes are available at ₹350 additional.
 
 **Ambient Music**: Soft romantic music plays throughout your ${kw.toLowerCase()}. You can request your favorite songs or let us curate the perfect playlist.
 
@@ -408,7 +408,7 @@ On the day, simply arrive at your scheduled time. Everything is ready – decora
 • Moonlit Memories Glass House - Magical lighting focus
 • Starlit Serenity Glass House - Peaceful, romantic ambiance
 
-Each ${kwLower} package includes 3 hours of private venue access, welcome drinks, delicious food menu, decorations, and soft music. Packages 1-3 include complimentary cake; others have cake available at ₹500.`
+Each ${kwLower} package includes 3 hours of private venue access, welcome drinks, delicious food menu, decorations, and soft music. Packages 1-3 include complimentary cake; others have cake available at ₹350.`
       }
     ];
   }
@@ -514,7 +514,7 @@ Each ${kwLower} package includes 3 hours of private venue access, welcome drinks
     },
     {
       question: `Can I bring my own cake for the ${kwLower}?`,
-      answer: `Yes, you can bring your own cake. Note that packages 1-3 already include a complimentary celebration cake. For other packages, cakes are available at ₹500.`
+      answer: `Yes, you can bring your own cake. Note that packages 1-3 already include a complimentary celebration cake. For other packages, cakes are available at ₹350.`
     },
     {
       question: `What is the cancellation policy for ${kwLower} bookings?`,

@@ -34,13 +34,13 @@ const serviceCategoryContent: Record<string, {
     whyChooseUs: [
       { title: "100% Private Rooftop", description: "Exclusive celebration space just for you two - no other guests, complete privacy", icon: "🏠" },
       { title: "Stunning Decorations", description: "Balloon arches, flower arrangements, fairy lights & personalized photo frames", icon: "🎈" },
-      { title: "Complimentary Cake", description: "Delicious celebration cake included in all our birthday packages", icon: "🎂" },
+      { title: "Complimentary Cake", description: "Delicious celebration cake included in select birthday packages", icon: "🎂" },
       { title: "Flexible Timing", description: "Celebrate anytime - we even offer midnight birthday surprises at 12 AM", icon: "🌙" }
     ],
     highlights: [
       "Private rooftop venue with stunning city views",
       "Customizable balloon & flower decorations",
-      "Complimentary birthday cake with personalized message",
+      "Complimentary birthday cake with personalized message (select packages)",
       "Romantic candlelight ambiance",
       "Soft background music of your choice",
       "3 hours of exclusive celebration time",
@@ -55,7 +55,7 @@ const serviceCategoryContent: Record<string, {
     ],
     faqs: [
       { question: "Can I book a midnight birthday surprise?", answer: "Absolutely! We specialize in midnight birthday surprises. Book the 11 PM - 2 AM slot and celebrate as the clock strikes 12. We'll have everything perfectly set up for the big reveal." },
-      { question: "Is the birthday cake included?", answer: "Yes! All our birthday packages include a complimentary celebration cake. You can also upgrade to a premium cake or bring your own custom cake if you prefer." },
+      { question: "Is the birthday cake included?", answer: "Select birthday packages (Setup 1-3) include a complimentary celebration cake. For other packages, you can add a cake for just ₹350. You can also bring your own custom cake if you prefer." },
       { question: "Can I customize the decorations?", answer: "Of course! While each package comes with a beautiful standard setup, we can customize colors, add extra balloons, include photos, or create themed decorations based on your requirements." },
       { question: "How far in advance should I book?", answer: "We recommend booking at least 2-3 days in advance for weekends. However, we do accommodate last-minute bookings based on availability - just give us a call!" },
       { question: "Can I bring additional guests?", answer: "Our setups are designed for couples (2 people) to maintain the intimate, romantic atmosphere. For group celebrations, please contact us for special arrangements." }

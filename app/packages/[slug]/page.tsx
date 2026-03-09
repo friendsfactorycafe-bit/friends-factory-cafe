@@ -197,7 +197,7 @@ function PackageJsonLd({ slug }: { slug: string }) {
             name: `How much does the ${pkg.name} package cost?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `The ${pkg.name} package is priced at ₹${pkg.price.toLocaleString('en-IN')}. ${pkg.cakeIncluded ? 'A complimentary celebration cake is included.' : 'Celebration cake is available at ₹500 extra.'}`,
+              text: `The ${pkg.name} package is priced at ₹${pkg.price.toLocaleString('en-IN')}. ${pkg.cakeIncluded ? 'A complimentary celebration cake is included.' : 'Celebration cake is available at ₹350 extra.'}`,
             },
           },
           {

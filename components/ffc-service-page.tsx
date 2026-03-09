@@ -274,7 +274,7 @@ export default function FFCServicePage({ service }: ServicePageProps) {
               },
               {
                 question: `What is included in the ${service.name.toLowerCase()} package?`,
-                answer: "Our packages include 3 hours of private celebration, welcome drink, celebration cake, romantic decorations, comfortable seating, and soft music."
+                answer: "Our packages include 3 hours of private celebration, welcome drink, romantic decorations, comfortable seating, and soft music. Select packages include a complimentary celebration cake."
               },
               {
                 question: "Is the venue completely private?",

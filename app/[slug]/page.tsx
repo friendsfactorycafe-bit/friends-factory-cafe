@@ -228,7 +228,7 @@ function generateServiceCategorySchema(service: ServiceCategory) {
   const defaultFaqs = [
     {
       question: `What ${service.name.toLowerCase()} services does Friends Factory Cafe offer?`,
-      answer: `Friends Factory Cafe offers premium ${service.name.toLowerCase()} services in Vadodara including private rooftop celebrations, stunning decorations, complimentary cake, romantic ambiance with fairy lights & candles, and packages starting from ₹${formatPrice(4700).replace('₹', '')}.`
+      answer: `Friends Factory Cafe offers premium ${service.name.toLowerCase()} services in Vadodara including private rooftop celebrations, stunning decorations, romantic ambiance with fairy lights & candles, and packages starting from ₹${formatPrice(4700).replace('₹', '')}.`
     },
     {
       question: `How do I book a ${service.name.toLowerCase()} at Friends Factory Cafe?`,
@@ -236,7 +236,7 @@ function generateServiceCategorySchema(service: ServiceCategory) {
     },
     {
       question: `What is included in your ${service.name.toLowerCase()} packages?`,
-      answer: `All packages include private venue access, themed decorations, complimentary cake, welcome drinks, snacks, background music of your choice, and 3 hours of exclusive celebration time. Prices range from ₹4,700 to ₹6,900.`
+      answer: `All packages include private venue access, themed decorations, welcome drinks, snacks, background music of your choice, and 3 hours of exclusive celebration time. Select packages include complimentary cake. Prices range from ₹4,700 to ₹6,900.`
     },
     {
       question: `Is the ${service.name.toLowerCase()} venue private?`,

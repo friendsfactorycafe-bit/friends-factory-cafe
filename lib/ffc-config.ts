@@ -297,7 +297,7 @@ A peaceful, candle-kissed setting perfect for romantic proposals, anniversary di
 
 • Elegant Welcome Treats 🥂🍰
 Delight in hand-picked refreshments and curated treats, ideal for special moments and heartfelt announcements 🎉
-💡 Celebration Cake available at extra cost (₹500)
+💡 Celebration Cake available at extra cost (₹350)
 
 • Dreamy Moonlight Décor ✨💡
 Soft drapes, glowing lights, and subtle romantic details create a stunning backdrop for pre-wedding shoots and timeless photos 📸
@@ -321,7 +321,7 @@ Romantic Proposal Vadodara | Anniversary Dinner | Candlelight Dinner for Couples
       "Candle Pathway & Romantic Seating 🕯️",
       "Panoramic Skyline Views & Starlit Ambiance 🌆",
       "Gentle Music & Delicious Snacks 🎶",
-      "Celebration Cake available (+₹500) 🍰"
+      "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Romantic Proposal", "Anniversary Dinner", "Candlelight Dinner", "Surprise Date Night", "Pre-Wedding Photoshoot", "Baby Moments"],
     thumbnail: "/packages/5100/Cover.webp",
@@ -356,7 +356,7 @@ Perfect for Birthday Surprises, Anniversary Celebrations, Romantic Proposals & C
 
 • Curated Treats with Welcome Drink 🥂
 Ideal for special occasions and heartfelt celebrations
-💡 Celebration Cake available at extra cost (₹500) 🍰
+💡 Celebration Cake available at extra cost (₹350) 🍰
 
 • Festive Tent Setup with elegant curtains, balloons 🎈 & twinkling lights 💡
 A dreamy backdrop for Pre-Wedding Shoots, Proposals & Romantic Moments 📸
@@ -381,7 +381,7 @@ Birthday Surprise Vadodara | Anniversary Celebration | Romantic Proposal | Candl
       "Candle-Lit Seating with premium props 🕯️",
       "Panoramic Skyline Views of Vadodara 🌅",
       "Delicious Snacks & Joyful Music 🎶",
-      "Celebration Cake available (+₹500) 🍰"
+      "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Birthday Surprise", "Anniversary Celebration", "Romantic Proposal", "Candlelight Dinner", "Surprise Party", "Pre-Wedding Photoshoot", "Baby Moments"],
     thumbnail: "/packages/thumbnails/the-promise-creative-area.webp",
@@ -418,7 +418,7 @@ An intimate and peaceful setting, ideal for anniversary surprises, romantic prop
 
 • Warm Welcome with Curated Treats 🥂🍰
 Thoughtfully arranged refreshments, perfect for baby moments, pregnancy announcements, and special occasions 🎉
-💡 Celebration Cake available at extra cost (₹500)
+💡 Celebration Cake available at extra cost (₹350)
 
 • Elegant Glass Décor & Soft Lighting 💡🌿
 Minimal yet romantic décor with glowing lights creates a stunning atmosphere for pre-wedding shoots and timeless photographs 📸
@@ -442,7 +442,7 @@ Birthday Celebration Vadodara | Anniversary Surprise | Romantic Proposal | Candl
       "Flower Arrangements & Candle Setup 🌸",
       "Soft Lighting & Instagram-worthy Spots 📸",
       "Delicious Snacks & Soothing Music 🎶",
-      "Celebration Cake available (+₹500) 🍰"
+      "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Birthday Celebration", "Anniversary Surprise", "Romantic Proposal", "Candlelight Dinner", "Surprise Party", "Pre-Wedding Photoshoot", "Baby Moments"],
     thumbnail: "/packages/thumbnails/timeless-bond-glass-house.webp",
@@ -481,7 +481,7 @@ A delightful, intimate space perfect for birthday surprises, anniversary dinners
 
 • Curated Treats & Welcome Drink 🥂🍰
 Enjoy handpicked refreshments, ideal for baby moments, pregnancy announcements, and special celebrations 🎉
-💡 Celebration Cake available at extra cost (₹500)
+💡 Celebration Cake available at extra cost (₹350)
 
 • Romantic & Cozy Décor 💡🌸
 Soft lighting, elegant décor, and thoughtful details create a perfect backdrop for pre-wedding shoots and picture-perfect moments 📸
@@ -505,7 +505,7 @@ Birthday Surprise Vadodara | Anniversary Dinner | Romantic Proposal | Candleligh
       "Balloon Arrangements & Romantic Props 🎈",
       "Candle-Lit Seating & Cozy Corners 🕯️",
       "Delicious Snacks & Gentle Music 🎶",
-      "Celebration Cake available (+₹500) 🍰"
+      "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Birthday Surprise", "Anniversary Dinner", "Romantic Proposal", "Candlelight Dinner", "Surprise Date", "Pre-Wedding Photoshoot", "Baby Moments"],
     thumbnail: "/packages/thumbnails/sweet-together-glass-house.webp",
@@ -543,7 +543,7 @@ A peaceful and intimate setting, perfect for anniversary celebrations, romantic 
 
 • Warm Welcome with Curated Treats 🥂🍰
 Delightful refreshments, ideal for baby moments, pregnancy announcements, and joyful occasions 🎉
-💡 Celebration Cake available at extra cost (₹500)
+💡 Celebration Cake available at extra cost (₹350)
 
 • Minimal Romantic Décor with Soft Lights 💡🌿
 A clean, elegant setup that enhances emotions and creates a stunning backdrop for pre-wedding shoots and timeless photos 📸
@@ -567,7 +567,7 @@ Birthday Surprise Vadodara | Anniversary Celebration | Romantic Proposal | Candl
       "Rose Petals & Candle Pathway 🌹",
       "Minimal Romantic Décor & Soft Lights 💡",
       "Delicious Snacks & Gentle Music 🎶",
-      "Celebration Cake available (+₹500) 🍰"
+      "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Birthday Surprise", "Anniversary Celebration", "Romantic Proposal", "Candlelight Dinner", "Surprise Party", "Pre-Wedding Photoshoot", "Baby Moments"],
     thumbnail: "/packages/thumbnails/pure-love-glass-house.webp",
@@ -590,17 +590,19 @@ Birthday Surprise Vadodara | Anniversary Celebration | Romantic Proposal | Candl
 // ==================== MENU ITEMS ====================
 export const menuItems = {
   starters: [
-    { name: "Welcome Drink", description: "A chilled sip that says 'tonight is special'", emoji: "🥤" },
+    { name: "Mojito Welcome Drink", description: "A refreshing mojito sip that says 'tonight is special'", emoji: "🍹" },
     { name: "Cheese Fondue", description: "Rich, melting cheese with crispy cheese balls, golden wedges & crunchy nachos", emoji: "🧀" },
     { name: "Paneer Tortilla", description: "Soft, warm tortilla hugging spicy paneer with the chef's secret seasoning", emoji: "🌯" },
     { name: "Peri Peri Fries with Mac & Cheese", description: "Smoky peri-peri fries dipped in velvety, creamy mac & cheese", emoji: "🍟" },
-    { name: "Tangy Loaf", description: "Warm, toasty loaf drizzled with gooey cheesy garlic sauce", emoji: "🍞" }
+    { name: "Tangy Loaf", description: "Warm, toasty loaf drizzled with gooey cheesy garlic sauce", emoji: "🍞" },
+    { name: "Unlimited Cold Drink", description: "Unlimited refreshing cold drinks throughout your celebration", emoji: "🥤" },
   ],
   desserts: [
-    { name: "Dessert with Chocolate Bite", description: "A silky, melt-in-your-mouth chocolate ending to a perfect evening", emoji: "🍫" }
+    { name: "Dessert with Chocolate Bite", description: "A silky, melt-in-your-mouth chocolate ending to a perfect evening", emoji: "🍫" },
+    { name: "Mineral Water", description: "Pure, refreshing mineral water for your comfort", emoji: "💧" },
   ],
   addOns: [
-    { name: "Celebration Cake", description: "A beautifully crafted cake to sweeten the moment", price: "Free", emoji: "🍰" },
+    { name: "Celebration Cake", description: "A beautifully crafted cake to sweeten the moment", price: "₹350", emoji: "🍰" },
     { name: "Bubbly Champagne", description: "Non-alcoholic fruit fizz — pop, pour & toast to love", price: "₹500", emoji: "🥂" }
   ]
 };

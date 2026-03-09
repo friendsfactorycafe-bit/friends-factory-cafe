@@ -85,7 +85,7 @@ export default function FFCMenuPage() {
           <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold font-serif mb-2">🎁 What You Will Get</h2>
-              <p className="text-gray-600">Cake & Champagne included</p>
+              <p className="text-gray-600">Cake & Champagne available</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">

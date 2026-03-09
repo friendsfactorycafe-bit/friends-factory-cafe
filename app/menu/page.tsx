@@ -46,7 +46,7 @@ const jsonLd = {
           {
             "@type": "MenuSection",
             "name": "Desserts",
-            "description": "Sweet treats including complimentary celebration cake"
+            "description": "Sweet treats including celebration cake"
           }
         ]
       },

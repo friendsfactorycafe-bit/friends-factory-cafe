@@ -126,8 +126,8 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
-                <h4 className="font-semibold text-amber-800 mb-1">🥤 Welcome Drink</h4>
-                <p className="text-gray-600 text-sm">A refreshing welcome to begin your romantic experience</p>
+                <h4 className="font-semibold text-amber-800 mb-1">🍹 Mojito Welcome Drink</h4>
+                <p className="text-gray-600 text-sm">A refreshing mojito sip to begin your romantic experience</p>
               </div>
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
                 <h4 className="font-semibold text-amber-800 mb-1">🧀 Cheese Fondue</h4>
@@ -135,7 +135,7 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
               </div>
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
                 <h4 className="font-semibold text-amber-800 mb-1">🌯 Paneer Tortilla</h4>
-                <p className="text-gray-600 text-sm">Soft tortilla filled with spicy paneer and chef's special seasoning</p>
+                <p className="text-gray-600 text-sm">Soft tortilla filled with spicy paneer and chef&apos;s special seasoning</p>
               </div>
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
                 <h4 className="font-semibold text-amber-800 mb-1">🍟 Peri Peri Fries with Mac & Cheese</h4>
@@ -146,8 +146,16 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
                 <p className="text-gray-600 text-sm">Warm loaf served with cheesy garlic sauce</p>
               </div>
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
+                <h4 className="font-semibold text-amber-800 mb-1">🥤 Unlimited Cold Drink</h4>
+                <p className="text-gray-600 text-sm">Unlimited refreshing cold drinks throughout your celebration</p>
+              </div>
+              <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
                 <h4 className="font-semibold text-amber-800 mb-1">🍫 Dessert with Chocolate Bite</h4>
                 <p className="text-gray-600 text-sm">A sweet ending with rich chocolate indulgence</p>
+              </div>
+              <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
+                <h4 className="font-semibold text-amber-800 mb-1">💧 Mineral Water</h4>
+                <p className="text-gray-600 text-sm">Pure, refreshing mineral water for your comfort</p>
               </div>
             </div>
 
@@ -162,7 +170,7 @@ export default function FFCPackageDetailPage({ package: pkg }: PackageDetailPage
                   </>
                 ) : (
                   <>
-                    <p className="text-amber-700 text-sm md:text-base"><strong>Cake:</strong> ₹500/- (Extra Cost)</p>
+                    <p className="text-amber-700 text-sm md:text-base"><strong>Cake:</strong> ₹350/- (Extra Cost)</p>
                     <p className="text-gray-700 text-sm md:text-base mt-1"><strong>Champagne:</strong> ₹500/- (Non-Alcoholic Fruit Flavour)</p>
                   </>
                 )}

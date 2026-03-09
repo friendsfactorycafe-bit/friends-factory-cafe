@@ -130,7 +130,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                   <div className="grid md:grid-cols-2 gap-3">
                     {(hasUniqueContent ? handcraftedContent!.features : [
                       "3 Mesmerizing Hours of Private Celebration",
-                      "Welcome Drink & Celebration Cake",
+                      "Welcome Drink & Celebration Cake (select packages)",
                       "Romantic Decorations & Setup",
                       "Candle-Lit Ambiance",
                       "Soft Romantic Music",

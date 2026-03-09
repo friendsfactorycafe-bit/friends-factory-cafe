@@ -108,7 +108,7 @@ const faqs = [
   },
   {
     question: "What's included in every package?",
-    answer: "3 uninterrupted hours in your own private world — dreamy decorations, a welcome drink to set the mood, handpicked snacks, soft romantic music, and an ambiance that makes you forget the world exists. Some packages come with a celebration cake on the house; others let you add one for just ₹500."
+    answer: "3 uninterrupted hours in your own private world — dreamy decorations, a welcome drink to set the mood, handpicked snacks, soft romantic music, and an ambiance that makes you forget the world exists. Some packages come with a celebration cake on the house; others let you add one for just ₹350."
   },
   {
     question: "Can I customize the setup?",

@@ -26,7 +26,7 @@ const experienceFeatures = [
   {
     icon: Gift,
     title: "Cake & Champagne",
-    description: "Complimentary cake & non-alcoholic champagne (₹500)"
+    description: "Complimentary cake (select packages) & non-alcoholic champagne (₹500)"
   },
   {
     icon: Camera,
@@ -608,8 +608,8 @@ export default function FFCHomePage() {
                     <Wine className="h-5 w-5 text-amber-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Welcome Drink</h4>
-                    <p className="text-gray-400 text-sm">A refreshing welcome to begin your romantic experience</p>
+                    <h4 className="font-semibold">Mojito Welcome Drink</h4>
+                    <p className="text-gray-400 text-sm">A refreshing mojito sip to begin your romantic experience</p>
                   </div>
                 </div>
                 
@@ -622,6 +622,46 @@ export default function FFCHomePage() {
                     <p className="text-gray-400 text-sm">Rich, velvety cheese fondue with cheese balls, wedges & nachos</p>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <Utensils className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Paneer Tortilla</h4>
+                    <p className="text-gray-400 text-sm">Soft tortilla hugging spicy paneer with chef&apos;s secret seasoning</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <Utensils className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Peri Peri Fries with Mac & Cheese</h4>
+                    <p className="text-gray-400 text-sm">Smoky peri-peri fries dipped in velvety, creamy mac & cheese</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <Utensils className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Tangy Loaf</h4>
+                    <p className="text-gray-400 text-sm">Warm, toasty loaf drizzled with gooey cheesy garlic sauce</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <Wine className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Unlimited Cold Drink</h4>
+                    <p className="text-gray-400 text-sm">Unlimited refreshing cold drinks throughout your celebration</p>
+                  </div>
+                </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
@@ -630,6 +670,16 @@ export default function FFCHomePage() {
                   <div>
                     <h4 className="font-semibold">Dessert with Chocolate Bite</h4>
                     <p className="text-gray-400 text-sm">A sweet ending with rich chocolate indulgence</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <Wine className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Mineral Water</h4>
+                    <p className="text-gray-400 text-sm">Pure, refreshing mineral water for your comfort</p>
                   </div>
                 </div>
               </div>

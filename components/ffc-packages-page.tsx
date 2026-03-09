@@ -84,7 +84,7 @@ export default function FFCPackagesPage() {
             {[
               { icon: "🕐", title: "3 Hours Private Time", desc: "Exclusive private celebration" },
               { icon: "🥂", title: "Welcome Drink", desc: "Refreshing start to your evening" },
-              { icon: "🍰", title: "Celebration Cake", desc: "Complimentary cake included" },
+              { icon: "🍰", title: "Celebration Cake", desc: "Complimentary cake in select packages" },
               { icon: "🎶", title: "Romantic Music", desc: "Soft melodies throughout" },
               { icon: "🕯️", title: "Candle Setup", desc: "Warm candlelight ambiance" },
               { icon: "🎈", title: "Decorations", desc: "Beautiful thematic decor" },
