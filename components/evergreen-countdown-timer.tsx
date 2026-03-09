@@ -90,10 +90,11 @@ export function EvergreenCountdownTimer() {
 
   return (
     <div className="fixed top-20 right-3 z-50 animate-slide-in-right">
-      {/* Liquid purple background effect - subtle glow */}
-      <div className="absolute -inset-2 bg-gradient-to-br from-purple-400/20 via-purple-500/15 to-purple-400/20 rounded-2xl blur-xl animate-pulse" />
+      {/* Liquid purple background effect - translucent with flowing glow */}
+      <div className="absolute -inset-3 bg-gradient-to-br from-purple-400/30 via-purple-500/20 to-purple-400/30 rounded-3xl blur-2xl animate-pulse" />
+      <div className="absolute -inset-1 bg-gradient-to-tr from-purple-300/15 via-transparent to-purple-400/15 rounded-2xl blur-lg animate-[pulse_3s_ease-in-out_infinite]" />
       
-      <div className="relative bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl shadow-lg p-2.5 max-w-[180px]">
+      <div className="relative bg-gradient-to-r from-purple-600/85 to-purple-700/85 backdrop-blur-md rounded-xl shadow-lg p-2.5 max-w-[180px] border border-purple-400/20">
         {/* Animated background sparkles */}
         <div className="absolute inset-0 overflow-hidden rounded-xl">
           <div className="absolute top-1 left-2 w-0.5 h-0.5 bg-white/40 rounded-full animate-twinkle" />
@@ -109,8 +110,8 @@ export function EvergreenCountdownTimer() {
               <Sparkles className="w-2.5 h-2.5 text-yellow-300" />
             </div>
             <div>
-              <p className="text-white font-bold text-[10px] leading-tight">🎉 Limited Offer!</p>
-              <p className="text-white/80 text-[8px]">Extra 10% OFF</p>
+              <p className="text-white/80 font-medium text-[8px] leading-tight">🎉 Limited Offer!</p>
+              <p className="text-white font-black text-[13px] leading-tight">Extra 10% OFF</p>
             </div>
           </div>
 
@@ -135,16 +136,6 @@ export function EvergreenCountdownTimer() {
               </div>
             </div>
           </div>
-
-          {/* CTA */}
-          <a
-            href="https://wa.me/917487888730?text=Hi!%20I%20want%20to%20avail%20the%20special%20offer%20on%20Friends%20Factory%20Cafe%20packages."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block mt-2 bg-yellow-400 hover:bg-yellow-300 text-purple-800 font-bold text-[10px] py-1.5 px-2 rounded-lg text-center transition-all hover:scale-105 shadow-md"
-          >
-            🔥 Claim Now
-          </a>
         </div>
       </div>
     </div>

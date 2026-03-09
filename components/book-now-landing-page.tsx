@@ -128,7 +128,7 @@ const faqs = [
   },
   {
     question: "What's your cancellation policy?",
-    answer: "Cancellations made 48 hours before the booking get a full refund. Within 24-48 hours, 50% is refunded. Last-minute cancellations within 24 hours are non-refundable but can be rescheduled subject to availability."
+    answer: "We don't provide refunds, but you can reschedule your booking to any available date within the next 30 days. Just inform our team at least 24 hours before your original booking, and we'll help you pick a new slot."
   },
   {
     question: "Is photography allowed?",
@@ -544,51 +544,40 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
           </div>
 
           {/* Description */}
-          <p className="text-gray-600 text-lg leading-relaxed mb-7">{pkg.shortDescription}</p>
+          <p className="text-gray-600 text-lg leading-relaxed mb-5">{pkg.shortDescription}</p>
 
-          {/* Features Grid - Enhanced */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-7">
+          {/* Features Grid - Compact */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-5">
             {pkg.features.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-3 bg-purple-50 p-3 rounded-xl border border-purple-100">
-                <div className="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 shadow-md">
-                  <Check className="w-4 h-4 text-white" />
+              <div key={idx} className="flex items-center gap-2 bg-purple-50 px-2.5 py-1.5 rounded-lg border border-purple-100">
+                <div className="w-4 h-4 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-2.5 h-2.5 text-white" />
                 </div>
-                <span className="text-sm text-gray-700 font-medium">{feature.replace(/[✨🍰🥂🎈💡🕯️🌆🎶🌙🤍🌸💞]/g, '').trim()}</span>
+                <span className="text-xs text-gray-700 font-medium leading-tight">{feature.replace(/[✨🍰🥂🎈💡🕯️🌆🎶🌙🤍🌸💞📸]/g, '').trim()}</span>
               </div>
             ))}
           </div>
 
-          {/* Perfect For - Enhanced */}
-          <div className="mb-8">
-            <p className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Perfect For:</p>
-            <div className="flex flex-wrap gap-2">
+          {/* Perfect For - Compact Tags */}
+          <div className="mb-5">
+            <p className="text-[10px] font-bold text-gray-500 mb-1.5 uppercase tracking-wider">Perfect For:</p>
+            <div className="flex flex-wrap gap-1">
               {pkg.perfectFor.map((tag, idx) => (
-                <span key={idx} className="text-sm font-medium px-4 py-2 rounded-full bg-purple-100 text-purple-700 border border-purple-300 shadow-sm hover:bg-purple-200 hover:shadow-md transition-all cursor-default">
+                <span key={idx} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-100 text-purple-600 border border-purple-200">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* CTA Buttons - Enhanced */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          {/* CTA Button */}
+          <div>
             <Button 
               onClick={() => setShowBookingPopup(true)}
-              size="lg"
-              className="flex-1 bg-gradient-to-r from-green-500 to-green-800 hover:from-green-600 hover:to-green-900 text-white shadow-xl shadow-green-700/50 text-lg py-7 rounded-2xl font-bold transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-green-800/40 animate-[pulse_2s_ease-in-out_infinite]"
+              className="w-full bg-gradient-to-r from-green-500 to-green-800 hover:from-green-600 hover:to-green-900 text-white shadow-xl shadow-green-700/50 text-base py-3 rounded-xl font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-800/40"
             >
-              <Calendar className="w-6 h-6 mr-2 animate-bounce" />
-              Lock Your Date
-            </Button>
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg"
-              className={`border-2 border-purple-300 text-purple-700 hover:bg-purple-50 rounded-2xl font-semibold py-7`}
-            >
-              <Link href={`/packages/${pkg.slug}`}>
-                View Details <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Message on WhatsApp
             </Button>
           </div>
         </div>
@@ -715,7 +704,7 @@ export function BookNowLandingPage() {
                     ))}
                   </div>
                   <span className="font-black text-purple-700 text-sm md:text-base">
-                    Rated <span className="text-yellow-600">4.9/5</span> by <span className="text-purple-600">1500+</span> Happy Couples
+                    Trusted by <span className="text-purple-600">1500+</span> couples who felt the butterflies
                   </span>
                   <span className="animate-bounce">💜</span>
                 </div>
@@ -723,15 +712,17 @@ export function BookNowLandingPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-              <span className="text-gray-900">Create </span>
-              <span className="text-purple-600">Unforgettable</span>
+              <span className="text-gray-900">Feel the </span>
+              <span className="text-purple-600">Warmth</span>
+              <span className="text-gray-900"> of</span>
               <br />
-              <span className="text-gray-900">Memories</span>
+              <span className="text-gray-900">Being </span>
+              <span className="text-purple-600">Deeply Loved</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
-              Premium romantic celebrations in Vadodara&apos;s most beautiful rooftop & glass house venues. 
-              <span className="font-bold text-purple-600"> 8 stunning packages</span> starting from just <span className="font-bold text-gray-900">₹4,700</span>
+              Soft fairy lights, whispering music, breathtaking rooftop views &mdash; a private world made just for two. 
+              <span className="font-bold text-purple-600"> 8 dreamy setups</span> starting at just <span className="font-bold text-gray-900">₹4,700</span>
             </p>
 
             {/* Desktop CTA */}
@@ -764,13 +755,13 @@ export function BookNowLandingPage() {
                 <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
                   <Shield className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-medium text-gray-700">100% Safe Booking</span>
+                <span className="font-medium text-gray-700">Zero Stress Booking</span>
               </div>
               <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-purple-100">
                 <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
                   <Calendar className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-medium text-gray-700">Flexible Rescheduling</span>
+                <span className="font-medium text-gray-700">Reschedule Anytime</span>
               </div>
             </div>
           </div>
@@ -778,34 +769,34 @@ export function BookNowLandingPage() {
       </section>
 
       {/* Social Proof Bar - Enhanced */}
-      <section className="py-5 bg-purple-600 relative overflow-hidden">
+      <section className="py-3 md:py-5 bg-purple-600 relative overflow-hidden">
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 text-white">
-            <div className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Users className="w-6 h-6" />
+          <div className="grid grid-cols-3 md:flex md:flex-wrap items-center justify-center gap-2 md:gap-16 text-white">
+            <div className="flex flex-col md:flex-row items-center gap-1 md:gap-3 group text-center md:text-left">
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Users className="w-4 h-4 md:w-6 md:h-6" />
               </div>
               <div>
-                <span className="font-black text-2xl">2000+</span>
-                <p className="text-white/80 text-sm">Happy Celebrations</p>
+                <span className="font-black text-base md:text-2xl">2000+</span>
+                <p className="text-white/80 text-[10px] md:text-sm leading-tight">Hearts Touched</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Star className="w-6 h-6 fill-white" />
+            <div className="flex flex-col md:flex-row items-center gap-1 md:gap-3 group text-center md:text-left">
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Star className="w-4 h-4 md:w-6 md:h-6 fill-white" />
               </div>
               <div>
-                <span className="font-black text-2xl">4.9</span>
-                <p className="text-white/80 text-sm">Average Rating</p>
+                <span className="font-black text-base md:text-2xl">4.9</span>
+                <p className="text-white/80 text-[10px] md:text-sm leading-tight">Pure Love Rating</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Heart className="w-6 h-6 fill-white" />
+            <div className="flex flex-col md:flex-row items-center gap-1 md:gap-3 group text-center md:text-left">
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Heart className="w-4 h-4 md:w-6 md:h-6 fill-white" />
               </div>
               <div>
-                <span className="font-black text-2xl">50+</span>
-                <p className="text-white/80 text-sm">Proposals Said YES!</p>
+                <span className="font-black text-base md:text-2xl">50+</span>
+                <p className="text-white/80 text-[10px] md:text-sm leading-tight">She Said YES! 💍</p>
               </div>
             </div>
           </div>
@@ -817,16 +808,19 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-6 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 text-sm shadow-sm">
-              <Sparkles className="w-4 h-4 mr-2" /> 8 Premium Packages
+              <Sparkles className="w-4 h-4 mr-2" /> 8 Irresistible Setups
             </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-              <span className="text-gray-900">Choose Your </span>
-              <span className="text-purple-600">Perfect</span>
-              <span className="text-gray-900"> Celebration</span>
+              <span className="text-gray-900">Pick the </span>
+              <span className="text-purple-600">Vibe</span>
+              <span className="text-gray-900"> That Melts</span>
+              <br />
+              <span className="text-gray-900">Their </span>
+              <span className="text-purple-600">Heart</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              From rooftop celebrations under the stars to intimate glass house experiences. 
-              Every package includes <span className="font-bold text-purple-600">3 hours</span>, decorations, snacks & unforgettable memories.
+              Starlit rooftop or cozy glass house &mdash; candles flickering, petals scattered, music playing softly. 
+              <span className="font-bold text-purple-600">3 intimate hours</span> of pure romance, snacks & memories that linger forever.
             </p>
           </div>
 
@@ -839,7 +833,7 @@ export function BookNowLandingPage() {
 
           {/* Bottom CTA - Enhanced */}
           <div className="text-center mt-16 bg-purple-50 rounded-3xl p-10 shadow-inner border border-purple-100">
-            <p className="text-xl text-gray-700 mb-6 font-medium">Not sure which package to choose?</p>
+            <p className="text-xl text-gray-700 mb-6 font-medium">Can&apos;t decide? Tell us your vibe &mdash; we&apos;ll match the perfect setup 💜</p>
             <Button 
               asChild
               size="lg"
@@ -847,7 +841,7 @@ export function BookNowLandingPage() {
             >
               <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6 mr-2" />
-                Chat with us for recommendations
+                Let&apos;s Plan Together
               </a>
             </Button>
           </div>
@@ -862,15 +856,16 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-12">
             <Badge className="mb-6 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 text-sm shadow-sm">
-              <Camera className="w-4 h-4 mr-2" /> Real Celebrations
+              <Camera className="w-4 h-4 mr-2" /> Real Love Stories
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              <span className="text-gray-900">See The </span>
-              <span className="text-purple-600">Magic</span>
-              <span className="text-gray-900"> Yourself</span>
+              <span className="text-gray-900">Every Photo </span>
+              <span className="text-purple-600">Whispers</span>
+              <br />
+              <span className="text-gray-900">a Love Story</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Swipe through real photos from actual celebrations. These memories were created right here at Friends Factory.
+              Real couples. Real goosebumps. Real tears of joy. Swipe through moments that gave us chills too.
             </p>
           </div>
 
@@ -883,22 +878,25 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge className="mb-6 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 text-sm shadow-sm">
-              <Gift className="w-4 h-4 mr-2" /> Everything Included
+              <Gift className="w-4 h-4 mr-2" /> All Wrapped in Love
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              <span className="text-gray-900">What </span>
-              <span className="text-purple-600">You Get</span>
+              <span className="text-gray-900">You Bring the </span>
+              <span className="text-purple-600">Love</span>
+              <br />
+              <span className="text-gray-900">We Handle </span>
+              <span className="text-purple-600">Everything</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              { icon: Clock, label: "3 Hours Private Time" },
-              { icon: Sparkles, label: "Premium Decorations" },
-              { icon: Utensils, label: "Delicious Snacks" },
-              { icon: Music, label: "Romantic Music" },
-              { icon: Camera, label: "Photo-Ready Setup" },
-              { icon: Heart, label: "Personalized Touch" },
+              { icon: Clock, label: "3 Hours of Just Us" },
+              { icon: Sparkles, label: "Dreamy Décor & Glow" },
+              { icon: Utensils, label: "Handpicked Bites" },
+              { icon: Music, label: "Soul-Stirring Music" },
+              { icon: Camera, label: "Insta-Worthy Spots" },
+              { icon: Heart, label: "Touches That Melt" },
             ].map((item, idx) => (
               <div key={idx} className="text-center group">
                 <div className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300" style={{ backgroundColor: '#7c3aed' }}>
@@ -911,12 +909,35 @@ export function BookNowLandingPage() {
 
           {/* Menu Preview - Enhanced */}
           <div className="mt-16 relative">
-            <div className="relative bg-purple-50 rounded-3xl p-10 text-center border border-purple-200 shadow-xl">
-              <h3 className="text-2xl font-black text-purple-700 mb-8">Delicious Menu Included</h3>
-              <div className="flex flex-wrap justify-center gap-4">
+            <div className="relative bg-purple-50 rounded-3xl p-8 md:p-10 text-center border border-purple-200 shadow-xl">
+              <h3 className="text-2xl font-black text-purple-700 mb-6">Cravings, Covered ❤️</h3>
+              
+              {/* Starters */}
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">🍽️ Starters & Snacks</p>
+              <div className="flex flex-wrap justify-center gap-2 mb-5">
                 {menuItems.starters.map((item, idx) => (
-                  <span key={idx} className="bg-white px-5 py-3 rounded-full shadow-md text-sm font-medium hover:scale-105 transition-transform cursor-default border border-purple-100">
-                    <span className="text-xl mr-1">{item.emoji}</span> {item.name}
+                  <span key={idx} className="bg-white px-3 py-2 rounded-full shadow-sm text-xs font-medium border border-purple-100">
+                    <span className="mr-1">{item.emoji}</span> {item.name}
+                  </span>
+                ))}
+              </div>
+
+              {/* Desserts */}
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">🍫 Dessert</p>
+              <div className="flex flex-wrap justify-center gap-2 mb-5">
+                {menuItems.desserts.map((item, idx) => (
+                  <span key={idx} className="bg-white px-3 py-2 rounded-full shadow-sm text-xs font-medium border border-purple-100">
+                    <span className="mr-1">{item.emoji}</span> {item.name}
+                  </span>
+                ))}
+              </div>
+
+              {/* Add-ons */}
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">🎁 Add-ons</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {menuItems.addOns.map((item, idx) => (
+                  <span key={idx} className="bg-white px-3 py-2 rounded-full shadow-sm text-xs font-medium border border-purple-100">
+                    <span className="mr-1">{item.emoji}</span> {item.name} <span className="text-purple-600 font-bold">({item.price})</span>
                   </span>
                 ))}
               </div>
@@ -933,11 +954,14 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-14">
             <Badge className="mb-6 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 text-sm shadow-sm">
-              <Star className="w-4 h-4 mr-2 fill-purple-500" /> Loved by Couples
+              <Star className="w-4 h-4 mr-2 fill-purple-500" /> Straight from the Heart
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              <span className="text-gray-900">What Our </span>
-              <span className="text-purple-600">Guests Say</span>
+              <span className="text-gray-900">They Came as </span>
+              <span className="text-purple-600">Couples</span>
+              <br />
+              <span className="text-gray-900">Left as </span>
+              <span className="text-purple-600">Soulmates</span>
             </h2>
           </div>
 
@@ -957,11 +981,11 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4 max-w-3xl relative">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 shadow-sm">
-              <Sparkles className="w-4 h-4 mr-1.5" /> Common Questions
+              <Sparkles className="w-4 h-4 mr-1.5" /> Quick Answers
             </Badge>
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              <span className="text-gray-900">Frequently Asked </span>
-              <span className="text-purple-600">Questions</span>
+              <span className="text-gray-900">Curious? We&apos;ve </span>
+              <span className="text-purple-600">Got You</span>
             </h2>
           </div>
 
@@ -989,11 +1013,11 @@ export function BookNowLandingPage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-10">
             <Badge className="mb-4 bg-purple-100 text-purple-800 border-purple-200 px-5 py-2 shadow-sm">
-              <MapPin className="w-4 h-4 mr-1.5" /> Easy to Reach
+              <MapPin className="w-4 h-4 mr-1.5" /> Just Minutes Away
             </Badge>
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              <span className="text-gray-900">Visit </span>
-              <span className="text-purple-600">Our Location</span>
+              <span className="text-gray-900">Your Love Spot </span>
+              <span className="text-purple-600">Awaits</span>
             </h2>
           </div>
 
@@ -1043,14 +1067,14 @@ export function BookNowLandingPage() {
               <Heart className="w-10 h-10 text-white fill-white/50" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
-              Ready to Create Magic?
+              One Message. Endless Butterflies.
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Your perfect romantic celebration is just one message away. 
-              Book now and let us make your special moment truly unforgettable.
+              Imagine their face lighting up, heart racing, eyes sparkling &mdash; 
+              that&apos;s what we create. Your fairy tale is one tap away.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex items-center justify-center">
               <Button 
                 asChild
                 size="lg"
@@ -1061,22 +1085,11 @@ export function BookNowLandingPage() {
                   Book on WhatsApp
                 </a>
               </Button>
-              <Button 
-                asChild
-                size="lg"
-                variant="outline"
-                className="text-lg border-2 border-white text-white hover:bg-white/10 px-10 py-7 rounded-2xl font-bold backdrop-blur"
-              >
-                <a href={`tel:${siteConfig.phone}`}>
-                  <Phone className="w-6 h-6 mr-2" />
-                  {siteConfig.phone}
-                </a>
-              </Button>
             </div>
 
             <p className="mt-8 text-white/70 text-sm flex items-center justify-center gap-2">
               <Clock className="w-4 h-4" />
-              Open daily 11 AM - 11 PM | Response within 5 minutes
+              Open 11 AM – 11 PM | We reply faster than your heart skips 💜
             </p>
           </div>
         </div>
@@ -1095,7 +1108,7 @@ export function BookNowLandingPage() {
           <MessageCircle className="w-8 h-8 text-white" />
         </div>
         <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-gray-800 px-4 py-2.5 rounded-xl shadow-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap border border-green-200">
-          <span className="text-green-600">Book Now!</span>
+          <span className="text-green-600">Make Their Day! 💜</span>
         </span>
       </a>
     </div>

@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
 import { FFCGalleryCompact } from '@/components/ffc-gallery';
+import SEOInternalLinking from '@/components/seo-internal-linking';
 import { ServiceCategory, packages, siteConfig, formatPrice } from '@/lib/ffc-config';
 
 interface ServiceCategoryPageProps {
@@ -637,6 +638,13 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
           </div>
         </div>
       </section>
+
+      {/* SEO Internal Linking */}
+      <SEOInternalLinking
+        currentSlug={service.slug}
+        serviceSlug={service.slug}
+        pageType="service"
+      />
 
       <FFCFooter />
       <FFCWhatsAppFloat />

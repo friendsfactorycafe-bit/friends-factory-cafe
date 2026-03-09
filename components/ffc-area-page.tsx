@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
 import { FFCGalleryCompact } from '@/components/ffc-gallery';
+import SEOInternalLinking from '@/components/seo-internal-linking';
 import { AreaConfig, packages, serviceCategories, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { getAreaContent } from '@/lib/ffc-area-content';
 
@@ -539,6 +540,13 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
 
       {/* Gallery Section */}
       <FFCGalleryCompact title={`Celebrations in ${area.name}`} maxItems={8} />
+
+      {/* SEO Internal Linking */}
+      <SEOInternalLinking
+        currentSlug={area.slug}
+        pageType="area"
+        showAreas={true}
+      />
 
       <FFCFooter />
       <FFCWhatsAppFloat />

@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
 import { FFCGalleryCompact } from '@/components/ffc-gallery';
+import SEOInternalLinking from '@/components/seo-internal-linking';
 import { ServiceCategory, ServiceKeyword, packages, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { generateKeywordPageContent } from '@/lib/ffc-unique-content';
 import { getKeywordContent, UniqueKeywordContent } from '@/lib/ffc-keyword-content';
@@ -413,6 +414,13 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
 
       {/* Gallery Section */}
       <FFCGalleryCompact title={`${keyword.title} Gallery`} maxItems={8} />
+
+      {/* SEO Internal Linking */}
+      <SEOInternalLinking
+        currentSlug={keyword.slug}
+        serviceSlug={service.slug}
+        pageType="keyword"
+      />
 
       <FFCFooter />
       <FFCWhatsAppFloat />

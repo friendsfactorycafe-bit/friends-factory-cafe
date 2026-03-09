@@ -219,15 +219,15 @@ export function SocialProofNotifications() {
   }, [usedIndices]);
 
   useEffect(() => {
-    // Show first notification after 3 seconds
+    // Show first notification after 8 seconds
     const initialTimeout = setTimeout(() => {
       showNextNotification();
-    }, 3000);
+    }, 8000);
 
-    // Then show every 15 seconds
+    // Then show every 25 seconds (5s visible + 20s break)
     const interval = setInterval(() => {
       showNextNotification();
-    }, 15000);
+    }, 25000);
 
     return () => {
       clearTimeout(initialTimeout);
@@ -246,27 +246,27 @@ export function SocialProofNotifications() {
 
   return (
     <div 
-      className={`fixed bottom-4 left-4 z-50 max-w-sm transition-all duration-700 ease-in-out ${
+      className={`fixed bottom-4 left-4 z-40 max-w-[260px] transition-all duration-700 ease-in-out ${
         isVisible 
           ? 'opacity-100 translate-x-0' 
           : 'opacity-0 -translate-x-8 pointer-events-none'
       }`}
     >
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 flex items-start gap-3">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 px-3 py-2.5 flex items-start gap-2">
         {/* Icon */}
-        <div className={`w-12 h-12 rounded-full ${iconColorClass} flex items-center justify-center flex-shrink-0`}>
-          <IconComponent className="w-6 h-6" />
+        <div className={`w-8 h-8 rounded-full ${iconColorClass} flex items-center justify-center flex-shrink-0`}>
+          <IconComponent className="w-4 h-4" />
         </div>
         
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-gray-800">
+          <p className="text-xs text-gray-800 leading-snug">
             <span className="font-bold">{currentNotification.name}</span>{' '}
             <span className="text-gray-600">{currentNotification.action}</span>{' '}
             <span className="font-semibold text-purple-600">{currentNotification.detail}</span>
           </p>
-          <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <p className="text-[10px] text-gray-400 mt-0.5 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
             {currentNotification.time}
           </p>
         </div>
@@ -277,7 +277,7 @@ export function SocialProofNotifications() {
           className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0"
           aria-label="Dismiss notification"
         >
-          <X className="w-4 h-4" />
+          <X className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

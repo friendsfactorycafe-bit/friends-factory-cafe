@@ -50,6 +50,9 @@ function findKeywordBySlug(slug: string): { keyword: ServiceKeyword; service: Se
   return undefined;
 }
 
+// ISR: Revalidate pages every 12 hours for fresh content + fast loading
+export const revalidate = 43200;
+
 // Generate static params for all possible routes
 export async function generateStaticParams() {
   const params: { slug: string }[] = [];
