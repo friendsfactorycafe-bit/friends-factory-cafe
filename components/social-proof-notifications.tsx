@@ -219,15 +219,15 @@ export function SocialProofNotifications() {
   }, [usedIndices]);
 
   useEffect(() => {
-    // Show first notification after 8 seconds
+    // Show first notification after 10 seconds
     const initialTimeout = setTimeout(() => {
       showNextNotification();
-    }, 8000);
+    }, 10000);
 
-    // Then show every 25 seconds (5s visible + 20s break)
+    // Then show every 40 seconds (5s visible + 35s gap)
     const interval = setInterval(() => {
       showNextNotification();
-    }, 25000);
+    }, 40000);
 
     return () => {
       clearTimeout(initialTimeout);

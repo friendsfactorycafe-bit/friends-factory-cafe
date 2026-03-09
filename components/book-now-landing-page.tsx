@@ -104,7 +104,7 @@ const testimonials = [
 const faqs = [
   {
     question: "How do I book?",
-    answer: "It's as easy as texting your partner goodnight 💜 Just tap 'Message on WhatsApp' on the package you love. Our team will check slots, walk you through each detail, and lock your date with a 50% advance. Done — now start counting the butterflies."
+    answer: "It's as easy as texting your partner goodnight 💜 Just tap 'Lock Your Date on WhatsApp' on the package you love. Our team will check slots, walk you through each detail, and lock your date with a 50% advance. Done — now start counting the butterflies."
   },
   {
     question: "What's included in every package?",
@@ -577,7 +577,7 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
               className="w-full bg-gradient-to-r from-green-500 to-green-800 hover:from-green-600 hover:to-green-900 text-white shadow-xl shadow-green-700/50 text-base py-3 rounded-xl font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-800/40"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
-              Message on WhatsApp
+              Lock Your Date on WhatsApp
             </Button>
           </div>
         </div>
@@ -588,34 +588,34 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
     {/* Booking Popup */}
     {showBookingPopup && (
       <div 
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-2"
         onClick={() => setShowBookingPopup(false)}
       >
         <div 
-          className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto"
+          className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm max-h-[95vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Popup Header */}
-          <div className="sticky top-0 bg-purple-600 px-6 py-4 rounded-t-3xl z-10">
+          {/* Popup Header - Purple */}
+          <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-purple-700 px-5 py-3 rounded-t-2xl z-10">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-white font-bold text-lg">Book {pkg.name}</h3>
-                <p className="text-white/80 text-sm">{formatPrice(pkg.price)} for 3 hours</p>
+                <h3 className="text-white font-bold text-base">{pkg.name}</h3>
+                <p className="text-white/80 text-xs">{formatPrice(pkg.price)} for 3 hours</p>
               </div>
               <button
                 onClick={() => setShowBookingPopup(false)}
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
               >
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
           </div>
           
-          {/* Booking Form */}
-          <div className="p-6">
-            <FFCBookingForm variant="sidebar" pageTitle={`Book Now - ${pkg.name}`} />
+          {/* Booking Form - Compact */}
+          <div className="px-3 pb-3 pt-1">
+            <FFCBookingForm variant="modal" pageTitle={`Book Now - ${pkg.name}`} />
           </div>
         </div>
       </div>
@@ -670,15 +670,10 @@ export function BookNowLandingPage() {
               </span>
             </a>
             
-            {/* Quick CTA for mobile */}
-            <div className="flex items-center gap-2">
-              <a 
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-semibold bg-purple-100 text-purple-700 hover:bg-purple-200 transition-all"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="hidden sm:inline">Call</span>
-              </a>
+            {/* Location */}
+            <div className="flex items-center gap-1.5 text-sm text-purple-700">
+              <MapPin className="w-4 h-4 shrink-0" />
+              <span className="font-medium">Sevasi Road, Vadodara</span>
             </div>
           </div>
         </div>
@@ -777,7 +772,7 @@ export function BookNowLandingPage() {
                 <Users className="w-4 h-4 md:w-6 md:h-6" />
               </div>
               <div>
-                <span className="font-black text-base md:text-2xl">2000+</span>
+                <span className="font-black text-base md:text-2xl">6000+</span>
                 <p className="text-white/80 text-[10px] md:text-sm leading-tight">Hearts Touched</p>
               </div>
             </div>
@@ -795,7 +790,7 @@ export function BookNowLandingPage() {
                 <Heart className="w-4 h-4 md:w-6 md:h-6 fill-white" />
               </div>
               <div>
-                <span className="font-black text-base md:text-2xl">50+</span>
+                <span className="font-black text-base md:text-2xl">450+</span>
                 <p className="text-white/80 text-[10px] md:text-sm leading-tight">She Said YES! 💍</p>
               </div>
             </div>

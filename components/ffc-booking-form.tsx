@@ -204,7 +204,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
       <Card className={`${variant === 'modal' ? '' : 'shadow-lg'}`}>
         <CardContent className="py-12 text-center">
           <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center bg-amber-100">
-            <CheckCircle className="h-8 w-8 text-amber-600" />
+            <CheckCircle className={`h-8 w-8 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
           </div>
           <h3 className="text-xl font-semibold mb-2">Booking Request Sent!</h3>
           <p className="text-muted-foreground">
@@ -241,12 +241,12 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
         </div>
       )}
       
-      <CardContent className="p-6">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <CardContent className={variant === 'modal' ? 'p-3' : 'p-6'}>
+        <form onSubmit={handleSubmit(onSubmit)} className={variant === 'modal' ? 'space-y-2' : 'space-y-4'}>
           {/* Name Field */}
-          <div className="space-y-2">
+          <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
             <Label htmlFor="name" className="flex items-center gap-2">
-              <User className="h-4 w-4 text-amber-600" />
+              <User className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
               Your Name *
             </Label>
             <Input
@@ -261,9 +261,9 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
           </div>
 
           {/* Phone Field */}
-          <div className="space-y-2">
+          <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
             <Label htmlFor="phone" className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-amber-600" />
+              <Phone className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
               Phone Number *
             </Label>
             <Input
@@ -280,9 +280,9 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
           </div>
 
           {/* City Field */}
-          <div className="space-y-2">
+          <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
             <Label htmlFor="city" className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-amber-600" />
+              <MapPin className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
               City *
             </Label>
             <Input
@@ -297,9 +297,9 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
           </div>
 
           {/* Package & Moment Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${variant === 'modal' ? 'gap-2' : 'gap-4'}`}>
             {/* Package Selection Field - Custom Popover with View Details */}
-            <div className="space-y-2">
+            <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
               <Label className="flex items-center gap-2 text-sm font-medium">
                 📦 Package
               </Label>
@@ -328,7 +328,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                       >
                         {/* Check icon for selected */}
                         <span className="w-4 shrink-0">
-                          {selectedPackageSlug === pkg.slug && <Check className="h-3.5 w-3.5 text-amber-600" />}
+                          {selectedPackageSlug === pkg.slug && <Check className={`h-3.5 w-3.5 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />}
                         </span>
                         {/* Package info */}
                         <span className="flex-1 min-w-0">
@@ -339,7 +339,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                         <button
                           type="button"
                           onClick={(e) => handleViewPackage(pkg.slug, e)}
-                          className="ml-auto shrink-0 inline-flex items-center gap-1 px-2 py-1 text-[10px] sm:text-xs font-semibold rounded bg-amber-600 text-white hover:bg-amber-700 shadow-sm transition-all hover:shadow-md"
+                          className={`ml-auto shrink-0 inline-flex items-center gap-1 px-2 py-1 text-[10px] sm:text-xs font-semibold rounded text-white shadow-sm transition-all hover:shadow-md ${variant === 'modal' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-amber-600 hover:bg-amber-700'}`}
                         >
                           View
                           <ChevronRight className="h-3 w-3" />
@@ -352,9 +352,9 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
             </div>
 
             {/* Occasion Field */}
-            <div className="space-y-2">
+            <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
               <Label className="flex items-center gap-2 text-sm font-medium">
-                <Gift className="h-4 w-4 text-amber-600" />
+                <Gift className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
                 Your Moment *
               </Label>
               <Select value={watch('occasion') || ''} onValueChange={(value) => setValue('occasion', value)}>
@@ -376,11 +376,11 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
           </div>
 
           {/* Date & Time Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${variant === 'modal' ? 'gap-2' : 'gap-4'}`}>
             {/* Date Field */}
-            <div className="space-y-2">
+            <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
               <Label htmlFor="occasionDate" className="flex items-center gap-2 text-sm font-medium">
-                <Calendar className="h-4 w-4 text-amber-600" />
+                <Calendar className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
                 Select Date *
               </Label>
               <Input
@@ -396,9 +396,9 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
             </div>
 
             {/* Time Slot Field */}
-            <div className="space-y-2">
+            <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
               <Label className="flex items-center gap-2 text-sm font-medium">
-                <Clock className="h-4 w-4 text-amber-600" />
+                <Clock className={`h-4 w-4 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />
                 Preferred Time *
               </Label>
               <Select value={watch('preferredTime') || ''} onValueChange={(value) => setValue('preferredTime', value)}>
@@ -423,7 +423,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white py-5 text-base font-semibold mt-2"
+            className={`w-full bg-gradient-to-r text-white font-semibold ${variant === 'modal' ? 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 py-3 text-sm mt-1' : 'from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 py-5 text-base mt-2'}`}
           >
             {isSubmitting ? (
               <>
