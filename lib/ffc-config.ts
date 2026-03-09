@@ -590,18 +590,18 @@ Birthday Surprise Vadodara | Anniversary Celebration | Romantic Proposal | Candl
 // ==================== MENU ITEMS ====================
 export const menuItems = {
   starters: [
-    { name: "Welcome Drink", description: "A refreshing welcome to begin your romantic experience", emoji: "🥤" },
-    { name: "Cheese Fondue", description: "A rich, velvety cheese fondue served with cheese balls, wedges, and nachos", emoji: "🧀" },
-    { name: "Paneer Tortilla", description: "Soft tortilla filled with spicy paneer and the chef's special seasoning", emoji: "🌯" },
-    { name: "Peri Peri Fries with Mac & Cheese", description: "Creamy mac & cheese paired with peri-peri fries", emoji: "🍟" },
-    { name: "Tangy Loaf", description: "Warm loaf served with cheesy garlic sauce", emoji: "🍞" }
+    { name: "Welcome Drink", description: "A chilled sip that says 'tonight is special'", emoji: "🥤" },
+    { name: "Cheese Fondue", description: "Rich, melting cheese with crispy cheese balls, golden wedges & crunchy nachos", emoji: "🧀" },
+    { name: "Paneer Tortilla", description: "Soft, warm tortilla hugging spicy paneer with the chef's secret seasoning", emoji: "🌯" },
+    { name: "Peri Peri Fries with Mac & Cheese", description: "Smoky peri-peri fries dipped in velvety, creamy mac & cheese", emoji: "🍟" },
+    { name: "Tangy Loaf", description: "Warm, toasty loaf drizzled with gooey cheesy garlic sauce", emoji: "🍞" }
   ],
   desserts: [
-    { name: "Dessert with Chocolate Bite", description: "A sweet ending with rich chocolate indulgence", emoji: "🍫" }
+    { name: "Dessert with Chocolate Bite", description: "A silky, melt-in-your-mouth chocolate ending to a perfect evening", emoji: "🍫" }
   ],
   addOns: [
-    { name: "Cake", description: "Complimentary celebration cake", price: "Free", emoji: "🍰" },
-    { name: "Champagne", description: "Non-Alcoholic Fruit Flavour", price: "₹500", emoji: "🥂" }
+    { name: "Celebration Cake", description: "A beautifully crafted cake to sweeten the moment", price: "Free", emoji: "🍰" },
+    { name: "Bubbly Champagne", description: "Non-alcoholic fruit fizz — pop, pour & toast to love", price: "₹500", emoji: "🥂" }
   ]
 };
 

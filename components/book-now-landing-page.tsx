@@ -74,28 +74,28 @@ const testimonials = [
     name: "Priya & Rahul",
     event: "Anniversary Celebration",
     rating: 5,
-    text: "The rooftop setup was absolutely magical! Our 5th anniversary was made special beyond words. The staff was so helpful and the ambiance was perfect.",
+    text: "The moment we stepped onto that rooftop, time stopped. Fairy lights everywhere, soft music, the city glowing below us — I looked at him and thought, this is what forever feels like. Our 5th anniversary became our most emotional one yet.",
     image: "/images/gallery/anniversary-celebration-vadodara-1.webp"
   },
   {
     name: "Sneha M.",
     event: "Birthday Surprise",
     rating: 5,
-    text: "Surprised my husband with the Forever Us package. He was speechless! The decorations, food, and the entire experience was worth every penny.",
+    text: "When my husband walked in and saw the setup, he literally froze. Then tears. Then the tightest hug. The Forever Us package gave us a memory we replay in our heads every single night. Worth every single rupee.",
     image: "/images/gallery/birthday-surprise-decoration-vadodara-1.webp"
   },
   {
     name: "Karan & Mira",
     event: "Proposal",
     rating: 5,
-    text: "She said YES! The Glass House setup was so romantic. Friends Factory made my proposal absolutely perfect. Highly recommend!",
+    text: "She walked into the Glass House, saw the roses, the candles, me down on one knee — and her eyes said YES before her lips did. Friends Factory didn't just set up a proposal, they set up the beginning of our forever.",
     image: "/images/gallery/proposal-setup-vadodara-1.webp"
   },
   {
     name: "Ananya P.",
     event: "Candlelight Dinner",
     rating: 5,
-    text: "Best date night ever! The candlelight dinner with city views was incredible. The food was delicious and the music was perfect.",
+    text: "We forgot our phones existed. Just two souls, candlelight flickering between us, the sky turning from orange to purple, and food that made us close our eyes with every bite. This wasn't a dinner — it was a love letter.",
     image: "/images/gallery/candlelight-dinner-setup-vadodara-1.webp"
   }
 ];
@@ -103,36 +103,36 @@ const testimonials = [
 // FAQs
 const faqs = [
   {
-    question: "How do I book a package?",
-    answer: "Simply click the 'Book on WhatsApp' button for your preferred package. Our team will confirm availability, take your details, and guide you through the booking process. A 50% advance payment secures your slot."
+    question: "How do I book?",
+    answer: "It's as easy as texting your partner goodnight 💜 Just tap 'Message on WhatsApp' on the package you love. Our team will check slots, walk you through each detail, and lock your date with a 50% advance. Done — now start counting the butterflies."
   },
   {
-    question: "What's included in the packages?",
-    answer: "All packages include 3 hours of private celebration time, welcome drink, decorations, ambient music, and delicious snacks. Packages marked with 'Cake Included' come with a complimentary celebration cake. Others have cake available at ₹500 extra."
+    question: "What's included in every package?",
+    answer: "3 uninterrupted hours in your own private world — dreamy decorations, a welcome drink to set the mood, handpicked snacks, soft romantic music, and an ambiance that makes you forget the world exists. Some packages come with a celebration cake on the house; others let you add one for just ₹500."
   },
   {
-    question: "Can I customize the decorations?",
-    answer: "Yes! We offer customization for decorations, themes, and even personal banners. Let our team know your requirements while booking and we'll make it happen."
+    question: "Can I customize the setup?",
+    answer: "100%! Want their name in fairy lights? A specific color theme? A personal banner that makes them cry happy tears? Just tell us your vision — we'll bring it to life, petal by petal."
   },
   {
-    question: "What are your operating hours?",
-    answer: "We operate from 11 AM to 11 PM daily. Evening slots (6 PM - 9 PM) are most popular for romantic celebrations. We recommend booking 2-3 days in advance for preferred timing."
+    question: "What are your timings?",
+    answer: "We're open 11 AM to 11 PM, every single day. The golden hour? 6 PM – 9 PM, when the sky turns magical and the city lights come alive. Pro tip: book 2-3 days ahead for your dream slot."
   },
   {
     question: "Is parking available?",
-    answer: "Yes, free parking is available at OneWest building where we're located. The venue is easily accessible from all areas of Vadodara."
+    answer: "Yes — free, easy parking right at OneWest building. No circling, no stress. Just park, walk in, and let the magic begin."
   },
   {
     question: "Can I bring my own cake?",
-    answer: "Yes, you can bring your own cake without any extra charges. However, we recommend our in-house celebration cakes which are specially curated for the experience."
+    answer: "Of course! Bring your favourite bakery cake, zero extra charges. But if you want something that matches the vibe perfectly, our in-house celebration cakes are curated to make the moment even sweeter."
   },
   {
-    question: "What's your cancellation policy?",
-    answer: "We don't provide refunds, but you can reschedule your booking to any available date within the next 30 days. Just inform our team at least 24 hours before your original booking, and we'll help you pick a new slot."
+    question: "What if I need to change my date?",
+    answer: "Life happens — we get it. No refunds, but you can reschedule to any available date within 30 days. Just give us a heads-up 24 hours before, and we'll find you a new perfect evening."
   },
   {
-    question: "Is photography allowed?",
-    answer: "Absolutely! All our setups are designed to be Instagram-worthy. You're welcome to take photos and videos. We can also arrange professional photography at additional cost."
+    question: "Can we take photos & videos?",
+    answer: "Every corner is designed to make your camera fall in love. Snap away, go live, make reels — it's your moment. Need a pro photographer? We can arrange that too."
   }
 ];
 
