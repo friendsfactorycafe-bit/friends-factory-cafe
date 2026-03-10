@@ -87,9 +87,10 @@ interface FFCBookingFormProps {
   packageName?: string;
   defaultPackageSlug?: string;
   onClose?: () => void;
+  isSpecialOffer?: boolean;
 }
 
-export function FFCBookingForm({ pageTitle, variant = 'default', packageName, defaultPackageSlug, onClose }: FFCBookingFormProps) {
+export function FFCBookingForm({ pageTitle, variant = 'default', packageName, defaultPackageSlug, onClose, isSpecialOffer }: FFCBookingFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [packagePopoverOpen, setPackagePopoverOpen] = useState(false);
@@ -153,7 +154,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     const timeLabel = timeSlots.find(t => t.value === data.preferredTime)?.label || data.preferredTime;
     const selectedPkg = data.selectedPackage ? packages.find(p => p.slug === data.selectedPackage) : null;
     
-    let message = `*New Booking Inquiry - Friends Factory Cafe*\n\n`;
+    let message = isSpecialOffer ? `🎉 *SPECIAL OFFER* 🎉\n\n*New Booking Inquiry - Friends Factory Cafe*\n\n` : `*New Booking Inquiry - Friends Factory Cafe*\n\n`;
     message += `*Name:* ${data.name}\n`;
     message += `*Phone:* ${data.phone}\n`;
     message += `*City:* ${data.city}\n`;

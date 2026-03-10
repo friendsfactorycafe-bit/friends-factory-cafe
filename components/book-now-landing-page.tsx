@@ -76,8 +76,8 @@ const formatPrice = (price: number) => {
 // WhatsApp booking link generator
 const getWhatsAppLink = (packageName?: string) => {
   const message = packageName 
-    ? `Hi! I'm interested in booking the "${packageName}" package at Friends Factory Cafe. Please share the availability.`
-    : `Hi! I'm interested in booking a celebration at Friends Factory Cafe. Please share the available packages and slots.`;
+    ? `🎉 *SPECIAL OFFER* 🎉\n\nHi! I'm interested in booking the "${packageName}" package at Friends Factory Cafe. Please share the availability.`
+    : `🎉 *SPECIAL OFFER* 🎉\n\nHi! I'm interested in booking a celebration at Friends Factory Cafe. Please share the available packages and slots.`;
   return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
 };
 
@@ -636,7 +636,7 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
           
           {/* Booking Form - Compact */}
           <div className="px-3 pb-3 pt-1">
-            <FFCBookingForm variant="modal" pageTitle={`Book Now - ${pkg.name}`} />
+            <FFCBookingForm variant="modal" pageTitle={`Book Now - ${pkg.name}`} isSpecialOffer />
           </div>
         </div>
       </div>
