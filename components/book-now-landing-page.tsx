@@ -32,12 +32,25 @@ import { Badge } from '@/components/ui/badge';
 import { packages, siteConfig, menuItems } from '@/lib/ffc-config';
 import { galleryItems } from '@/components/ffc-gallery';
 import { FFCBookingForm } from '@/components/ffc-booking-form';
+import { EvergreenCountdownTimer } from '@/components/evergreen-countdown-timer';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+
+// Landing page pricing with 10% discount
+const landingPagePricing: Record<number, { originalPrice: number; discountedPrice: number }> = {
+  0: { originalPrice: 7500, discountedPrice: 6750 },  // Setup 1
+  1: { originalPrice: 7000, discountedPrice: 6300 },  // Setup 2
+  2: { originalPrice: 6500, discountedPrice: 5850 },  // Setup 3
+  3: { originalPrice: 5500, discountedPrice: 4950 },  // Setup 4
+  4: { originalPrice: 5000, discountedPrice: 4500 },  // Setup 5
+  5: { originalPrice: 6100, discountedPrice: 5490 },  // Setup 6
+  6: { originalPrice: 5900, discountedPrice: 5310 },  // Setup 7
+  7: { originalPrice: 5000, discountedPrice: 4500 },  // Setup 8
+};
 
 // Service categories for header
 const services = [
@@ -537,9 +550,17 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
           {/* Title */}
           <h3 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">{pkg.name}</h3>
 
-          {/* Price */}
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="text-5xl font-black text-purple-600">{formatPrice(pkg.price)}</span>
+          {/* Price with Discount */}
+          <div className="mb-5">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge className="bg-red-500 text-white border-0 px-3 py-1 text-sm font-bold animate-pulse">
+                🔥 10% OFF
+              </Badge>
+            </div>
+            <div className="flex items-baseline gap-3">
+              <span className="text-2xl font-bold text-gray-400 line-through">{formatPrice(landingPagePricing[index]?.originalPrice || pkg.price)}</span>
+              <span className="text-5xl font-black text-purple-600">{formatPrice(landingPagePricing[index]?.discountedPrice || pkg.price)}</span>
+            </div>
             <span className="text-gray-500 font-medium">for 3 hours</span>
           </div>
 
@@ -600,7 +621,7 @@ function PackageShowcase({ pkg, index }: { pkg: typeof packages[0]; index: numbe
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-white font-bold text-base">{pkg.name}</h3>
-                <p className="text-white/80 text-xs">{formatPrice(pkg.price)} for 3 hours</p>
+                <p className="text-white/80 text-xs">{formatPrice(landingPagePricing[index]?.discountedPrice || pkg.price)} for 3 hours</p>
               </div>
               <button
                 onClick={() => setShowBookingPopup(false)}
@@ -717,7 +738,7 @@ export function BookNowLandingPage() {
             
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
               Soft fairy lights, whispering music, breathtaking rooftop views &mdash; a private world made just for two. 
-              <span className="font-bold text-purple-600"> 8 dreamy setups</span> starting at just <span className="font-bold text-gray-900">₹4,700</span>
+              <span className="font-bold text-purple-600"> 8 dreamy setups</span> starting at just <span className="font-bold text-gray-900">₹4,500</span>
             </p>
 
             {/* Desktop CTA */}
@@ -1089,6 +1110,9 @@ export function BookNowLandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Countdown Timer - Landing Page Only */}
+      <EvergreenCountdownTimer />
 
       {/* Floating WhatsApp Button */}
       <a

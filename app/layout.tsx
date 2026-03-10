@@ -5,7 +5,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SocialProofNotifications } from "@/components/social-proof-notifications";
-import { EvergreenCountdownTimer } from "@/components/evergreen-countdown-timer";
+// EvergreenCountdownTimer removed from global layout - now only shown on landing page
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -406,7 +406,7 @@ export default function RootLayout({
         >
           {children}
           <SocialProofNotifications />
-          <EvergreenCountdownTimer />
+
         </ThemeProvider>
         <Analytics />
       </body>
