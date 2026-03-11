@@ -9,6 +9,32 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/admin/", "/_next/", "/private/"],
       },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
+      },
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
+      },
+      {
+        userAgent: "facebookexternalhit",
+        allow: "/",
+      },
+      {
+        userAgent: "Twitterbot",
+        allow: "/",
+      },
+      {
+        userAgent: "LinkedInBot",
+        allow: "/",
+      },
+      {
+        userAgent: "WhatsApp",
+        allow: "/",
+      },
     ],
     sitemap: `${SEO_CONFIG.siteUrl}/sitemap.xml`,
   };

@@ -5,11 +5,13 @@
 // ============================================================================
 
 import { SEO_CONFIG } from "@/lib/seo-config";
+import { getAllSiteUrls } from "@/lib/seo-url-registry";
 
 interface IndexingResponse {
   success: boolean;
   url: string;
   message: string;
+  status?: "success" | "error";
 }
 
 async function getAccessToken(): Promise<string> {
@@ -83,15 +85,16 @@ export async function notifyGoogleIndexing(
     const data = await response.json();
 
     if (response.ok) {
-      return { success: true, url, message: "Successfully submitted to Google Indexing API" };
+      return { success: true, url, message: "Successfully submitted to Google Indexing API", status: "success" };
     } else {
-      return { success: false, url, message: data.error?.message || "Unknown error" };
+      return { success: false, url, message: data.error?.message || "Unknown error", status: "error" };
     }
   } catch (error) {
     return {
       success: false,
       url,
       message: error instanceof Error ? error.message : "Unknown error",
+      status: "error",
     };
   }
 }
@@ -114,4 +117,56 @@ export async function batchNotifyGoogleIndexing(
     }
   }
   return results;
+}
+
+// ============================================================================
+// Aliases used by /api/indexing/* routes
+// ============================================================================
+
+/** Submit a single URL (used by /api/indexing/submit) */
+export async function submitUrlToGoogle(
+  url: string,
+  type: "URL_UPDATED" | "URL_DELETED" = "URL_UPDATED"
+): Promise<IndexingResponse> {
+  return notifyGoogleIndexing(url, type);
+}
+
+/** Submit a batch of URLs (used by /api/indexing/batch) */
+export async function submitBatchToGoogle(
+  urls: string[],
+  type: "URL_UPDATED" | "URL_DELETED" = "URL_UPDATED"
+): Promise<IndexingResponse[]> {
+  const results: IndexingResponse[] = [];
+  const batchSize = 10;
+
+  for (let i = 0; i < urls.length; i += batchSize) {
+    const batch = urls.slice(i, i + batchSize);
+    const batchResults = await Promise.all(
+      batch.map((url) => notifyGoogleIndexing(url, type))
+    );
+    results.push(...batchResults);
+    if (i + batchSize < urls.length) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+
+  return results;
+}
+
+/** Submit ALL site URLs from the registry (used by /api/indexing/all) */
+export async function submitAllUrlsToGoogle(): Promise<{
+  total: number;
+  success: number;
+  errors: number;
+  results: IndexingResponse[];
+}> {
+  const allUrls = getAllSiteUrls().map((u) => u.url);
+  const results = await submitBatchToGoogle(allUrls);
+
+  return {
+    total: results.length,
+    success: results.filter((r) => r.success).length,
+    errors: results.filter((r) => !r.success).length,
+    results,
+  };
 }

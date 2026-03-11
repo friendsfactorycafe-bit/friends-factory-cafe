@@ -1,5 +1,5 @@
 // ============================================================================
-// SEO Configuration - Auto-generated
+// SEO Configuration - Friends Factory Cafe
 // ============================================================================
 
 export const SEO_CONFIG = {
@@ -7,6 +7,9 @@ export const SEO_CONFIG = {
   siteName: "Friends Factory Cafe",
   niche: "Cafe & Restaurant",
   location: "Vadodara",
-  phone: "+91 63535 83148",
-  maxUrlsPerSitemap: 100,
+  phone: "+91 74878 88730",
+  /** 1 URL per sitemap = maximum individual sitemaps for faster Google indexing */
+  maxUrlsPerSitemap: 1,
+  /** IndexNow key for Bing/Yandex instant indexing */
+  indexNowKey: "friendsfactorycafe-indexnow-key-2026",
 } as const;
