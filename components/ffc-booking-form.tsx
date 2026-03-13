@@ -1,16 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Calendar, Phone, User, Gift, MessageCircle, X, Send, Loader2, CheckCircle, MapPin, Clock, ChevronDown, Check, ChevronRight } from 'lucide-react';
+import { Calendar, Phone, User, Gift, MessageCircle, X, Send, Loader2, CheckCircle, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { siteConfig, packages } from '@/lib/ffc-config';
@@ -93,15 +91,12 @@ interface FFCBookingFormProps {
 export function FFCBookingForm({ pageTitle, variant = 'default', packageName, defaultPackageSlug, onClose, isSpecialOffer }: FFCBookingFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [packagePopoverOpen, setPackagePopoverOpen] = useState(false);
-  const router = useRouter();
   
   const {
     register,
     handleSubmit,
     setValue,
     watch,
-    getValues,
     formState: { errors },
     reset,
   } = useForm<FFCBookingFormData>({
@@ -135,18 +130,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     return () => clearTimeout(timeout);
   }, [watchedValues]);
 
-  // Navigate to package page with form data saved
-  const handleViewPackage = useCallback((slug: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    // Save current form data before navigating
-    saveFormData(getValues());
-    setPackagePopoverOpen(false);
-    router.push(`/packages/${slug}`);
-  }, [getValues, router]);
-
   const selectedPackageSlug = watch('selectedPackage');
-  const selectedPkg = selectedPackageSlug ? packages.find(p => p.slug === selectedPackageSlug) : null;
 
   // Generate WhatsApp message
   const generateWhatsAppMessage = (data: FFCBookingFormData): string => {
@@ -299,57 +283,23 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
 
           {/* Package & Moment Row */}
           <div className={`grid grid-cols-1 sm:grid-cols-2 ${variant === 'modal' ? 'gap-2' : 'gap-4'}`}>
-            {/* Package Selection Field - Custom Popover with View Details */}
+            {/* Package Selection Field */}
             <div className={variant === 'modal' ? 'space-y-1' : 'space-y-2'}>
               <Label className="flex items-center gap-2 text-sm font-medium">
                 📦 Package
               </Label>
-              <Popover open={packagePopoverOpen} onOpenChange={setPackagePopoverOpen}>
-                <PopoverTrigger asChild>
-                  <button
-                    type="button"
-                    className="flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <span className={selectedPkg ? 'text-foreground truncate pr-2' : 'text-muted-foreground'}>
-                      {selectedPkg ? `${selectedPkg.emoji} ${selectedPkg.name}` : 'Select package'}
-                    </span>
-                    <ChevronDown className="h-4 w-4 opacity-50 shrink-0" />
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[min(90vw,400px)] sm:w-[var(--radix-popover-trigger-width)] p-0 z-[200]" align="start" sideOffset={4}>
-                  <div className="max-h-[280px] overflow-y-auto py-1">
-                    {packages.map((pkg) => (
-                      <div
-                        key={pkg.slug}
-                        className="flex items-center gap-1.5 px-2 py-2 hover:bg-accent cursor-pointer text-xs sm:text-sm group"
-                        onClick={() => {
-                          setValue('selectedPackage', pkg.slug);
-                          setPackagePopoverOpen(false);
-                        }}
-                      >
-                        {/* Check icon for selected */}
-                        <span className="w-4 shrink-0">
-                          {selectedPackageSlug === pkg.slug && <Check className={`h-3.5 w-3.5 ${variant === 'modal' ? 'text-purple-600' : 'text-amber-600'}`} />}
-                        </span>
-                        {/* Package info */}
-                        <span className="flex-1 min-w-0">
-                          <span className="block leading-tight">{pkg.emoji} {pkg.name}</span>
-                          <span className="text-[11px] text-muted-foreground">₹{pkg.price.toLocaleString('en-IN')}</span>
-                        </span>
-                        {/* View Details tag */}
-                        <button
-                          type="button"
-                          onClick={(e) => handleViewPackage(pkg.slug, e)}
-                          className={`ml-auto shrink-0 inline-flex items-center gap-1 px-2 py-1 text-[10px] sm:text-xs font-semibold rounded text-white shadow-sm transition-all hover:shadow-md ${variant === 'modal' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-amber-600 hover:bg-amber-700'}`}
-                        >
-                          View
-                          <ChevronRight className="h-3 w-3" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </PopoverContent>
-              </Popover>
+              <Select value={selectedPackageSlug || ''} onValueChange={(value) => setValue('selectedPackage', value)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select package" />
+                </SelectTrigger>
+                <SelectContent className="z-[200]">
+                  {packages.map((pkg) => (
+                    <SelectItem key={pkg.slug} value={pkg.slug}>
+                      {pkg.emoji} {pkg.name} — ₹{pkg.price.toLocaleString('en-IN')}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Occasion Field */}
