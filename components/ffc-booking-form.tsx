@@ -316,7 +316,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                     <ChevronDown className="h-4 w-4 opacity-50 shrink-0" />
                   </button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[min(90vw,400px)] sm:w-[var(--radix-popover-trigger-width)] p-0" align="start" sideOffset={4}>
+                <PopoverContent className="w-[min(90vw,400px)] sm:w-[var(--radix-popover-trigger-width)] p-0 z-[200]" align="start" sideOffset={4}>
                   <div className="max-h-[280px] overflow-y-auto py-1">
                     {packages.map((pkg) => (
                       <div
@@ -362,7 +362,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                 <SelectTrigger className={`w-full ${errors.occasion ? 'border-red-500' : ''}`}>
                   <SelectValue placeholder="Select moment" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="z-[200]">
                   {momentOptions.map((option) => (
                     <SelectItem key={option.value} value={option.value}>
                       {option.label}
@@ -406,7 +406,7 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
                 <SelectTrigger className={`w-full ${errors.preferredTime ? 'border-red-500' : ''}`}>
                   <SelectValue placeholder="Select time" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="z-[200]">
                   {timeSlots.map((slot) => (
                     <SelectItem key={slot.value} value={slot.value}>
                       {slot.label}
