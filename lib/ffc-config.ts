@@ -324,7 +324,7 @@ Romantic Proposal Vadodara | Anniversary Dinner | Candlelight Dinner for Couples
       "Celebration Cake available (+₹350) 🍰"
     ],
     perfectFor: ["Romantic Proposal", "Anniversary Dinner", "Candlelight Dinner", "Surprise Date Night", "Pre-Wedding Photoshoot", "Baby Moments"],
-    thumbnail: "/packages/5100/Cover.webp",
+    thumbnail: "/packages/thumbnails/moonlit-romance-experience.webp",
     images: [
       "/packages/5100/Cover.webp",
       "/packages/5100/2.webp",
