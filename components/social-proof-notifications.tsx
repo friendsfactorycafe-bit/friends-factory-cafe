@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { X, Heart, Cake, Star, Calendar, Gift, Users } from 'lucide-react';
 
 // 150 Social proof notifications
@@ -191,9 +192,13 @@ const iconColorMap = {
 };
 
 export function SocialProofNotifications() {
+  const pathname = usePathname();
   const [currentNotification, setCurrentNotification] = useState<typeof notifications[0] | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [usedIndices, setUsedIndices] = useState<Set<number>>(new Set());
+
+  // Hide on admin/affiliate dashboard pages
+  const isAdminOrAffiliate = pathname?.startsWith('/admin') || pathname?.startsWith('/affiliate');
 
   const showNextNotification = useCallback(() => {
     // Get available indices
@@ -239,7 +244,7 @@ export function SocialProofNotifications() {
     setIsVisible(false);
   };
 
-  if (!currentNotification) return null;
+  if (!currentNotification || isAdminOrAffiliate) return null;
 
   const IconComponent = iconMap[currentNotification.icon as keyof typeof iconMap] || Heart;
   const iconColorClass = iconColorMap[currentNotification.icon as keyof typeof iconColorMap] || "text-purple-500 bg-purple-100";
