@@ -155,6 +155,15 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     if (pageTitle) {
       message += `\n*Interested In:* ${pageTitle}\n`;
     }
+
+    // Include referral code if present
+    try {
+      const refCookie = document.cookie.split('; ').find(c => c.startsWith('ffc_ref='));
+      if (refCookie) {
+        const refCode = refCookie.split('=')[1];
+        if (refCode) message += `\n*Referred By:* ${refCode}\n`;
+      }
+    } catch {}
     
     message += `\nLooking forward to creating beautiful memories!`;
     
@@ -168,6 +177,28 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     
     const whatsappMessage = generateWhatsAppMessage(data);
     const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`;
+
+    // Log referral conversion if applicable
+    try {
+      const refCookie = document.cookie.split('; ').find(c => c.startsWith('ffc_ref='));
+      if (refCookie) {
+        const refCode = refCookie.split('=')[1];
+        if (refCode) {
+          const selectedPkg = data.selectedPackage ? packages.find(p => p.slug === data.selectedPackage) : null;
+          fetch('/api/referrals/convert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              referral_code: refCode,
+              customer_name: data.name,
+              customer_phone: data.phone,
+              package_name: selectedPkg?.name || packageName || null,
+              package_price: selectedPkg?.price || null,
+            }),
+          }).catch(() => {});
+        }
+      }
+    } catch {}
     
     window.open(whatsappUrl, '_blank');
     
