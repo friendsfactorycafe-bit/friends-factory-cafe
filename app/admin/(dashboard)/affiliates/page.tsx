@@ -23,6 +23,14 @@ export default function AffiliatesPage() {
   const [search, setSearch] = useState('')
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const [actionMenu, setActionMenu] = useState<string | null>(null)
+  const [menuPos, setMenuPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 })
+
+  const openMenu = (id: string, e: React.MouseEvent) => {
+    if (actionMenu === id) { setActionMenu(null); return }
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    setMenuPos({ top: rect.bottom + 4, left: rect.right - 180 })
+    setActionMenu(id)
+  }
 
   const loadAffiliates = async () => {
     const res = await fetch('/api/affiliates')
@@ -181,41 +189,10 @@ export default function AffiliatesPage() {
                       }}>{aff.is_active ? 'Active' : 'Inactive'}</span>
                     </td>
                     <td style={{ padding: '14px 20px', textAlign: 'right' }}>
-                      <div style={{ position: 'relative' }}>
-                        <button onClick={() => setActionMenu(actionMenu === aff.id ? null : aff.id)}
-                          style={{ padding: 6, borderRadius: 8, background: 'none', border: 'none', cursor: 'pointer', color: '#9ca3af' }}>
-                          <MoreVertical style={{ width: 16, height: 16 }} />
-                        </button>
-                        {actionMenu === aff.id && (
-                          <>
-                            <div onClick={() => setActionMenu(null)} style={{ position: 'fixed', inset: 0, zIndex: 40 }} />
-                            <div style={{
-                              position: 'absolute', right: 0, top: '100%', zIndex: 50,
-                              marginTop: 4, width: 180, borderRadius: 12,
-                              border: '1px solid #f3f4f6', backgroundColor: '#fff',
-                              padding: '6px 0', boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
-                            }}>
-                              <Link href={`/admin/affiliates/${aff.id}`} onClick={() => setActionMenu(null)}
-                                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', textDecoration: 'none' }}>
-                                <Eye style={{ width: 14, height: 14 }} /> View Details
-                              </Link>
-                              <Link href={`/admin/affiliates/${aff.id}?edit=true`} onClick={() => setActionMenu(null)}
-                                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', textDecoration: 'none' }}>
-                                <Pencil style={{ width: 14, height: 14 }} /> Edit
-                              </Link>
-                              <button onClick={() => toggleActive(aff.id, aff.is_active)}
-                                style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', background: 'none', border: 'none', cursor: 'pointer' }}>
-                                <Power style={{ width: 14, height: 14 }} /> {aff.is_active ? 'Deactivate' : 'Activate'}
-                              </button>
-                              <div style={{ height: 1, backgroundColor: '#f3f4f6', margin: '4px 0' }} />
-                              <button onClick={() => deleteAffiliate(aff.id)}
-                                style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
-                                <Trash2 style={{ width: 14, height: 14 }} /> Delete
-                              </button>
-                            </div>
-                          </>
-                        )}
-                      </div>
+                      <button onClick={(e) => openMenu(aff.id, e)}
+                        style={{ padding: 6, borderRadius: 8, background: 'none', border: 'none', cursor: 'pointer', color: '#9ca3af' }}>
+                        <MoreVertical style={{ width: 16, height: 16 }} />
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -224,6 +201,41 @@ export default function AffiliatesPage() {
           </div>
         </div>
       )}
+
+      {/* Action menu popup — fixed position so it escapes overflow containers */}
+      {actionMenu && (() => {
+        const aff = affiliates.find(a => a.id === actionMenu)
+        if (!aff) return null
+        return (
+          <>
+            <div onClick={() => setActionMenu(null)} style={{ position: 'fixed', inset: 0, zIndex: 1000 }} />
+            <div style={{
+              position: 'fixed', top: menuPos.top, left: menuPos.left, zIndex: 1001,
+              width: 180, borderRadius: 12,
+              border: '1px solid #e5e7eb', backgroundColor: '#fff',
+              padding: '6px 0', boxShadow: '0 10px 25px rgba(0,0,0,0.12)',
+            }}>
+              <Link href={`/admin/affiliates/${aff.id}`} onClick={() => setActionMenu(null)}
+                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', textDecoration: 'none' }}>
+                <Eye style={{ width: 14, height: 14 }} /> View Details
+              </Link>
+              <Link href={`/admin/affiliates/${aff.id}?edit=true`} onClick={() => setActionMenu(null)}
+                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', textDecoration: 'none' }}>
+                <Pencil style={{ width: 14, height: 14 }} /> Edit
+              </Link>
+              <button onClick={() => toggleActive(aff.id, aff.is_active)}
+                style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#4b5563', background: 'none', border: 'none', cursor: 'pointer' }}>
+                <Power style={{ width: 14, height: 14 }} /> {aff.is_active ? 'Deactivate' : 'Activate'}
+              </button>
+              <div style={{ height: 1, backgroundColor: '#f3f4f6', margin: '4px 0' }} />
+              <button onClick={() => deleteAffiliate(aff.id)}
+                style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 10, padding: '10px 14px', fontSize: 13, color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                <Trash2 style={{ width: 14, height: 14 }} /> Delete
+              </button>
+            </div>
+          </>
+        )
+      })()}
     </div>
   )
 }
