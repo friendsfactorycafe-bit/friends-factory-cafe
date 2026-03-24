@@ -707,7 +707,7 @@ export default function FFCHomePage() {
       </section>
 
       {/* Areas We Serve */}
-      <section className="py-20 bg-amber-50">
+      <section className="py-20 bg-amber-50 hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
