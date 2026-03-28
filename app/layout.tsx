@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences. Starting ₹6,900.",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Friends Factory Cafe - Best Romantic Celebrations in Vadodara",
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
     description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, proposals & more! Starting ₹6,900.",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
     creator: "@friendsfactorycafe",
     site: "@friendsfactorycafe",
   },
@@ -122,11 +122,27 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/icon-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/icon-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
     ],
-    apple: "/apple-icon.svg",
+    apple: "/apple-icon.png",
   },
   manifest: "/manifest.json",
   other: {
