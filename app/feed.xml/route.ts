@@ -47,7 +47,7 @@ export async function GET() {
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <atom:link href="https://pubsubhubbub.appspot.com" rel="hub" />
     <image>
-      <url>${siteUrl}/logo.png</url>
+      <url>${siteUrl}/icon-512x512.png</url>
       <title>${siteName}</title>
       <link>${siteUrl}</link>
     </image>

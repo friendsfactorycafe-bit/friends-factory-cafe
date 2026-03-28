@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Modern color palette for Study Abroad Consultants */
+/* Friends Factory Cafe — Color palette */
 :root {
   /* Clean white backgrounds */
   --background: oklch(0.99 0.002 0);
