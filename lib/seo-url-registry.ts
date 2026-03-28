@@ -13,6 +13,7 @@ import {
   ServiceKeyword,
   AreaConfig,
 } from "@/lib/ffc-config";
+import { getAllExpandedKeywords } from "@/lib/keyword-expansion";
 
 export const BASE_URL = "https://friendsfactorycafe.com";
 
@@ -29,6 +30,8 @@ export interface SitemapUrl {
   serviceSlug?: string;
   /** Niche/category for grouping related pages */
   niche?: string;
+  /** Meta description for RSS feed */
+  description?: string;
 }
 
 /** Static pages configuration */
@@ -139,6 +142,21 @@ export function getAllSiteUrls(): SitemapUrl[] {
       type: "blog",
       title: post.title,
       niche: "blog",
+    });
+  });
+
+  // Expanded keyword pages (~2,800 new long-tail pages)
+  getAllExpandedKeywords().forEach((ek) => {
+    urls.push({
+      url: `${BASE_URL}/${ek.slug}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: ek.dimension === "area-keyword" || ek.dimension === "area-service" ? 0.7 : 0.75,
+      type: "keyword",
+      title: ek.title,
+      serviceSlug: ek.parentServiceSlug,
+      niche: ek.parentServiceSlug,
+      description: ek.metaDescription,
     });
   });
 

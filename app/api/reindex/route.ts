@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { notifyGoogleIndexing, batchNotifyGoogleIndexing } from "@/lib/google-indexing";
+import { notifyGoogleIndexing, batchNotifyGoogleIndexing, getQuota } from "@/lib/google-indexing";
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,12 +20,15 @@ export async function POST(request: NextRequest) {
     }
 
     if (urls && Array.isArray(urls)) {
-      const results = await batchNotifyGoogleIndexing(urls);
+      const result = await batchNotifyGoogleIndexing(urls);
       return NextResponse.json({
-        total: results.length,
-        successful: results.filter((r) => r.success).length,
-        failed: results.filter((r) => !r.success).length,
-        results,
+        total: result.total,
+        submitted: result.submitted,
+        successful: result.success,
+        failed: result.errors,
+        skipped: result.skipped,
+        quotaRemaining: result.quotaRemaining,
+        results: result.results,
       });
     }
 

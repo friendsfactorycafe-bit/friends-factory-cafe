@@ -1,7 +1,8 @@
 /**
  * API Route: Batch submit URLs to Google Indexing API
  * POST /api/indexing/batch
- * Body: { "urls": ["https://friendsfactorycafe.com/page-1", ...] }
+ * Body: { "urls": ["https://friendsfactorycafe.com/page-1", ...], "type": "URL_UPDATED" }
+ * Returns: quota-aware batch result with success/error/skipped counts
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -30,15 +31,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const results = await submitBatchToGoogle(urls, type);
-    const summary = {
-      total: results.length,
-      success: results.filter((r) => r.status === "success").length,
-      errors: results.filter((r) => r.status === "error").length,
-      results,
-    };
-
-    return NextResponse.json(summary);
+    const result = await submitBatchToGoogle(urls, type);
+    return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Internal server error" },

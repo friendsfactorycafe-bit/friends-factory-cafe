@@ -36,6 +36,8 @@ interface InternalLinkingProps {
   maxRelatedKeywords?: number;
   /** Max areas to show */
   maxAreas?: number;
+  /** Pre-computed related expanded keywords (passed from server component) */
+  expandedRelated?: { slug: string; title: string }[];
 }
 
 export default function SEOInternalLinking({
@@ -46,6 +48,7 @@ export default function SEOInternalLinking({
   showPackages = true,
   maxRelatedKeywords = 8,
   maxAreas = 10,
+  expandedRelated = [],
 }: InternalLinkingProps) {
   // Get current service category
   const currentService = serviceCategories.find((s) => s.slug === serviceSlug);
@@ -95,6 +98,29 @@ export default function SEOInternalLinking({
                   <ArrowRight className="h-4 w-4 text-amber-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   <span className="text-sm text-gray-700 group-hover:text-amber-700 line-clamp-1">
                     {keyword.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Related Expanded Keywords */}
+        {expandedRelated.length > 0 && (
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
+              You May Also Like
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {expandedRelated.map((ek) => (
+                <Link
+                  key={ek.slug}
+                  href={`/${ek.slug}`}
+                  className="group flex items-center gap-2 p-3 bg-white rounded-lg border border-gray-200 hover:border-amber-300 hover:shadow-md transition-all"
+                >
+                  <ArrowRight className="h-4 w-4 text-amber-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  <span className="text-sm text-gray-700 group-hover:text-amber-700 line-clamp-2">
+                    {ek.title}
                   </span>
                 </Link>
               ))}

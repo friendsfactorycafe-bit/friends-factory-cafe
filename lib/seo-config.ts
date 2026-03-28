@@ -8,8 +8,8 @@ export const SEO_CONFIG = {
   niche: "Cafe & Restaurant",
   location: "Vadodara",
   phone: "+91 74878 88730",
-  /** 1 URL per sitemap = maximum individual sitemaps for faster Google indexing */
-  maxUrlsPerSitemap: 1,
+  /** URLs per sitemap file. 50 = good balance for 3,000+ pages (60 sitemap files) */
+  maxUrlsPerSitemap: 50,
   /** IndexNow key for Bing/Yandex instant indexing */
   indexNowKey: "friendsfactorycafe-indexnow-key-2026",
 } as const;

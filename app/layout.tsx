@@ -73,6 +73,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://friendsfactorycafe.com",
+    types: {
+      "application/rss+xml": "https://friendsfactorycafe.com/feed.xml",
+    },
   },
   category: "Restaurant",
   classification: "Romantic Celebration Venue",

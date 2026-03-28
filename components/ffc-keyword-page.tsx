@@ -14,6 +14,8 @@ import SEOInternalLinking from '@/components/seo-internal-linking';
 import { ServiceCategory, ServiceKeyword, packages, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { generateKeywordPageContent } from '@/lib/ffc-unique-content';
 import { getKeywordContent, UniqueKeywordContent } from '@/lib/ffc-keyword-content';
+import { findExpandedKeyword, getRelatedExpandedKeywords } from '@/lib/keyword-expansion';
+import { generateExpandedContent } from '@/lib/expanded-content';
 
 interface KeywordPageProps {
   service: ServiceCategory;
@@ -24,14 +26,30 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
   // Get related packages
   const relatedPackages = packages.slice(0, 4);
 
+  // Check if this is an expanded keyword
+  const expandedKw = findExpandedKeyword(keyword.slug);
+
   // Get related keywords (excluding current)
-  const relatedKeywords = service.keywords.filter(k => k.slug !== keyword.slug).slice(0, 6);
+  const baseRelatedKeywords = service.keywords.filter(k => k.slug !== keyword.slug).slice(0, 6);
+
+  // For expanded keywords, also get related expanded keyword links
+  const relatedExpanded = expandedKw ? getRelatedExpandedKeywords(keyword.slug, 6) : [];
+
+  // Combine: 3 base + up to 6 expanded for expanded pages; all base for regular pages
+  const relatedKeywords = expandedKw
+    ? [
+        ...baseRelatedKeywords.slice(0, 3).map(k => ({ slug: k.slug, title: k.title })),
+        ...relatedExpanded.map(ek => ({ slug: ek.slug, title: ek.title })),
+      ].slice(0, 9)
+    : baseRelatedKeywords.map(k => ({ slug: k.slug, title: k.title }));
 
   // TRY to get truly unique handcrafted content first
   const handcraftedContent = getKeywordContent(keyword.slug);
   
-  // Fall back to generated content if no handcrafted content exists
-  const generatedContent = generateKeywordPageContent(service, keyword);
+  // For expanded keywords, use dimension-aware content; otherwise generic generator
+  const generatedContent = expandedKw
+    ? generateExpandedContent(expandedKw, service, keyword)
+    : generateKeywordPageContent(service, keyword);
 
   // Use handcrafted content if available, otherwise use generated
   const hasUniqueContent = !!handcraftedContent;
@@ -420,6 +438,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
         currentSlug={keyword.slug}
         serviceSlug={service.slug}
         pageType="keyword"
+        expandedRelated={relatedExpanded.map(ek => ({ slug: ek.slug, title: ek.title }))}
       />
 
       <FFCFooter />

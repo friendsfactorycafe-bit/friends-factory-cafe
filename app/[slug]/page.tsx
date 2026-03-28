@@ -22,6 +22,7 @@ import {
 import { getKeywordContent } from "@/lib/ffc-keyword-content";
 import { generateKeywordPageContent } from "@/lib/ffc-unique-content";
 import { getAreaContent } from "@/lib/ffc-area-content";
+import { findExpandedKeyword, getAllExpandedSlugs, ExpandedKeyword } from "@/lib/keyword-expansion";
 
 // Get all keyword slugs from all service categories
 function getAllKeywords(): { slug: string; keyword: ServiceKeyword; service: ServiceCategory }[] {
@@ -69,6 +70,11 @@ export async function generateStaticParams() {
   
   // Add all keyword pages from all services
   getAllKeywords().forEach(({ slug }) => {
+    params.push({ slug });
+  });
+  
+  // Add all expanded keyword pages (~2,800 new pages)
+  getAllExpandedSlugs().forEach((slug) => {
     params.push({ slug });
   });
   
@@ -185,6 +191,38 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: keywordTitle,
         description: keywordDescription,
+      },
+    };
+  }
+  
+  // Check if it's an expanded keyword page
+  const expanded = findExpandedKeyword(slug);
+  if (expanded) {
+    return {
+      title: expanded.metaTitle,
+      description: expanded.metaDescription,
+      keywords: [
+        expanded.title.toLowerCase(),
+        `${expanded.title.toLowerCase()} vadodara`,
+        `${expanded.parentServiceName.toLowerCase()} vadodara`,
+        `friends factory cafe ${expanded.title.toLowerCase()}`,
+        `best ${expanded.parentServiceName.toLowerCase()} vadodara`,
+      ],
+      alternates: {
+        canonical: `https://friendsfactorycafe.com/${expanded.slug}`,
+      },
+      openGraph: {
+        title: expanded.metaTitle,
+        description: expanded.metaDescription,
+        url: `https://friendsfactorycafe.com/${expanded.slug}`,
+        type: "website",
+        locale: "en_IN",
+        siteName: "Friends Factory Cafe",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: expanded.metaTitle,
+        description: expanded.metaDescription,
       },
     };
   }
@@ -492,6 +530,87 @@ function generateAreaSchema(area: { slug: string; name: string }) {
   };
 }
 
+function generateExpandedKeywordSchema(expanded: ExpandedKeyword, service: ServiceCategory) {
+  const url = `${BASE_URL}/${expanded.slug}`;
+  const areaName = expanded.areaName;
+
+  const faqs = [
+    {
+      question: `What is included in your ${expanded.title.toLowerCase()} packages?`,
+      answer: `All packages include private venue access, themed decorations, welcome drinks, snacks, background music, and 3 hours of exclusive celebration time. Prices range from ₹4,700 to ₹6,900.`
+    },
+    {
+      question: `How do I book ${expanded.title.toLowerCase()}?`,
+      answer: `You can book via WhatsApp at ${siteConfig.phone}, call us directly, or fill the booking form on our website. We recommend booking 2-3 days in advance.`
+    },
+    {
+      question: `Is the venue private for ${expanded.title.toLowerCase()}?`,
+      answer: "Yes, 100% private! No other guests will be present during your booking slot. It's just you and your partner in an exclusive romantic setting."
+    },
+    {
+      question: areaName
+        ? `How far is Friends Factory Cafe from ${areaName}?`
+        : `What are the timings for ${expanded.title.toLowerCase()}?`,
+      answer: areaName
+        ? `Friends Factory Cafe is conveniently located in Gotri, Vadodara and easily accessible from ${areaName}. Most couples reach us within 10-20 minutes by car or auto.`
+        : "We operate from 11 AM to 1 AM. Available slots: Afternoon (11 AM-2 PM), Evening (4 PM-7 PM), Dinner (7 PM-10 PM), Late Night (10 PM-1 AM)."
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": expanded.title,
+        "description": expanded.metaDescription,
+        "url": url,
+        "provider": localBusinessSchema,
+        "areaServed": areaName
+          ? { "@type": "Place", "name": `${areaName}, Vadodara` }
+          : { "@type": "City", "name": "Vadodara", "containedInPlace": { "@type": "State", "name": "Gujarat" } },
+        "serviceType": expanded.title,
+        "category": service.name,
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "4700",
+          "highPrice": "6900",
+          "priceCurrency": "INR",
+          "offerCount": packages.length.toString()
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/services` },
+          { "@type": "ListItem", "position": 3, "name": service.name, "item": `${BASE_URL}/${service.slug}` },
+          { "@type": "ListItem", "position": 4, "name": expanded.title, "item": url }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": expanded.metaTitle,
+        "description": expanded.metaDescription,
+        "url": url,
+        "isPartOf": { "@type": "WebSite", "name": siteConfig.name, "url": BASE_URL },
+        "about": { "@type": "Thing", "name": expanded.title },
+        "inLanguage": "en-IN",
+        "datePublished": "2024-01-01",
+        "dateModified": new Date().toISOString().split('T')[0]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        }))
+      }
+    ]
+  };
+}
+
 // Main page component
 export default async function SlugPage({
   params,
@@ -543,6 +662,32 @@ export default async function SlugPage({
         <FFCKeywordPage service={keywordData.service} keyword={keywordData.keyword} />
       </>
     );
+  }
+  
+  // Check if it's an expanded keyword page
+  const expanded = findExpandedKeyword(slug);
+  if (expanded) {
+    const parentService = getServiceBySlug(expanded.parentServiceSlug);
+    if (parentService) {
+      // Create a virtual ServiceKeyword from expanded data
+      const virtualKeyword: ServiceKeyword = {
+        slug: expanded.slug,
+        title: expanded.title,
+        h1: expanded.h1,
+        metaTitle: expanded.metaTitle,
+        metaDescription: expanded.metaDescription,
+      };
+      const schema = generateExpandedKeywordSchema(expanded, parentService);
+      return (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+          <FFCKeywordPage service={parentService} keyword={virtualKeyword} />
+        </>
+      );
+    }
   }
   
   // Not found
