@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Star, Check, Phone, MessageCircle, MapPin, Heart, Gift, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -104,6 +105,13 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Mobile Booking Form */}
+      <section className="lg:hidden bg-amber-50 py-8">
+        <div className="container mx-auto px-4">
+          <FFCBookingForm pageTitle={`${area.name} Area`} />
         </div>
       </section>
 
@@ -408,8 +416,8 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                   {packages.slice(0, 4).map((pkg) => (
                     <Link key={pkg.id} href={`/packages/${pkg.slug}`}>
                       <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-amber-100 group bg-white">
-                        <div className="aspect-video bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
-                          <span className="text-5xl">{pkg.emoji}</span>
+                        <div className="aspect-video relative overflow-hidden">
+                          <Image src={pkg.thumbnail} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                         </div>
                         <CardContent className="p-4">
                           <h3 className="font-semibold mb-1 group-hover:text-amber-600 transition-colors">

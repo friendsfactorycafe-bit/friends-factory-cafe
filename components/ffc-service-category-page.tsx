@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Star, Check, Phone, Heart, Gift, Clock, MapPin, Sparkles, Camera, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -418,6 +419,13 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
         </div>
       </section>
 
+      {/* Mobile Booking Form */}
+      <section className="lg:hidden bg-amber-50 py-8">
+        <div className="container mx-auto px-4">
+          <FFCBookingForm pageTitle={service.name} />
+        </div>
+      </section>
+
       {/* Introduction */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -496,8 +504,8 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
             {relatedPackages.map((pkg) => (
               <Link key={pkg.id} href={`/packages/${pkg.slug}`}>
                 <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-2 border-amber-100 overflow-hidden group">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-amber-200 to-orange-200 flex items-center justify-center">
-                    <span className="text-6xl">{pkg.emoji}</span>
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image src={pkg.thumbnail} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                   </div>
                   <CardContent className="p-4">
                     <h3 className="font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
