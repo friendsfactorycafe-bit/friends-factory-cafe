@@ -369,7 +369,7 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-8 md:py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -379,7 +379,7 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-serif">
                 {service.name} in Vadodara
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+              <p className="hidden md:block text-lg md:text-xl text-white/90 mb-8 max-w-xl">
                 {content.heroSubtitle}
               </p>
               
@@ -396,7 +396,7 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
                 </a>
               </div>
               
-              <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+              <div className="hidden md:flex mt-8 flex-wrap justify-center lg:justify-start gap-4">
                 <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
                   <Star className="h-4 w-4" /> 4.9★ Rating
                 </span>
@@ -420,7 +420,7 @@ export default function FFCServiceCategoryPage({ service }: ServiceCategoryPageP
       </section>
 
       {/* Mobile Booking Form */}
-      <section className="lg:hidden bg-amber-50 py-8">
+      <section className="lg:hidden bg-amber-50 py-4">
         <div className="container mx-auto px-4">
           <FFCBookingForm pageTitle={service.name} />
         </div>

@@ -44,7 +44,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-16 md:py-20">
+      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-8 md:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -54,7 +54,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-serif">
                 Romantic Celebrations in {area.name}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+              <p className="hidden md:block text-lg md:text-xl text-white/90 mb-8 max-w-xl">
                 {uniqueContent?.heroSubtitle || `Friends Factory Cafe brings premium romantic celebration experiences to couples in ${area.name}, Vadodara. Book birthday surprises, candlelight dinners, anniversaries & more!`}
               </p>
               
@@ -72,7 +72,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
               </div>
               
               {/* Dynamic Hero Badges - Unique per area */}
-              <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+              <div className="hidden md:flex mt-8 flex-wrap justify-center lg:justify-start gap-4">
                 {uniqueContent?.heroBadges ? (
                   uniqueContent.heroBadges.map((badge, index) => (
                     <span key={index} className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
@@ -109,7 +109,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
       </section>
 
       {/* Mobile Booking Form */}
-      <section className="lg:hidden bg-amber-50 py-8">
+      <section className="lg:hidden bg-amber-50 py-4">
         <div className="container mx-auto px-4">
           <FFCBookingForm pageTitle={`${area.name} Area`} />
         </div>
