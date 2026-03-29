@@ -132,6 +132,46 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
         </div>
       </section>
 
+      {/* Packages Section - Shown Early */}
+      <section className="py-12 bg-amber-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 font-serif text-center">
+            {keyword.title} Packages
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {relatedPackages.map((pkg) => (
+              <Link key={pkg.id} href={`/packages/${pkg.slug}`}>
+                <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-amber-100 group bg-white">
+                  <div className="aspect-video relative overflow-hidden">
+                    <Image src={pkg.thumbnail} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold mb-1 group-hover:text-amber-600 transition-colors">
+                      {pkg.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm line-clamp-2 mb-2">
+                      {pkg.shortDescription}
+                    </p>
+                    <p className="text-lg font-bold text-amber-600">
+                      {formatPrice(pkg.price)}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link href="/packages">
+              <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+                View All Packages <ChevronRight className="h-4 w-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -264,44 +304,6 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                   )}
                 </div>
               </article>
-
-              {/* Packages */}
-              <div className="mt-12">
-                <h2 className="text-2xl font-bold mb-6 font-serif">
-                  {keyword.title} Packages
-                </h2>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  {relatedPackages.map((pkg) => (
-                    <Link key={pkg.id} href={`/packages/${pkg.slug}`}>
-                      <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-amber-100 group">
-                        <div className="aspect-video relative overflow-hidden">
-                          <Image src={pkg.thumbnail} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform" />
-                        </div>
-                        <CardContent className="p-4">
-                          <h3 className="font-semibold mb-1 group-hover:text-amber-600 transition-colors">
-                            {pkg.name}
-                          </h3>
-                          <p className="text-gray-600 text-sm line-clamp-2 mb-2">
-                            {pkg.shortDescription}
-                          </p>
-                          <p className="text-lg font-bold text-amber-600">
-                            {formatPrice(pkg.price)}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-                
-                <div className="text-center mt-6">
-                  <Link href="/packages">
-                    <Button variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50">
-                      View All Packages <ChevronRight className="h-4 w-4 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
             </div>
 
             {/* Sidebar */}

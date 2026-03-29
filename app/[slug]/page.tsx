@@ -124,28 +124,27 @@ export async function generateMetadata({
   // Check if it's an area page
   const area = getAreaBySlug(slug);
   if (area) {
-    const areaTitle = `Romantic Celebration in ${area.name}, Vadodara | Friends Factory Cafe`;
-    const areaDescription = `Book romantic celebrations, candlelight dinners, birthday surprises & anniversary parties in ${area.name}, Vadodara at Friends Factory Cafe. Private rooftop venue with stunning setups. Call +91 74878 88730.`;
+    const areaTitle = `Romantic Celebration in Vadodara | 100% Private Rooftop Venue`;
+    const areaDescription = `Book romantic celebrations, candlelight dinners, birthday surprises & anniversary parties in Vadodara. Private rooftop venue with stunning setups & all-inclusive packages from ₹4,700.`;
     
     return {
       title: areaTitle,
       description: areaDescription,
       keywords: [
-        `romantic celebration ${area.name}`,
-        `candlelight dinner ${area.name}`,
-        `birthday surprise ${area.name}`,
-        `friends factory cafe ${area.name}`,
-        `couple cafe ${area.name} vadodara`,
-        `anniversary dinner ${area.name}`,
-        `romantic restaurant ${area.name}`,
-        `private dining ${area.name}`
+        `romantic celebration vadodara`,
+        `candlelight dinner vadodara`,
+        `birthday surprise vadodara`,
+        `couple cafe vadodara`,
+        `anniversary dinner vadodara`,
+        `romantic restaurant vadodara`,
+        `private dining vadodara`
       ],
       alternates: {
         canonical: `https://friendsfactorycafe.com/${area.slug}`,
       },
       openGraph: {
         title: areaTitle,
-        description: `Premium romantic celebration services for couples in ${area.name}, Vadodara. Birthday surprises, candlelight dinners & more!`,
+        description: `Premium romantic celebration services for couples in Vadodara. Birthday surprises, candlelight dinners & more!`,
         url: `https://friendsfactorycafe.com/${area.slug}`,
         type: "website",
         locale: "en_IN",
@@ -153,8 +152,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: `Romantic Celebrations in ${area.name} | Friends Factory Cafe`,
-        description: `Book romantic celebrations in ${area.name}, Vadodara.`,
+        title: `Romantic Celebrations in Vadodara | Private Rooftop Venue`,
+        description: `Book romantic celebrations in Vadodara. Private rooftop venue with stunning setups.`,
       },
     };
   }
@@ -172,7 +171,6 @@ export async function generateMetadata({
         keywordData.keyword.title.toLowerCase(),
         `${keywordData.keyword.title.toLowerCase()} vadodara`,
         `${keywordData.service.name.toLowerCase()} vadodara`,
-        `friends factory cafe ${keywordData.keyword.title.toLowerCase()}`,
         `best ${keywordData.keyword.title.toLowerCase()} vadodara`,
         `${keywordData.service.name.toLowerCase()} near me vadodara`
       ],
@@ -205,7 +203,6 @@ export async function generateMetadata({
         expanded.title.toLowerCase(),
         `${expanded.title.toLowerCase()} vadodara`,
         `${expanded.parentServiceName.toLowerCase()} vadodara`,
-        `friends factory cafe ${expanded.title.toLowerCase()}`,
         `best ${expanded.parentServiceName.toLowerCase()} vadodara`,
       ],
       alternates: {

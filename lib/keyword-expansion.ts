@@ -524,52 +524,52 @@ function getExistingSlugs(): Set<string> {
 
 const META_DESC_TEMPLATES = [
   (m: string, s: string) =>
-    `Book ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara at Friends Factory Cafe. Private rooftop venue with decorations, cake & romantic ambiance. Packages from ₹4,700.`,
+    `Book ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Private rooftop venue with stunning decorations, cake & romantic ambiance. Packages from ₹4,700. Book now!`,
   (m: string, s: string) =>
-    `Looking for ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara? Friends Factory Cafe offers premium private celebrations with stunning decorations & romantic setup.`,
+    `Looking for ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara? Enjoy premium private celebrations with gorgeous decorations & unforgettable romantic setup.`,
   (m: string, s: string) =>
-    `Plan a ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Private rooftop venue, gorgeous decorations, welcome drinks & cake at Friends Factory Cafe. From ₹4,700.`,
+    `Plan a ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Private rooftop venue, gorgeous decorations, welcome drinks & cake included. From ₹4,700.`,
   (m: string, s: string) =>
-    `Experience ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara at Friends Factory Cafe. Romantic private venue with decorations, music & 3 hours exclusive access.`,
+    `Experience ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Romantic private venue with decorations, music & 3 hours exclusive access. Reserve your date!`,
   (m: string, s: string) =>
-    `Celebrate with ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Private rooftop with fairy lights, candles & romantic decorations at Friends Factory Cafe. From ₹4,700.`,
+    `Celebrate with ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Private rooftop with fairy lights, candles & romantic decorations. Packages from ₹4,700.`,
   (m: string, s: string) =>
-    `Discover ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Friends Factory Cafe offers intimate celebrations with premium decorations & private rooftop venue.`,
+    `Discover ${m.toLowerCase()} ${s.toLowerCase()} in Vadodara. Intimate celebrations with premium decorations, private rooftop venue & unforgettable moments await.`,
   (m: string, s: string) =>
-    `Your ${m.toLowerCase()} ${s.toLowerCase()} awaits in Vadodara! Private rooftop with stunning views, romantic decorations & celebration packages at Friends Factory Cafe.`,
+    `Your ${m.toLowerCase()} ${s.toLowerCase()} awaits in Vadodara! Private rooftop with stunning views, romantic decorations & all-inclusive celebration packages.`,
   (m: string, s: string) =>
-    `The best ${m.toLowerCase()} ${s.toLowerCase()} experience in Vadodara. Private venue, beautiful decorations, cake & romantic ambiance at Friends Factory Cafe from ₹4,700.`,
+    `The best ${m.toLowerCase()} ${s.toLowerCase()} experience in Vadodara. Private venue, beautiful decorations, cake & romantic ambiance. From ₹4,700. Book today!`,
 ];
 
 const META_TITLE_TEMPLATES = [
-  (m: string, s: string, hook: string) => `${m} ${s} Vadodara | ${hook}`,
+  (m: string, s: string, hook: string) => `${m} ${s} in Vadodara | ${hook}`,
   (m: string, s: string, _h: string) =>
-    `${m} ${s} in Vadodara | Friends Factory Cafe`,
-  (m: string, s: string, hook: string) => `Book ${m} ${s} Vadodara | ${hook}`,
+    `${m} ${s} in Vadodara | Private Rooftop Venue`,
+  (m: string, s: string, hook: string) => `Book ${m} ${s} in Vadodara | ${hook}`,
   (m: string, s: string, _h: string) =>
-    `${m} ${s} Vadodara | Private Rooftop Venue`,
+    `${m} ${s} in Vadodara | Unforgettable Celebration`,
 ];
 
 const AREA_SERVICE_DESC_TEMPLATES = [
-  (s: string, a: string) =>
-    `Book ${s.toLowerCase()} near ${a}, Vadodara at Friends Factory Cafe. Just minutes away with private rooftop venue, decorations & cake. From ₹4,700.`,
-  (s: string, a: string) =>
-    `Looking for ${s.toLowerCase()} near ${a}, Vadodara? Friends Factory Cafe is minutes away with private celebrations & romantic setup. Call +91 7487888730.`,
-  (s: string, a: string) =>
-    `Plan ${s.toLowerCase()} near ${a}, Vadodara. Friends Factory Cafe offers private rooftop venue with decorations, cake & romantic ambiance. From ₹4,700.`,
-  (s: string, a: string) =>
-    `Best ${s.toLowerCase()} venue near ${a}, Vadodara. Friends Factory Cafe — private rooftop, stunning decorations & celebration packages from ₹4,700.`,
+  (s: string, _a: string) =>
+    `Book ${s.toLowerCase()} in Vadodara. Private rooftop venue with stunning decorations, cake & romantic ambiance. Packages from ₹4,700. Reserve today!`,
+  (s: string, _a: string) =>
+    `Looking for ${s.toLowerCase()} in Vadodara? Enjoy private celebrations with romantic setup & unforgettable moments. Call +91 7487888730.`,
+  (s: string, _a: string) =>
+    `Plan ${s.toLowerCase()} in Vadodara. Private rooftop venue with gorgeous decorations, cake & romantic ambiance. All-inclusive from ₹4,700.`,
+  (s: string, _a: string) =>
+    `Best ${s.toLowerCase()} venue in Vadodara. Private rooftop, stunning decorations & celebration packages from ₹4,700. Book your special moment!`,
 ];
 
 const AREA_KEYWORD_DESC_TEMPLATES = [
-  (kw: string, a: string) =>
-    `Book ${kw.toLowerCase()} near ${a}, Vadodara at Friends Factory Cafe. Private rooftop venue with decorations, cake & romantic ambiance. From ₹4,700.`,
-  (kw: string, a: string) =>
-    `Looking for ${kw.toLowerCase()} near ${a}, Vadodara? Friends Factory Cafe offers private celebrations just minutes from ${a}.`,
-  (kw: string, a: string) =>
-    `Plan ${kw.toLowerCase()} near ${a}, Vadodara. Private rooftop venue, stunning decorations & all-inclusive packages at Friends Factory Cafe. From ₹4,700.`,
-  (kw: string, a: string) =>
-    `Best ${kw.toLowerCase()} near ${a}, Vadodara. Friends Factory Cafe — private venue, romantic decorations & 3 hours exclusive access. Just minutes from ${a}.`,
+  (kw: string, _a: string) =>
+    `Book ${kw.toLowerCase()} in Vadodara. Private rooftop venue with stunning decorations, cake & romantic ambiance. Packages from ₹4,700. Book now!`,
+  (kw: string, _a: string) =>
+    `Looking for ${kw.toLowerCase()} in Vadodara? Enjoy private celebrations with romantic setup & unforgettable experiences. Reserve your date!`,
+  (kw: string, _a: string) =>
+    `Plan ${kw.toLowerCase()} in Vadodara. Private rooftop venue, stunning decorations & all-inclusive packages. From ₹4,700. Call now!`,
+  (kw: string, _a: string) =>
+    `Best ${kw.toLowerCase()} in Vadodara. Private venue, romantic decorations & 3 hours exclusive access. Create magical memories today!`,
 ];
 
 // ==================== MAIN BUILD FUNCTION ====================
@@ -758,7 +758,7 @@ function buildAllExpandedKeywords(): ExpandedKeyword[] {
         areaName: area.name,
         title: `${display.name} in ${area.name}, Vadodara`,
         h1: `Best ${display.name} Near ${area.name}, Vadodara`,
-        metaTitle: `${display.shortName} in ${area.name} Vadodara | Near You`,
+        metaTitle: `${display.shortName} in Vadodara | Exclusive Private Venue`,
         metaDescription: AREA_SERVICE_DESC_TEMPLATES[
           h % AREA_SERVICE_DESC_TEMPLATES.length
         ](display.name, area.name),
@@ -795,7 +795,7 @@ function buildAllExpandedKeywords(): ExpandedKeyword[] {
           baseKeywordTitle: kwTitle,
           title: `${kwTitle} in ${area.name}`,
           h1: `${kwTitle} Near ${area.name}, Vadodara`,
-          metaTitle: `${kwTitle} ${area.name} Vadodara | Friends Factory Cafe`,
+          metaTitle: `${kwTitle} in Vadodara | Private Rooftop Celebration`,
           metaDescription: AREA_KEYWORD_DESC_TEMPLATES[
             h % AREA_KEYWORD_DESC_TEMPLATES.length
           ](kwTitle, area.name),
