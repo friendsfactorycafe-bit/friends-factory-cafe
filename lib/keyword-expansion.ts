@@ -738,71 +738,8 @@ function buildAllExpandedKeywords(): ExpandedKeyword[] {
     }
   }
 
-  // ========== 4. AREA-SERVICE CROSS (8 services × 40 areas = 320) ==========
-  for (const svc of serviceCategories) {
-    const display = SERVICE_DISPLAY[svc.slug];
-    if (!display) continue;
-
-    for (const area of vadodaraAreas) {
-      const areaBase = area.slug.replace(/-vadodara$/, "");
-      const slug = `${svc.slug}-in-${areaBase}-vadodara`;
-      const h = simpleHash(slug);
-      addKeyword({
-        slug,
-        dimension: "area-service",
-        parentServiceSlug: svc.slug,
-        parentServiceName: display.name,
-        modifier: areaBase,
-        modifierLabel: area.name,
-        areaSlug: area.slug,
-        areaName: area.name,
-        title: `${display.name} in ${area.name}, Vadodara`,
-        h1: `Best ${display.name} Near ${area.name}, Vadodara`,
-        metaTitle: `${display.shortName} in Vadodara | Exclusive Private Venue`,
-        metaDescription: AREA_SERVICE_DESC_TEMPLATES[
-          h % AREA_SERVICE_DESC_TEMPLATES.length
-        ](display.name, area.name),
-      });
-    }
-  }
-
-  // ========== 5. AREA-KEYWORD CROSS (40 keywords × 40 areas = 1,600) ==========
-  for (const [serviceSlug, kwSlugs] of Object.entries(
-    TOP_KEYWORDS_FOR_AREA_CROSS
-  )) {
-    const svc = serviceCategories.find((s) => s.slug === serviceSlug);
-    const display = SERVICE_DISPLAY[serviceSlug];
-    if (!svc || !display) continue;
-
-    for (const kwSlug of kwSlugs) {
-      const kwTitle = getKeywordTitle(kwSlug);
-      const kwBase = kwSlug.replace(/-vadodara$/, "");
-
-      for (const area of vadodaraAreas) {
-        const areaBase = area.slug.replace(/-vadodara$/, "");
-        const slug = `${kwBase}-in-${areaBase}-vadodara`;
-        const h = simpleHash(slug);
-        addKeyword({
-          slug,
-          dimension: "area-keyword",
-          parentServiceSlug: serviceSlug,
-          parentServiceName: display.name,
-          modifier: areaBase,
-          modifierLabel: area.name,
-          areaSlug: area.slug,
-          areaName: area.name,
-          baseKeywordSlug: kwSlug,
-          baseKeywordTitle: kwTitle,
-          title: `${kwTitle} in ${area.name}`,
-          h1: `${kwTitle} Near ${area.name}, Vadodara`,
-          metaTitle: `${kwTitle} in Vadodara | Private Rooftop Celebration`,
-          metaDescription: AREA_KEYWORD_DESC_TEMPLATES[
-            h % AREA_KEYWORD_DESC_TEMPLATES.length
-          ](kwTitle, area.name),
-        });
-      }
-    }
-  }
+  // ========== 4. AREA-SERVICE CROSS — REMOVED (no area names in URLs) ==========
+  // ========== 5. AREA-KEYWORD CROSS — REMOVED (no area names in URLs) ==========
 
   return results;
 }
