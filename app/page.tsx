@@ -10,8 +10,8 @@ import { siteConfig } from "@/lib/ffc-config";
 // Dynamic metadata for Friends Factory Cafe
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `${siteConfig.name} | Romantic Celebrations for Couples in Vadodara`,
-    description: `${siteConfig.tagline}. Premium romantic celebration services for couples in Vadodara. Candlelight dinners, birthday surprises, anniversary celebrations, proposals & more.`,
+    title: `Candle Light Dinner, Birthday Surprise, Date Night, Anniversary & Proposal Celebration in Vadodara`,
+    description: `Vadodara's #1 romantic celebration venue for couples. Book candle light dinners, birthday surprises, anniversary celebrations, surprise date nights, proposals & pre-wedding shoots on a private rooftop & glass house. Starting ₹6,900. Call +91 74878 88730.`,
     keywords: [
       'friends factory cafe vadodara',
       'romantic celebration vadodara',
