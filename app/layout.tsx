@@ -32,11 +32,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://friendsfactorycafe.com"),
   title: {
-    default: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue | Candlelight Dinners & Birthday Surprises",
-    template: "%s | Friends Factory Cafe Vadodara",
+    default: "Candle Light Dinner, Birthday Surprise, Date Night, Anniversary & Proposal Celebration in Vadodara",
+    template: "%s",
   },
   description:
-    "Best romantic celebration venue in Vadodara, Gujarat. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots. 100% private rooftop & glass house. Starting ₹6,900. Call +91 74878 88730.",
+    "Vadodara's #1 romantic celebration venue for couples. Book candle light dinners, birthday surprises, anniversary celebrations, surprise date nights, proposals & pre-wedding shoots on a private rooftop & glass house. Starting ₹4,700. Call +91 74878 88730.",
   keywords: [
     "friends factory cafe",
     "friends factory cafe vadodara",
@@ -84,8 +84,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://friendsfactorycafe.com",
     siteName: "Friends Factory Cafe",
-    title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
-    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences. Starting ₹6,900.",
+    title: "Candle Light Dinner, Birthday Surprise & Romantic Celebrations in Vadodara",
+    description: "Vadodara's #1 romantic celebration venue. Candle light dinners, birthday surprises, anniversary celebrations, proposals & pre-wedding shoots. Private rooftop & glass house. Starting ₹4,700.",
     images: [
       {
         url: "/og-image.png",
@@ -97,8 +97,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
-    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, proposals & more! Starting ₹6,900.",
+    title: "Candle Light Dinner, Birthday Surprise & Romantic Celebrations in Vadodara",
+    description: "Vadodara's #1 romantic celebration venue. Candle light dinners, birthday surprises, proposals & more! Starting ₹4,700.",
     images: ["/og-image.png"],
     creator: "@friendsfactorycafe",
     site: "@friendsfactorycafe",

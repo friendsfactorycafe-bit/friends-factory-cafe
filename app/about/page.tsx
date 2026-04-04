@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import FFCAboutPage from '@/components/ffc-about-page';
 
 export const metadata: Metadata = {
-  title: 'About Us | Friends Factory Cafe Vadodara',
-  description: 'Learn about Friends Factory Cafe - Vadodara\'s premier romantic celebration venue for couples. Our story, mission, and commitment to creating unforgettable moments.',
+  title: 'About Us | Candle Light Dinner & Birthday Surprise Venue in Vadodara',
+  description: 'Know about Vadodara\'s #1 romantic celebration venue for couples. We offer candle light dinners, birthday surprises, anniversary celebrations, proposals & pre-wedding shoots on a private rooftop & glass house.',
   keywords: 'about friends factory cafe, romantic cafe vadodara, couple cafe story, celebration venue vadodara',
   alternates: {
     canonical: 'https://friendsfactorycafe.com/about',

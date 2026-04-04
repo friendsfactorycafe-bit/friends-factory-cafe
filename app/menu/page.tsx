@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import FFCMenuPage from '@/components/ffc-menu-page';
 
 export const metadata: Metadata = {
-  title: 'Menu | Friends Factory Cafe Vadodara',
-  description: 'Explore our curated café-style menu crafted for romantic dates & private celebrations. Welcome drink, cheese fondue, snacks & desserts at Friends Factory Cafe.',
+  title: 'Menu | Romantic Dinner & Celebration Food Menu in Vadodara',
+  description: 'Explore our curated menu for candle light dinners, birthday surprises & romantic date nights in Vadodara. Welcome drinks, cheese fondue, snacks & desserts included in celebration packages.',
   keywords: 'friends factory cafe menu, romantic dinner menu vadodara, candlelight dinner food, couple cafe menu',
   alternates: {
     canonical: 'https://friendsfactorycafe.com/menu',

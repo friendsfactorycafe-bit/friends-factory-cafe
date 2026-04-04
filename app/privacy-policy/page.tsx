@@ -6,8 +6,8 @@ import { Shield } from 'lucide-react';
 import { siteConfig } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Friends Factory Cafe Vadodara',
-  description: 'Privacy Policy for Friends Factory Cafe - Learn how we collect, use, and protect your personal information when booking candlelight dinners and romantic celebrations in Vadodara.',
+title: 'Privacy Policy | Candle Light Dinner & Celebration Venue in Vadodara',
+    description: 'Privacy Policy - Learn how we collect, use, and protect your personal information when booking candle light dinners, birthday surprises & romantic celebrations in Vadodara.',
 };
 
 export default function PrivacyPolicyPage() {

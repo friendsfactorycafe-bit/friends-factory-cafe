@@ -8,8 +8,8 @@ import { FFCWhatsAppFloat } from '@/components/ffc-booking-form';
 import { vadodaraAreas, siteConfig } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: `Areas We Serve in Vadodara | ${siteConfig.name}`,
-  description: `Friends Factory Cafe serves all areas of Vadodara including Alkapuri, Akota, Gotri, Fatehgunj, Manjalpur, Waghodia Road & more. Book romantic celebrations near you!`,
+  title: `Candle Light Dinner, Birthday Surprise & Romantic Celebrations in Vadodara`,
+  description: `Book candle light dinners, birthday surprises, anniversary celebrations & romantic date nights across all areas in Vadodara. Private rooftop & glass house venue. Starting ₹4,700.`,
   keywords: [
     'romantic cafe vadodara areas',
     'candlelight dinner near me vadodara',

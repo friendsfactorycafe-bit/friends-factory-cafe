@@ -6,8 +6,8 @@ import { FileText } from 'lucide-react';
 import { siteConfig } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | Friends Factory Cafe Vadodara',
-  description: 'Terms and Conditions for Friends Factory Cafe - Booking policies, cancellation rules, and service agreements for candlelight dinners and romantic celebrations in Vadodara.',
+title: 'Terms & Conditions | Candle Light Dinner & Celebration Venue in Vadodara',
+    description: 'Terms & Conditions - Booking policies, cancellation rules & service agreements for candle light dinners, birthday surprises & romantic celebrations in Vadodara.',
 };
 
 export default function TermsConditionsPage() {

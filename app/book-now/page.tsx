@@ -3,8 +3,8 @@ import { BookNowLandingPage } from '@/components/book-now-landing-page';
 import { siteConfig } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: `Book Now - All Packages | ${siteConfig.name}`,
-  description: `Book your romantic celebration at ${siteConfig.name}. Choose from 8 premium packages starting at ₹4,700. Rooftop & Glass House setups for birthdays, anniversaries, proposals & candlelight dinners in Vadodara.`,
+  title: `Book Candle Light Dinner, Birthday Surprise & Celebration Packages in Vadodara`,
+  description: `Book romantic celebration packages in Vadodara – candle light dinners, birthday surprises, anniversary celebrations, proposals & pre-wedding shoots. 8 premium packages starting ₹4,700.`,
   keywords: [
     'book romantic dinner vadodara',
     'book birthday surprise vadodara',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'romantic venue booking vadodara'
   ],
   openGraph: {
-    title: `Book Now - Premium Celebration Packages | ${siteConfig.name}`,
+    title: `Book Candle Light Dinner & Celebration Packages in Vadodara`,
     description: `Choose from 8 premium celebration packages. Rooftop & Glass House setups starting at ₹4,700. Book your unforgettable experience today!`,
     url: `${siteConfig.website}/book-now`,
     siteName: siteConfig.name,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Book Your Celebration | ${siteConfig.name}`,
+    title: `Book Candle Light Dinner & Celebrations in Vadodara`,
     description: `8 Premium Packages from ₹4,700. Rooftop & Glass House celebrations in Vadodara.`,
   },
 };

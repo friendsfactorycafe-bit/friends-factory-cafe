@@ -28,14 +28,14 @@ export async function generateMetadata({ params }: PackagePageProps): Promise<Me
   const canonicalUrl = `${baseUrl}/packages/${pkg.slug}`;
 
   return {
-    title: `${pkg.name} - ₹${pkg.price.toLocaleString('en-IN')} | Friends Factory Cafe Vadodara`,
-    description: `${pkg.shortDescription} Book ${pkg.name} at Friends Factory Cafe Vadodara for ₹${pkg.price.toLocaleString('en-IN')}. Perfect for ${pkg.perfectFor.join(', ')}. Private rooftop & glass house celebration.`,
+    title: `${pkg.name} - ₹${pkg.price.toLocaleString('en-IN')} | Romantic Celebration Package in Vadodara`,
+    description: `${pkg.shortDescription} Book ${pkg.name} for ₹${pkg.price.toLocaleString('en-IN')} in Vadodara. Perfect for ${pkg.perfectFor.join(', ')}. Private rooftop & glass house celebration.`,
     keywords: `${pkg.name}, ${pkg.perfectFor.join(', ')}, romantic celebration vadodara, friends factory cafe, candlelight dinner vadodara, birthday surprise vadodara`,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${pkg.name} - ₹${pkg.price.toLocaleString('en-IN')} | Friends Factory Cafe`,
+      title: `${pkg.name} - ₹${pkg.price.toLocaleString('en-IN')} | Celebration Package Vadodara`,
       description: `${pkg.shortDescription} Perfect for ${pkg.perfectFor.slice(0, 3).join(', ')}.`,
       url: canonicalUrl,
       type: 'website',

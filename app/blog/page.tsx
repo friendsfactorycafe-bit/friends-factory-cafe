@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import FFCBlogPage from '@/components/ffc-blog-page';
 
 export const metadata: Metadata = {
-  title: 'Blog | Celebration Ideas & Tips | Friends Factory Cafe Vadodara',
-  description: 'Discover celebration tips, romantic date ideas, birthday surprise guides, and more. Get inspired for your next special occasion at Friends Factory Cafe Vadodara.',
+  title: 'Blog | Candle Light Dinner Ideas & Birthday Surprise Tips in Vadodara',
+  description: 'Discover candle light dinner ideas, birthday surprise tips, anniversary celebration guides & romantic date night inspiration in Vadodara.',
   keywords: 'celebration blog, birthday ideas vadodara, romantic date tips, proposal ideas, anniversary celebration guide',
   alternates: {
     canonical: 'https://friendsfactorycafe.com/blog',

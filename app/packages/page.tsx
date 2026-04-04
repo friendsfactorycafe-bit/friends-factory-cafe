@@ -3,15 +3,15 @@ import FFCPackagesPage from '@/components/ffc-packages-page';
 import { packages, formatPrice } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: 'Our Packages | Friends Factory Cafe Vadodara',
-  description: 'Explore 8 unique romantic celebration packages at Friends Factory Cafe Vadodara. From rooftop setups to glass house experiences. Starting from ₹4,700.',
+  title: 'Candle Light Dinner, Birthday Surprise & Celebration Packages in Vadodara',
+  description: '8 unique romantic packages – candle light dinners, birthday surprises, anniversary celebrations, proposals & date nights. Private rooftop & glass house in Vadodara. Starting ₹4,700.',
   keywords: 'romantic packages vadodara, celebration packages, birthday surprise packages, candlelight dinner packages, friends factory cafe packages',
   alternates: {
     canonical: 'https://friendsfactorycafe.com/packages',
   },
   openGraph: {
-    title: 'Our Packages | Friends Factory Cafe Vadodara',
-    description: 'Explore 8 unique romantic celebration packages. Rooftop & glass house experiences starting from ₹4,700.',
+    title: 'Candle Light Dinner & Celebration Packages in Vadodara',
+    description: '8 unique romantic celebration packages. Rooftop & glass house experiences starting from ₹4,700.',
     url: 'https://friendsfactorycafe.com/packages',
     type: 'website',
     images: [

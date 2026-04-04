@@ -8,8 +8,8 @@ import { FFCWhatsAppFloat } from '@/components/ffc-booking-form';
 import { serviceCategories, siteConfig } from '@/lib/ffc-config';
 
 export const metadata: Metadata = {
-  title: `Our Services | ${siteConfig.name}`,
-  description: `Explore all romantic celebration services at Friends Factory Cafe Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals, pre-wedding shoots & more!`,
+  title: `Candle Light Dinner, Birthday Surprise, Anniversary & Proposal Services in Vadodara`,
+  description: `Explore all romantic celebration services in Vadodara – candle light dinners, birthday surprises, anniversary celebrations, proposals, pre-wedding shoots, baby moments & surprise dates. Private rooftop & glass house.`,
   keywords: [
     'romantic celebration services vadodara',
     'birthday surprise vadodara',

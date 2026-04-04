@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import FFCVirtualTourPage from '@/components/ffc-virtual-tour-page';
 
 export const metadata: Metadata = {
-  title: 'Virtual Tour | Friends Factory Cafe Vadodara',
-  description: 'Take a virtual tour of Friends Factory Cafe Vadodara. Explore our romantic rooftop setups, glass houses, and beautiful celebration spaces.',
+  title: 'Virtual Tour | Candle Light Dinner & Birthday Surprise Venue in Vadodara',
+  description: 'Take a virtual tour of Vadodara\'s private rooftop & glass house celebration venue. See candle light dinner setups, birthday surprise decorations & romantic date night arrangements.',
   keywords: 'virtual tour friends factory cafe, romantic venue tour vadodara, couple cafe photos, celebration venue gallery',
   alternates: {
     canonical: 'https://friendsfactorycafe.com/virtual-tour',
