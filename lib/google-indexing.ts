@@ -41,7 +41,7 @@ export interface QuotaInfo {
   resetsAt: string;
 }
 
-// ── Quota Tracker (in-memory, resets daily) ────────────────────────────────
+// ── Quota Tracker (Supabase-backed for serverless reliability) ─────────────
 
 const DAILY_QUOTA = 200; // Google Indexing API free tier
 
