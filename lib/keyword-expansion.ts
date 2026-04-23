@@ -130,6 +130,14 @@ function slugToLabel(slug: string): string {
     .join(" ");
 }
 
+function stripVadodaraSuffix(slug: string): string {
+  return slug.replace(/-vadodara$/, "");
+}
+
+function stripVadodaraName(name: string): string {
+  return name.replace(/,?\s*Vadodara$/i, "").trim();
+}
+
 // ==================== MODIFIER DEFINITIONS ====================
 
 interface Mod {
@@ -738,8 +746,73 @@ function buildAllExpandedKeywords(): ExpandedKeyword[] {
     }
   }
 
-  // ========== 4. AREA-SERVICE CROSS — REMOVED (no area names in URLs) ==========
-  // ========== 5. AREA-KEYWORD CROSS — REMOVED (no area names in URLs) ==========
+  // ========== 4. AREA-SERVICE CROSS ==========
+  for (const svc of serviceCategories) {
+    const display = SERVICE_DISPLAY[svc.slug];
+    if (!display) continue;
+
+    for (const area of vadodaraAreas) {
+      const areaSlug = stripVadodaraSuffix(area.slug);
+      const areaName = stripVadodaraName(area.name);
+      const slug = `${svc.slug}-near-${areaSlug}-vadodara`;
+      const h = simpleHash(slug);
+      addKeyword({
+        slug,
+        dimension: "area-service",
+        parentServiceSlug: svc.slug,
+        parentServiceName: display.name,
+        modifier: areaSlug,
+        modifierLabel: areaName,
+        areaSlug,
+        areaName,
+        title: `${display.name} Near ${areaName}, Vadodara`,
+        h1: `${display.name} Near ${areaName} in Vadodara`,
+        metaTitle: `${display.shortName} Near ${areaName}, Vadodara | Private Venue`,
+        metaDescription: AREA_SERVICE_DESC_TEMPLATES[h % AREA_SERVICE_DESC_TEMPLATES.length](
+          display.name,
+          areaName
+        ),
+      });
+    }
+  }
+
+  // ========== 5. AREA-KEYWORD CROSS ==========
+  for (const svc of serviceCategories) {
+    const display = SERVICE_DISPLAY[svc.slug];
+    const topKeywords = TOP_KEYWORDS_FOR_AREA_CROSS[svc.slug];
+    if (!display || !topKeywords) continue;
+
+    for (const kwSlug of topKeywords) {
+      const baseKeywordTitle = getKeywordTitle(kwSlug);
+      const baseKeywordSlug = stripVadodaraSuffix(kwSlug);
+
+      for (const area of vadodaraAreas) {
+        const areaSlug = stripVadodaraSuffix(area.slug);
+        const areaName = stripVadodaraName(area.name);
+        const slug = `${baseKeywordSlug}-near-${areaSlug}-vadodara`;
+        const h = simpleHash(slug);
+        addKeyword({
+          slug,
+          dimension: "area-keyword",
+          parentServiceSlug: svc.slug,
+          parentServiceName: display.name,
+          modifier: areaSlug,
+          modifierLabel: areaName,
+          areaSlug,
+          areaName,
+          baseKeywordSlug: kwSlug,
+          baseKeywordTitle,
+          title: `${baseKeywordTitle} Near ${areaName}, Vadodara`,
+          h1: `${baseKeywordTitle} Near ${areaName} in Vadodara`,
+          metaTitle: `${baseKeywordTitle} Near ${areaName}, Vadodara`,
+          metaDescription: AREA_KEYWORD_DESC_TEMPLATES[h % AREA_KEYWORD_DESC_TEMPLATES.length](
+            baseKeywordTitle,
+            areaName
+          ),
+        });
+      }
+    }
+  }
 
   return results;
 }
