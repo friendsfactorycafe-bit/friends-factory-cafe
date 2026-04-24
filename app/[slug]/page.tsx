@@ -54,6 +54,9 @@ function findKeywordBySlug(slug: string): { keyword: ServiceKeyword; service: Se
 // ISR: Revalidate pages every 12 hours for fresh content + fast loading
 export const revalidate = 43200;
 
+// Only allow pre-defined slugs — unknown slugs return 404 instead of dynamic render
+export const dynamicParams = false;
+
 // Generate static params for all possible routes
 export async function generateStaticParams() {
   const params: { slug: string }[] = [];
@@ -124,27 +127,27 @@ export async function generateMetadata({
   // Check if it's an area page
   const area = getAreaBySlug(slug);
   if (area) {
-    const areaTitle = `Romantic Celebration in Vadodara | 100% Private Rooftop Venue`;
-    const areaDescription = `Book romantic celebrations, candlelight dinners, birthday surprises & anniversary parties in Vadodara. Private rooftop venue with stunning setups & all-inclusive packages from ₹4,700.`;
+    const areaTitle = `Romantic Celebration in ${area.name}, Vadodara | Friends Factory Cafe`;
+    const areaDescription = `Planning a birthday surprise, candlelight dinner or anniversary near ${area.name}? Friends Factory Cafe offers 100% private rooftop celebrations for couples in ${area.name}, Vadodara. All-inclusive packages from ₹4,700.`;
     
     return {
       title: areaTitle,
       description: areaDescription,
       keywords: [
-        `romantic celebration vadodara`,
-        `candlelight dinner vadodara`,
-        `birthday surprise vadodara`,
-        `couple cafe vadodara`,
-        `anniversary dinner vadodara`,
-        `romantic restaurant vadodara`,
-        `private dining vadodara`
+        `romantic celebration ${area.name.toLowerCase()}`,
+        `candlelight dinner ${area.name.toLowerCase()}`,
+        `birthday surprise ${area.name.toLowerCase()} vadodara`,
+        `couple cafe near ${area.name.toLowerCase()}`,
+        `anniversary celebration ${area.name.toLowerCase()}`,
+        `private dining ${area.name.toLowerCase()} vadodara`,
+        `friends factory cafe ${area.name.toLowerCase()}`
       ],
       alternates: {
         canonical: `https://friendsfactorycafe.com/${area.slug}`,
       },
       openGraph: {
         title: areaTitle,
-        description: `Premium romantic celebration services for couples in Vadodara. Birthday surprises, candlelight dinners & more!`,
+        description: `Premium private rooftop celebration venue for couples in ${area.name}, Vadodara. Birthday surprises, candlelight dinners & more from ₹4,700!`,
         url: `https://friendsfactorycafe.com/${area.slug}`,
         type: "website",
         locale: "en_IN",
@@ -152,8 +155,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: `Romantic Celebrations in Vadodara | Private Rooftop Venue`,
-        description: `Book romantic celebrations in Vadodara. Private rooftop venue with stunning setups.`,
+        title: areaTitle,
+        description: `Book romantic celebrations near ${area.name}, Vadodara. Private rooftop venue with stunning setups from ₹4,700.`,
       },
     };
   }

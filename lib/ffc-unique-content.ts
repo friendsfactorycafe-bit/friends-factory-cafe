@@ -19,6 +19,8 @@ export interface FFCKeywordContent {
   pricingIntro: string;
   faqContent: { question: string; answer: string }[];
   closingCta: string;
+  /** Optional color scheme for dimension-specific UI variation */
+  colorScheme?: 'amber' | 'green' | 'purple' | 'rose' | 'orange' | 'blue' | 'teal' | 'indigo' | 'cyan' | 'pink' | 'emerald' | 'red' | 'violet' | 'sky';
 }
 
 export interface FFCContentSection {
