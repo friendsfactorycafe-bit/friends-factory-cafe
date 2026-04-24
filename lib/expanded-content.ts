@@ -1265,6 +1265,25 @@ function buildResult(
 
 Every celebration at ${V} is a memory that lasts forever. With private venues, stunning decorations, delicious food, and packages from ${LOW}, your ${kwl} will be absolutely unforgettable.`;
 
+  const dimensionColors: Record<KeywordDimension, FFCKeywordContent['colorScheme']> = {
+    budget:           'amber',
+    time:             'purple',
+    theme:            'rose',
+    festival:         'orange',
+    milestone:        'indigo',
+    venue:            'teal',
+    qualifier:        'green',
+    howto:            'blue',
+    seasonal:         'emerald',
+    style:            'pink',
+    nearme:           'sky',
+    price:            'violet',
+    relationship:     'red',
+    booking:          'cyan',
+    'area-service':   'teal',
+    'area-keyword':   'sky',
+  };
+
   return {
     introduction: intro,
     sections,
@@ -1274,6 +1293,7 @@ Every celebration at ${V} is a memory that lasts forever. With private venues, s
     pricingIntro: `${kwl} packages start from ${LOW}. All packages include private venue, decorations, food, drinks, and 3 hours of celebration.`,
     faqContent,
     closingCta,
+    colorScheme: dimensionColors[ek.dimension] ?? 'amber',
   };
 }
 
