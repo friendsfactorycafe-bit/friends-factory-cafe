@@ -14,7 +14,7 @@ export const maxDuration = 60;
 
 // Day 0 = April 25, 2026 (start=0). Rotates every ~15 days automatically.
 const BASE_DATE = new Date("2026-04-25T00:00:00Z").getTime();
-const DAILY_QUOTA = 200;
+const DAILY_QUOTA = 199;
 
 export async function GET(request: NextRequest) {
   // Verify Vercel cron secret
