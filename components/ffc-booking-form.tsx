@@ -201,7 +201,24 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     } catch {}
     
     window.open(whatsappUrl, '_blank');
-    
+
+    fetch(`${process.env.NEXT_PUBLIC_CRM_URL}/api/leads/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        phone: data.phone,
+        occasion_type: data.occasion,
+        preferred_date: data.occasionDate,
+        outlet: siteConfig.city,
+        lead_source: 'website',
+        enquiry_channel: 'website',
+        notes: data.selectedPackage
+          ? `Package: ${packages.find((p) => p.slug === data.selectedPackage)?.name || data.selectedPackage}`
+          : undefined,
+      }),
+    }).catch(() => {});
+
     setIsSubmitting(false);
     setIsSuccess(true);
     
