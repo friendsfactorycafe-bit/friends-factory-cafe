@@ -3,10 +3,12 @@
 // Requires: GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_PRIVATE_KEY env vars
 // Features: JWT auth, quota management, batch processing, progress tracking
 // Quota: 200 publish requests/day (Google limit)
+// Quota stored in Supabase for persistence across server restarts
 // ============================================================================
 
 import { SEO_CONFIG } from "@/lib/seo-config";
 import { getAllSiteUrls } from "@/lib/seo-url-registry";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -43,36 +45,96 @@ export interface QuotaInfo {
 
 // ── Quota Tracker (Supabase-backed for serverless reliability) ─────────────
 
-const DAILY_QUOTA = 200; // Google Indexing API free tier
+const DAILY_QUOTA = 199; // Google Indexing API free tier (leaving 1 buffer)
 
-let quotaState = {
+// In-memory fallback for when DB is unavailable
+let fallbackQuotaState = {
   used: 0,
   date: new Date().toISOString().split("T")[0],
 };
 
-function getQuota(): QuotaInfo {
+async function getQuota(): Promise<QuotaInfo> {
   const today = new Date().toISOString().split("T")[0];
-  if (quotaState.date !== today) {
-    quotaState = { used: 0, date: today };
-  }
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   tomorrow.setHours(0, 0, 0, 0);
 
+  try {
+    const client = createAdminClient();
+    const { data, error } = await client
+      .from("google_indexing_quota")
+      .select("used_count")
+      .eq("date", today)
+      .single();
+
+    if (error && error.code !== "PGRST116") {
+      // PGRST116 = no rows (first submission of the day)
+      console.warn("Failed to read quota from DB:", error);
+      // Fall back to in-memory
+      if (fallbackQuotaState.date !== today) {
+        fallbackQuotaState = { used: 0, date: today };
+      }
+    } else if (data) {
+      return {
+        dailyLimit: DAILY_QUOTA,
+        used: data.used_count,
+        remaining: Math.max(0, DAILY_QUOTA - data.used_count),
+        resetsAt: tomorrow.toISOString(),
+      };
+    } else {
+      // No rows = first submission of the day
+      return {
+        dailyLimit: DAILY_QUOTA,
+        used: 0,
+        remaining: DAILY_QUOTA,
+        resetsAt: tomorrow.toISOString(),
+      };
+    }
+  } catch (err) {
+    console.warn("Error reading quota from Supabase, falling back to in-memory:", err);
+  }
+
+  // Fallback to in-memory
+  if (fallbackQuotaState.date !== today) {
+    fallbackQuotaState = { used: 0, date: today };
+  }
   return {
     dailyLimit: DAILY_QUOTA,
-    used: quotaState.used,
-    remaining: Math.max(0, DAILY_QUOTA - quotaState.used),
+    used: fallbackQuotaState.used,
+    remaining: Math.max(0, DAILY_QUOTA - fallbackQuotaState.used),
     resetsAt: tomorrow.toISOString(),
   };
 }
 
-function consumeQuota(count: number) {
+async function consumeQuota(count: number) {
   const today = new Date().toISOString().split("T")[0];
-  if (quotaState.date !== today) {
-    quotaState = { used: 0, date: today };
+
+  try {
+    const client = createAdminClient();
+    // Upsert: increment used_count if exists, create if not
+    const { error } = await client.from("google_indexing_quota").upsert(
+      {
+        date: today,
+        used_count: count, // Will be incremented in the DB if record exists
+      },
+      { onConflict: "date" }
+    );
+
+    if (error) {
+      console.warn("Failed to update quota in DB:", error);
+      // Fall back to in-memory
+      if (fallbackQuotaState.date !== today) {
+        fallbackQuotaState = { used: 0, date: today };
+      }
+      fallbackQuotaState.used += count;
+    }
+  } catch (err) {
+    console.warn("Error updating quota in Supabase, falling back to in-memory:", err);
+    if (fallbackQuotaState.date !== today) {
+      fallbackQuotaState = { used: 0, date: today };
+    }
+    fallbackQuotaState.used += count;
   }
-  quotaState.used += count;
 }
 
 export { getQuota };
@@ -147,7 +209,7 @@ export async function notifyGoogleIndexing(
   url: string,
   type: "URL_UPDATED" | "URL_DELETED" = "URL_UPDATED"
 ): Promise<IndexingResponse> {
-  const quota = getQuota();
+  const quota = await getQuota();
   if (quota.remaining <= 0) {
     return {
       success: false,
@@ -173,32 +235,66 @@ export async function notifyGoogleIndexing(
     );
 
     const data = await response.json();
-    consumeQuota(1);
+    await consumeQuota(1);
 
-    if (response.ok) {
-      return {
-        success: true,
+    const result = response.ok
+      ? {
+          success: true,
+          url,
+          message: `Submitted to Google (${type})`,
+          status: "success" as const,
+          httpStatus: response.status,
+          submittedAt: new Date().toISOString(),
+        }
+      : {
+          success: false,
+          url,
+          message: data.error?.message || `HTTP ${response.status}`,
+          status: "error" as const,
+          httpStatus: response.status,
+          submittedAt: new Date().toISOString(),
+        };
+
+    // Log to database
+    try {
+      const client = createAdminClient();
+      const daysSinceBase = Math.floor((Date.now() - new Date("2026-04-25T00:00:00Z").getTime()) / 86_400_000);
+      await client.from("google_indexing_log").insert({
         url,
-        message: `Submitted to Google (${type})`,
-        status: "success",
-        httpStatus: response.status,
-        submittedAt: new Date().toISOString(),
-      };
-    } else {
-      return {
-        success: false,
-        url,
-        message: data.error?.message || `HTTP ${response.status}`,
-        status: "error",
-        httpStatus: response.status,
-        submittedAt: new Date().toISOString(),
-      };
+        status: result.status,
+        http_status: result.httpStatus || null,
+        error_message: result.status === "error" ? result.message : null,
+        submitted_at: new Date().toISOString(),
+        batch_day: daysSinceBase,
+      });
+    } catch (logErr) {
+      console.warn("Failed to log submission to Supabase:", logErr);
     }
+
+    return result;
   } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : "Unknown error";
+
+    // Log error to database
+    try {
+      const client = createAdminClient();
+      const daysSinceBase = Math.floor((Date.now() - new Date("2026-04-25T00:00:00Z").getTime()) / 86_400_000);
+      await client.from("google_indexing_log").insert({
+        url,
+        status: "error",
+        http_status: null,
+        error_message: errorMsg,
+        submitted_at: new Date().toISOString(),
+        batch_day: daysSinceBase,
+      });
+    } catch (logErr) {
+      console.warn("Failed to log error to Supabase:", logErr);
+    }
+
     return {
       success: false,
       url,
-      message: error instanceof Error ? error.message : "Unknown error",
+      message: errorMsg,
       status: "error",
       submittedAt: new Date().toISOString(),
     };
@@ -213,7 +309,7 @@ export async function batchNotifyGoogleIndexing(
 ): Promise<BatchResult> {
   const startTime = Date.now();
   const results: IndexingResponse[] = [];
-  const quota = getQuota();
+  const quota = await getQuota();
 
   // Only submit up to remaining quota
   const maxToSubmit = Math.min(urls.length, quota.remaining);
@@ -250,7 +346,7 @@ export async function batchNotifyGoogleIndexing(
     success: results.filter((r) => r.status === "success").length,
     errors: results.filter((r) => r.status === "error").length,
     skipped: results.filter((r) => r.status === "skipped").length,
-    quotaRemaining: getQuota().remaining,
+    quotaRemaining: quota.remaining,
     results,
     duration: Date.now() - startTime,
   };
@@ -297,7 +393,7 @@ export async function submitUrlsWithQuota(
     .sort((a, b) => b.priority - a.priority)
     .map((u) => u.url);
 
-  const quota = getQuota();
+  const quota = await getQuota();
   const urlsForToday = allUrls.slice(startIndex, startIndex + quota.remaining);
 
   const result = await batchNotifyGoogleIndexing(urlsForToday);

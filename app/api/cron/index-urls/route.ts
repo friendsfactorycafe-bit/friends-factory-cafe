@@ -47,12 +47,21 @@ export async function GET(request: NextRequest) {
 
     // 1. Google Indexing API (200/day rotating through all pages)
     const googleResult = await batchNotifyGoogleIndexing(wrappedBatch);
+
+    // Extract failed URLs for debugging
+    const failedUrls = googleResult.results
+      .filter((r) => r.status === "error")
+      .map((r) => ({ url: r.url, message: r.message }));
+
     results.google = {
       submitted: googleResult.submitted,
       success: googleResult.success,
       failed: googleResult.errors,
       skipped: googleResult.skipped,
       nextStartIndex: (startIndex + DAILY_QUOTA) % total,
+      failedUrls: failedUrls.length > 0 ? failedUrls : undefined,
+      quotaRemaining: googleResult.quotaRemaining,
+      duration: `${googleResult.duration}ms`,
     };
 
     // 2. IndexNow (Bing + Yandex, no daily limit — submit today's batch only)
